@@ -16,8 +16,10 @@
 
 <body>
     <div id="calculator">
-        <textarea name="results" id="results" cols="25" rows="2"></textarea>
-        <input type="text" placeholder="0">
+        <div class="output">
+            <textarea name="results" id="results" cols="25" rows="1" maxlength="15" placeholder="0" disabled></textarea>
+            <textarea name="results" id="text" cols="25" rows="1" maxlength="15" placeholder="0" disabled></textarea>
+        </div>
         <div id="calculator-buttons">
             <button class="calculator__key calculator__key-operator">&percnt;</button>
             <button class="calculator__key calculator__key-operator">C</button>
@@ -42,7 +44,7 @@
         </div>
     </div>
 
-    <script src="calculator.js"></script>
+    <script src="calculator.js "></script>
 </body>
 
 </html>
