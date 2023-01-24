@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div id="calculator">
+    <div id="calculator" onload="resetCalculator()">
         <div class="output">
             <textarea name="results" id="results" cols="25" rows="1" maxlength="15" placeholder="0" disabled></textarea>
             <textarea name="results" id="text" cols="25" rows="1" maxlength="15" placeholder="0" disabled></textarea>
@@ -24,7 +24,7 @@
             <button class="calculator__key calculator__key-operator percent">&percnt;</button>
             <button class="calculator__key calculator__key-operator clearAll">C</button>
             <button class=" calculator__key calculator__key-operator delete">&vltri;</button>
-            <button class="calculator__key calculator__key-operator ON/OFF">AC</button>
+            <button id="power-button" class="calculator__key calculator__key-operator ON/OFF">AC</button>
             <button class="calculator__key">7</button>
             <button class="calculator__key">8</button>
             <button class="calculator__key">9</button>

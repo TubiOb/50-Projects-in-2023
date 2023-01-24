@@ -2,6 +2,8 @@ const keys = document.querySelector(".cals");
 const operators = keys.querySelectorAll(".calculator__key-operator");
 const res = document.getElementById("text");
 const rest = document.getElementById("results");
+const powerbutton = document.querySelector("#power-button");
+const calculator = document.querySelector("#calculator")
 
 var firstnum = 0;
 var secondnum = 0;
@@ -10,29 +12,12 @@ var result = 0;
 var arr = [];
 
 keys.addEventListener('click', handleClick, false);
+powerbutton.addEventListener('click', togglePower);
 
 function handleClick(e) {
 
-    // Extract the nodeName and textContent from
-    // the clicked element
     const { nodeName, textContent } = e.target;
 
-
-
-    // console.log(res1)
-    // arr.push(res1);
-    // console.log(arr)
-
-    // res.value = arr;
-    // if (textContent === "+" || textContent === "−" || textContent === "%" ||
-    //     textContent === "×" || textContent === "÷" || textContent === "=" ||
-    //     textContent === "C" || textContent === "AC" || textContent === "⊲")
-
-    // if (textContent === "C" || textContent === "AC" || textContent === "⊲") {
-
-
-    //     console.log("operator")
-    // }
     if (textContent === "⊲") {
         const addd = res.value;
         console.log(addd)
@@ -48,9 +33,10 @@ function handleClick(e) {
         console.log(tras)
 
     } else if (textContent === "C") {
-        res.value = 0;
-        rest.value = 0;
-    } else if (textContent === "AC") {
+        res.placeholder = 0;
+        rest.placeholder = 0;
+
+    } else if (textContent === "AC" || textContent === "OFF") {
 
     } else if (textContent === "=") {
         console.log("YES")
@@ -72,6 +58,32 @@ function handleClick(e) {
         }
 
     }
+}
+
+let calculatorOn = false;
+
+function togglePower() {
+    calculatorOn = !calculatorOn;
+    if (calculatorOn) {
+        powerbutton.innerText = "OFF";
+        res.placeholder = 0;
+        rest.placeholder = 0;
+        console.log(calculatorOn)
+    } else {
+        powerbutton.innerText = "AC";
+        resetCalculator();
+
+        console.log(calculatorOn)
+    }
+}
+
+// function resetCalculator1() {
+//     res.placeholder = "";
+// }
+
+function resetCalculator() {
+    rest.placeholder = "";
+    res.placeholder = "";
 }
 
 // operators.addEventListener('click', operateClick, false);
