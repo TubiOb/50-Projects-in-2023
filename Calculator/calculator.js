@@ -1,5 +1,5 @@
 const keys = document.querySelector(".cals");
-const operators = keys.querySelectorAll(".calculator__key-operator");
+const operators = document.querySelector(".calculator__key-operator");
 const res = document.getElementById("text");
 const rest = document.getElementById("results");
 const powerbutton = document.querySelector("#power-button");
@@ -40,8 +40,7 @@ function handleClick(e) {
 
     } else if (textContent === "=") {
         console.log("YES")
-    } else { // If it's a button, log the text
-
+    } else {
         if (nodeName === 'BUTTON') {
             // console.log(textContent);
             // var res1 = textContent;
@@ -51,9 +50,6 @@ function handleClick(e) {
             arr.push(addd)
 
             var tras = Number(addd)
-
-            // rest.value = addition(tras)
-
 
         }
 
@@ -68,39 +64,44 @@ function togglePower() {
         powerbutton.innerText = "OFF";
         res.placeholder = 0;
         rest.placeholder = 0;
+        var childNodes = document.getElementById("calculator").getElementsByTagName("*");
+        for (var node of childNodes) {
+            node.disabled = false
+        }
         console.log(calculatorOn)
     } else {
         powerbutton.innerText = "AC";
+        var childNodes = document.getElementById("calculator").getElementsByTagName("*");
+        for (var node of childNodes) {
+            node.disabled = true
+            powerbutton.disabled = false
+        }
         resetCalculator();
-
         console.log(calculatorOn)
     }
 }
 
-// function resetCalculator1() {
-//     res.placeholder = "";
-// }
+
+window.addEventListener('load', () => {
+    var childNodes = document.getElementById("calculator").getElementsByTagName("*");
+    for (var node of childNodes) {
+        node.disabled = true
+        powerbutton.disabled = false
+        resetCalculator();
+    }
+})
 
 function resetCalculator() {
     rest.placeholder = "";
     res.placeholder = "";
 }
 
-// operators.addEventListener('click', operateClick, false);
+operators.addEventListener('click', operateClick, false);
 
-// function operateClick(op) {
-//     const { nodeName, textContent } = op.target;
+function operateClick(op) {
+    const { nodeName, textContent } = op.target;
 
-//     if (textContent === "=") {
-//         console.log("YES")
-//     }
-// }
-
-
-addition = (num) => {
-    return num;
-}
-
-deletion = (num) => {
-    return num;
+    if (textContent === "=") {
+        console.log("YES")
+    }
 }
