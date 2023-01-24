@@ -1,5 +1,5 @@
 const keys = document.querySelector(".cals");
-const operators = document.querySelectorAll(".calculator__key-operator");
+const operators = keys.querySelectorAll(".calculator__key-operator");
 const res = document.getElementById("text");
 const rest = document.getElementById("results");
 
@@ -17,30 +17,78 @@ function handleClick(e) {
     // the clicked element
     const { nodeName, textContent } = e.target;
 
-    // If it's a button, log the text
-    if (nodeName === 'BUTTON') {
-        // console.log(textContent);
-        // var res1 = textContent;
 
-        const addd = res.value += textContent;
+
+    // console.log(res1)
+    // arr.push(res1);
+    // console.log(arr)
+
+    // res.value = arr;
+    // if (textContent === "+" || textContent === "−" || textContent === "%" ||
+    //     textContent === "×" || textContent === "÷" || textContent === "=" ||
+    //     textContent === "C" || textContent === "AC" || textContent === "⊲")
+
+    // if (textContent === "C" || textContent === "AC" || textContent === "⊲") {
+
+
+    //     console.log("operator")
+    // }
+    if (textContent === "⊲") {
+        const addd = res.value;
+        console.log(addd)
+
+        var now = document.getElementById("text").value = addd.slice(0, -1);
 
         arr.push(addd)
+        console.log(arr)
 
-        var tras = Number(addd)
+        var tras = Number(now)
 
-        rest.value = addition(tras)
+        console.log("operator")
+        console.log(tras)
+
+    } else if (textContent === "C") {
+        res.value = 0;
+        rest.value = 0;
+    } else if (textContent === "AC") {
+
+    } else if (textContent === "=") {
+        console.log("YES")
+    } else { // If it's a button, log the text
+
+        if (nodeName === 'BUTTON') {
+            // console.log(textContent);
+            // var res1 = textContent;
+
+            const addd = res.value += textContent;
+
+            arr.push(addd)
+
+            var tras = Number(addd)
+
+            // rest.value = addition(tras)
 
 
+        }
 
-        // console.log(res1)
-        // arr.push(res1);
-        // console.log(arr)
-
-        // res.value = arr;
     }
 }
 
+// operators.addEventListener('click', operateClick, false);
+
+// function operateClick(op) {
+//     const { nodeName, textContent } = op.target;
+
+//     if (textContent === "=") {
+//         console.log("YES")
+//     }
+// }
+
 
 addition = (num) => {
-    return num + 1;
+    return num;
+}
+
+deletion = (num) => {
+    return num;
 }
