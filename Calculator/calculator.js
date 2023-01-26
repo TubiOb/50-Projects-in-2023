@@ -1,9 +1,12 @@
+const calculator = document.querySelector("#calculator");
 const keys = document.querySelector(".cals");
-const operators = document.querySelector(".calculator__key-operator");
+const operators = ["+", "−", "×", "÷", "%"]
 const res = document.getElementById("text");
 const rest = document.getElementById("results");
 const powerbutton = document.querySelector("#power-button");
-const calculator = document.querySelector("#calculator")
+var decimalAdded = false;
+
+
 
 var firstnum = 0;
 var secondnum = 0;
@@ -13,6 +16,7 @@ var arr = [];
 
 keys.addEventListener('click', handleClick, false);
 powerbutton.addEventListener('click', togglePower);
+
 
 function handleClick(e) {
 
@@ -35,11 +39,36 @@ function handleClick(e) {
     } else if (textContent === "C") {
         res.placeholder = 0;
         rest.placeholder = 0;
+        console.log("EGBAMI OOOOOOO")
 
     } else if (textContent === "AC" || textContent === "OFF") {
 
     } else if (textContent === "=") {
         console.log("YES")
+            // console.log(operators)
+        var equation = res.value;
+        var lastChar = equation[equation.length - 1];
+
+        if (operators.indexOf(lastChar) > -1 || lastChar == '.')
+            equation = equation.replace(/.$/, '');
+        if (equation)
+            rest.value = eval(equation);
+
+        decimalAdded = false;
+    } else if (operators.indexOf(textContent) > -1) {
+        var lastChar = res.value[res.value.length - 1]
+        if (res.value != '' && operators.indexOf(lastChar) == -1)
+            res.value += textContent;
+
+        else if (res.value == '' && textContent == '-')
+            res.value += textContent;
+
+        if (operators.indexOf(lastChar) > -1 && res.value.length > 1) {
+            res.value = res.value.replace(/.$/, textContent);
+        }
+
+        decimalAdded = false;
+
     } else {
         if (nodeName === 'BUTTON') {
             // console.log(textContent);
@@ -51,6 +80,7 @@ function handleClick(e) {
 
             var tras = Number(addd)
         }
+        e.preventDefault();
 
     }
 }
@@ -94,21 +124,8 @@ window.addEventListener('load', () => {
 })
 
 
-// function calc() {
-//     // check last operator
-// let lastOperator = res.innerHTML.slice(-1);
-// const { nodeName, textContent } = pO.target;
-//     res.value = addd.slice(-1);
-//     console.log(addd)
-//     if (res.includes('+', '−', '×', '÷', '%', '.')) {
-//         // output.innerHTML = res.innerHTML.slice(0, -1) + pO.innerHTML;
-//         console.log(res)
-//     } else {
-//         res.innerHTML += pO.innerHTML;
-//     }
-// }
-
 function resetCalculator() {
     rest.placeholder = "";
     res.placeholder = "";
 }
+res.placeholder = "";
