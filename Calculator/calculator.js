@@ -50,7 +50,6 @@ function handleClick(e) {
             arr.push(addd)
 
             var tras = Number(addd)
-
         }
 
     }
@@ -67,6 +66,8 @@ function togglePower() {
         var childNodes = document.getElementById("calculator").getElementsByTagName("*");
         for (var node of childNodes) {
             node.disabled = false
+                // res.value = "";
+
         }
         console.log(calculatorOn)
     } else {
@@ -75,6 +76,7 @@ function togglePower() {
         for (var node of childNodes) {
             node.disabled = true
             powerbutton.disabled = false
+            res.value = "";
         }
         resetCalculator();
         console.log(calculatorOn)
@@ -91,17 +93,22 @@ window.addEventListener('load', () => {
     }
 })
 
+
+// function calc() {
+//     // check last operator
+// let lastOperator = res.innerHTML.slice(-1);
+// const { nodeName, textContent } = pO.target;
+//     res.value = addd.slice(-1);
+//     console.log(addd)
+//     if (res.includes('+', '−', '×', '÷', '%', '.')) {
+//         // output.innerHTML = res.innerHTML.slice(0, -1) + pO.innerHTML;
+//         console.log(res)
+//     } else {
+//         res.innerHTML += pO.innerHTML;
+//     }
+// }
+
 function resetCalculator() {
     rest.placeholder = "";
     res.placeholder = "";
-}
-
-operators.addEventListener('click', operateClick, false);
-
-function operateClick(op) {
-    const { nodeName, textContent } = op.target;
-
-    if (textContent === "=") {
-        console.log("YES")
-    }
 }
