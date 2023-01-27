@@ -24,29 +24,29 @@ function handleClick(e) {
 
     if (textContent === "⊲") {
         const addd = res.value;
-        console.log(addd)
+        // console.log(addd)
 
         var now = document.getElementById("text").value = addd.slice(0, -1);
 
         arr.push(addd)
-        console.log(arr)
+            // console.log(arr)
 
         var tras = Number(now)
 
-        console.log("operator")
-        console.log(tras)
+        // console.log("operator")
+        // console.log(tras)
 
     } else if (textContent === "C") {
 
         res.value = 0;
         rest.value = 0;
-        console.log("EGBAMI OOOOOOO")
+        // console.log("EGBAMI OOOOOOO")
 
     } else if (textContent === "AC" || textContent === "OFF") {
 
     } else if (textContent === "=") {
-        console.log("YES")
-            // console.log(operators)
+        // console.log("YES")
+        // console.log(operators)
         var equation = res.value;
         var lastChar = equation[equation.length - 1];
 
@@ -74,7 +74,7 @@ function handleClick(e) {
         if (nodeName === 'BUTTON') {
             if (res.value == 0 && nodeName === 'BUTTON') {
                 const addd = res.value = textContent;
-                console.log("JESUS CHRIST")
+                // console.log("JESUS CHRIST")
             }
             // console.log(textContent);
             // var res1 = textContent;
@@ -117,7 +117,7 @@ function togglePower() {
             rest.value = "";
         }
         resetCalculator();
-        console.log(calculatorOn)
+        // console.log(calculatorOn)
     }
 }
 
