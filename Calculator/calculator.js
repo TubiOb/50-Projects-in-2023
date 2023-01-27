@@ -1,6 +1,6 @@
 const calculator = document.querySelector("#calculator");
 const keys = document.querySelector(".cals");
-const operators = ["+", "−", "×", "÷", "%"]
+const operators = ["+", "-", "*", "÷", "%"]
 const res = document.getElementById("text");
 const rest = document.getElementById("results");
 const powerbutton = document.querySelector("#power-button");
@@ -37,8 +37,9 @@ function handleClick(e) {
         console.log(tras)
 
     } else if (textContent === "C") {
-        res.placeholder = 0;
-        rest.placeholder = 0;
+
+        res.value = 0;
+        rest.value = 0;
         console.log("EGBAMI OOOOOOO")
 
     } else if (textContent === "AC" || textContent === "OFF") {
@@ -71,15 +72,21 @@ function handleClick(e) {
 
     } else {
         if (nodeName === 'BUTTON') {
+            if (res.value == 0 && nodeName === 'BUTTON') {
+                const addd = res.value = textContent;
+                console.log("JESUS CHRIST")
+            }
             // console.log(textContent);
             // var res1 = textContent;
+            else {
+                const addd = res.value += textContent;
 
-            const addd = res.value += textContent;
+                arr.push(addd)
 
-            arr.push(addd)
-
-            var tras = Number(addd)
+                var tras = Number(addd)
+            }
         }
+
         e.preventDefault();
 
     }
@@ -107,6 +114,7 @@ function togglePower() {
             node.disabled = true
             powerbutton.disabled = false
             res.value = "";
+            rest.value = "";
         }
         resetCalculator();
         console.log(calculatorOn)
