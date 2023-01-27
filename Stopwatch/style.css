@@ -17,7 +17,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: #d8e2dc;
-        border-radius: 40%;
+        border-radius: 35%;
         box-shadow: 1px 1px 1px 1px grey;
         justify-content: center;
         align-items: center;
@@ -50,7 +50,7 @@
     }
     
     #button-container {
-        border: 1px solid brown;
+        /* border: 1px solid brown; */
         width: 80%;
         margin: auto;
         justify-content: center;
@@ -69,4 +69,24 @@
         text-align: center;
         align-self: center;
         justify-self: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: #8e9aaf;
+        border: none;
+        border-radius: 5px;
+        color: white;
+    }
+    
+    @media(min-width: 760px) {
+        #container {
+            width: 300px;
+            height: 300px;
+        }
+        #output {
+            width: 180px;
+            margin: 95px auto 60px auto;
+        }
+        #button-container {
+            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            gap: 7px;
+        }
     }
