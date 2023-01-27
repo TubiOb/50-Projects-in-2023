@@ -10,14 +10,20 @@
     <meta name="author" content="Tubi Obaloluwa">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://kit.fontawesome.com/b68be37945.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div id="container">
-        <div>
-            <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+        <div id="output">
+            <p id="frame"><span id="seconds">00</span>:<span id="tens">00</span></p>
+        </div>
+        <div id="button-container">
+            <button role="button" id="start-button">Start</button>
+            <button role="button" id="stop-button">Stop</button>
+            <button role="button" id="reset-button">Reset</button>
         </div>
     </div>
 
