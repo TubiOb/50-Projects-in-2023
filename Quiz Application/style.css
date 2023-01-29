@@ -9,11 +9,18 @@ body {
     background-color: white;
 }
 
-h3,
+h3 {
+    font-size: 20px;
+    font-family: 'Satisfy', cursive;
+    color: white;
+}
+
 h1 {
     font-size: 20px;
     font-family: 'Satisfy', cursive;
     color: white;
+    margin: 10px auto;
+    text-align: center;
 }
 
 p {
@@ -109,12 +116,30 @@ table {
     /* background-color: white; */
     width: 250px;
     /* height: 40px; */
-    margin: 25px auto 40px auto;
+    margin: 15px auto 40px auto;
     text-align: center;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
+    font-family: 'Satisfy', cursive;
+    color: white;
+    /* border: 1px solid wheat; */
+}
+
+th,
+tbody {
+    /* background-color: white; */
+    width: 250px;
+    /* height: 40px; */
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Satisfy', cursive;
+    color: white;
     /* border: 1px solid wheat; */
 }
 
