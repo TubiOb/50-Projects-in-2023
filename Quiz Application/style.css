@@ -90,7 +90,7 @@ p {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* display: none; */
+    display: none;
 }
 
 #userID input {
@@ -124,15 +124,15 @@ table {
     position: relative;
     font-family: 'Satisfy', cursive;
     color: white;
-    /* border: 1px solid wheat; */
+    border: 1px solid wheat;
 }
 
 th,
 tbody {
     /* background-color: white; */
-    width: 250px;
+    /* width: 250px; */
     /* height: 40px; */
-    margin: auto;
+    /* margin: auto; */
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -142,6 +142,11 @@ tbody {
     color: white;
     /* border: 1px solid wheat; */
 }
+
+
+/* th {
+    column-span: 2;
+} */
 
 #button-container {
     /* border: 1px solid brown; */
@@ -173,9 +178,15 @@ button {
 
 @media(min-width: 760px) {
     #quiz,
-    #home {
+    #home,
+    #userID,
+    #score {
         width: 450px;
         height: 450px;
+    }
+    th {
+        /* width: 300px; */
+        column-span: 2;
     }
     #button-container {
         grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
