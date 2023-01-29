@@ -1,44 +1,57 @@
-const tens = document.getElementById("tens")
-const secs = document.getElementById("seconds")
-const start = document.getElementById("start-button")
-const restart = document.getElementById("restart-button")
-
 window.addEventListener('load', () => {
+    var tens = document.getElementById("tens")
+    var secs = document.getElementById("seconds")
+    const start = document.getElementById("start-button")
+    const restart = document.getElementById("reset-button")
     var Tens = 00;
     var Seconds = 00;
     var interval;
 
 
     function timerCount() {
-        tens++;
+        Tens++;
 
-        if (tens > 9) {
-            tens.innerHTML = tens;
-        } else if (tens <= 9) {
-            tens.innerHTML = "0" + tens;
-        } else if (tens > 99) {
-            console.log(secs)
-            secs++;
-            console.log(secs)
-            tens = 0;
+        if (Tens > 9) {
+            tens.innerHTML = Tens;
+        }
+        if (Tens <= 9) {
+            tens.innerHTML = "0" + Tens;
+        }
+        if (Tens > 99) {
+            console.log(Seconds)
+            Seconds++;
+            console.log(Seconds)
+            Tens = 0;
             tens.innerHTML = "0" + 0;
-            secs.innerHTML = "0" + secs;
-        } else if (secs > 9) {
-            secs.innerHTML = secs;
+            secs.innerHTML = "0" + Seconds;
+        }
+        if (Seconds > 9) {
+            secs.innerHTML = Seconds;
         }
     }
 
     let timeRun = false;
+
     start.addEventListener('click', () => {
         timeRun = !timeRun
         if (timeRun) {
             start.innerText = "Stop"
-            console.log("OYAAAAAA")
             console.log(timeRun)
+            clearInterval(interval);
+            interval = setInterval(timerCount, 10);
         } else {
             start.innerText = "Start"
-            console.log("I Don Start")
             console.log(timeRun)
+            clearInterval(interval);
+
         }
+    })
+
+    restart.addEventListener('click', () => {
+        clearInterval(interval);
+        Tens = "00";
+        Seconds = "00";
+        tens.innerHTML = Tens;
+        secs.innerHTML = Seconds;
     })
 })
