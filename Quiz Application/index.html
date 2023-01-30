@@ -56,7 +56,12 @@
 
     <div id="quiz">
         <div class="question">
-            <p id="question-text"></p>
+            <div id="question-container">
+                <div id="time">
+                    <div id="timer">01:00</div>
+                </div>
+                <p id="question-text"></p>
+            </div>
             <input type="radio" id="answer1" name="question1">
             <label for="answer1" id="answer1-text"></label>
             <input type="radio" id="answer2" name="question1">
@@ -66,7 +71,9 @@
             <input type="radio" id="answer4" name="question1">
             <label for="answer4" id="answer4-text"></label>
         </div>
-        <input type="submit" value="Submit">
+        <div id="confirm-container">
+            <button role="button" id="submit">Submit</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
