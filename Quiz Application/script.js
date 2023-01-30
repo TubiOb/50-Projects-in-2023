@@ -118,23 +118,46 @@ var quizQuestions2 = [{
 ];
 
 var quizQuestions3 = [{
-        username: "adeife",
-        timeline: "Javascript is so easy!"
+        question: "What is the capital of France?",
+
+        a: "London",
+        b: "Paris",
+        c: "Berlin",
+        d: "Rome",
+        correctAnswer: "b"
     },
     {
-        username: "janelle",
-        timeline: "Why Javascript?"
+        question: "What is the largest ocean in the world?",
+        a: "Atlantic Ocean",
+        b: "Indian Ocean",
+        c: "Southern Ocean",
+        d: "Pacific Ocean",
+        correctAnswer: "d"
+
     },
     {
-        username: "damilola",
-        timeline: "I'm enjoying Javascript"
+        question: "What is the name of the first man on the moon?",
+        a: "Neil Armstrong",
+        b: "Buzz Aldrin",
+        c: "Michael Collins",
+        d: "John Young",
+        correctAnswer: "a"
+
     },
     {
-        username: "damilola",
-        timeline: "I'm enjoying Javascript"
+        question: "What is the tallest mammal in the world?",
+        a: "Giraffe",
+        b: "Elephant",
+        c: "Hippopotamus",
+        d: "Rhinoceros",
+        correctAnswer: "a"
     },
     {
-        username: "damilola",
-        timeline: "I'm enjoying Javascript"
+        question: "What is the smallest country in the world?",
+        a: "Maldives",
+        b: "Monaco",
+        c: "San Marino",
+        d: "Vatican City",
+        correctAnswer: "d"
     }
-]
+];
