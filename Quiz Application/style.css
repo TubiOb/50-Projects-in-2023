@@ -188,6 +188,14 @@
         color: white;
     }
     
+    #question-container p {
+        text-align: center;
+        position: relative;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
     #options {
         width: 260px;
         height: 150px;
