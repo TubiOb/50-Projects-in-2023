@@ -4,7 +4,7 @@ const highScore = document.querySelector("#score-button");
 const ScorePage = document.querySelector("#score");
 var highScoresTable = document.getElementById("high-scores");
 const UserInfo = document.querySelector("#userID");
-const User = document.getElementById("#username");
+const User = document.getElementById("username");
 const Enter = document.querySelector("#enter");
 const QuizPage = document.querySelector("#quiz");
 var timer = document.getElementById("timer");
@@ -25,13 +25,6 @@ window.addEventListener('load', () => {
 
 })
 
-let currentQuiz = 0;
-let userscore = 0;
-let scoreOne = 0;
-let level = 1;
-
-var questionsCount = 0;
-var quiz = 0;
 
 var quizQuestions1 = [{
         question: "What does HTML stand for?",
@@ -161,3 +154,52 @@ var quizQuestions3 = [{
         correctAnswer: "d"
     }
 ];
+
+
+let currentQuiz = 0;
+let userscore = 0;
+let scoreOne = 0;
+let level = 1;
+
+var questionsCount = 0;
+var quiz = 0;
+var quizData = [quizQuestions1, quizQuestions2, quizQuestions3];
+
+
+start.addEventListener('click', () => {
+    console.log("YESSSS")
+    $("#score").hide();
+    $("#home").hide();
+    $("#userID").show();
+    $("#quiz").hide();
+})
+
+
+
+Enter.addEventListener('click', () => {
+    var name = User.value;
+    console.log(name)
+
+    $("#score").hide();
+    $("#home").hide();
+    $("#userID").hide();
+    $("#quiz").show();
+
+    Load();
+
+    function Load() {
+        questionsCount += 1;
+        // deSelectInput();
+
+        const quizIndex = quizData[quiz][currentQuiz];
+
+        Question.innerText = quizIndex.question;
+        optionA.innerText = quizIndex.a;
+        optionB.innerText = quizIndex.b;
+        optionC.innerText = quizIndex.c;
+        optionD.innerText = quizIndex.d;
+    }
+    // name.array.forEach(element => {
+
+    // });
+})

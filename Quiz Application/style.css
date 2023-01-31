@@ -24,15 +24,15 @@
     }
     
     p {
-        font-size: 16px;
+        font-size: 15px;
         font-family: 'Satisfy', cursive;
         color: white;
         margin-bottom: 10px;
     }
     
     #quiz {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -42,21 +42,43 @@
         box-shadow: 1px 1px 1px 1px grey;
         justify-content: center;
         align-items: center;
+        text-align: center;
         overflow: hidden;
         /* display: none; */
     }
     
+    #options .opt {
+        width: 100%;
+        height: 30px;
+        display: inline;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    
     input[type="radio"] {
-        margin-right: 10px;
+        align-self: center;
+        float: left;
+        margin-top: 3px;
     }
     
     label {
-        font-size: 18px;
+        font-size: 13px;
+        font-family: 'Satisfy', cursive;
+        color: #5e6472;
+        float: left;
+        align-self: center;
+        margin-left: 10px;
+    }
+    
+    .answer {
+        accent-color: blueviolet;
     }
     
     #home {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -71,8 +93,8 @@
     }
     
     #userID {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -87,8 +109,8 @@
     }
     
     #score {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -123,7 +145,7 @@
     
     #question-container {
         width: 100%;
-        height: 100px;
+        height: 90px;
         position: relative;
         text-align: center;
         justify-content: center;
@@ -131,6 +153,7 @@
         overflow: hidden;
         background-color: #5e6472;
         color: white;
+        margin-bottom: 10px;
     }
     
     #time {
@@ -140,6 +163,20 @@
         width: 60px;
         border-radius: 10px;
         color: white;
+    }
+    
+    #options {
+        width: 260px;
+        height: 150px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        background-color: white;
+        color: #5e6472;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
     
     table {
