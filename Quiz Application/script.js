@@ -203,3 +203,40 @@ Enter.addEventListener('click', () => {
 
     // });
 })
+
+
+document.getElementById("return").addEventListener("click", function() {
+    $("#score").hide();
+    $("#home").show();
+    $("#userID").hide();
+    $("#quiz").hide();
+});
+
+
+highScore.addEventListener('click', () => {
+    console.log("HIGHSCORE")
+    $("#score").show();
+    $("#home").hide();
+    $("#userID").hide();
+    $("#quiz").hide();
+
+
+    var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
+
+    var name = User.value;
+    console.log(name)
+
+    highScores.sort(function(a, b) {
+        return b.score - a.score;
+    });
+
+    var highScoresTable = document.getElementById("high-scores");
+
+
+    for (var i = 0; i < highScores.length; i++) {
+        var Score = highScores[i];
+        var row = document.createElement("tr");
+        row.innerHTML = "<td>" + (i + 1) + "</td><td>" + Score.name + "</td><td>" + Score.score + "</td>";
+        highScoresTable.appendChild(row);
+    }
+})
