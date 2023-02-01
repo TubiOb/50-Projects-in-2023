@@ -166,7 +166,7 @@ var quiz = 0;
 var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
 
-Load();
+quizLoad();
 
 start.addEventListener('click', () => {
     console.log("YESSSS")
@@ -216,13 +216,13 @@ const startTimer = () => {
 }
 
 
-function Load() {
+function quizLoad() {
     questionsCount += 1;
     unselectedAnswer();
 
     const quizIndex = quizData[quiz][currentQuiz];
 
-    Question.innerText = quizIndex.question;
+    question.innerText = quizIndex.question;
     optionA.innerText = quizIndex.a;
     optionB.innerText = quizIndex.b;
     optionC.innerText = quizIndex.c;
@@ -233,9 +233,9 @@ function Load() {
 function selectedAnswer() {
     let answer = undefined;
 
-    QuestionAnswers.forEach((QuestionAnswer) => {
-        if (QuestionAnswer.checked) {
-            answer = QuestionAnswer.id;
+    questionAnswers.forEach((questionAnswer) => {
+        if (questionAnswer.checked) {
+            answer = questionAnswer.id;
             console.log("answer is: " + answer)
         }
     });
@@ -244,7 +244,7 @@ function selectedAnswer() {
 
 
 function unselectedAnswer() {
-    QuestionAnswers.forEach((answer) => {
+    questionAnswers.forEach((answer) => {
         answer.checked = false;
     });
 }
@@ -270,7 +270,7 @@ submit.addEventListener('click', () => {
             Load();
 
         } else {
-            Question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${userscore}/${questionsCount}`
+            question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${userscore}/${questionsCount}`
             level++;
         }
     }
