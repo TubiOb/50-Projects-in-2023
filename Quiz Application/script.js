@@ -180,25 +180,32 @@ Enter.addEventListener('click', () => {
     var name = User.value;
     console.log(name)
 
-    $("#score").hide();
-    $("#home").hide();
-    $("#userID").hide();
-    $("#quiz").show();
+    if (name === "") {
+        preventDefault();
+        return
+    } else {
+        $("#score").hide();
+        $("#home").hide();
+        $("#userID").hide();
+        $("#quiz").show();
 
-    Load();
+        Load();
 
-    function Load() {
-        questionsCount += 1;
-        // deSelectInput();
+        function Load() {
+            questionsCount += 1;
+            // deSelectInput();
 
-        const quizIndex = quizData[quiz][currentQuiz];
+            const quizIndex = quizData[quiz][currentQuiz];
 
-        Question.innerText = quizIndex.question;
-        optionA.innerText = quizIndex.a;
-        optionB.innerText = quizIndex.b;
-        optionC.innerText = quizIndex.c;
-        optionD.innerText = quizIndex.d;
+            Question.innerText = quizIndex.question;
+            optionA.innerText = quizIndex.a;
+            optionB.innerText = quizIndex.b;
+            optionC.innerText = quizIndex.c;
+            optionD.innerText = quizIndex.d;
+        }
     }
+
+
     // name.array.forEach(element => {
 
     // });
@@ -206,6 +213,13 @@ Enter.addEventListener('click', () => {
 
 
 document.getElementById("return").addEventListener("click", function() {
+    $("#score").hide();
+    $("#home").show();
+    $("#userID").hide();
+    $("#quiz").hide();
+});
+
+document.getElementById("BACK").addEventListener("click", function() {
     $("#score").hide();
     $("#home").show();
     $("#userID").hide();
