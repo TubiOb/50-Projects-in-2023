@@ -9,7 +9,7 @@ const Enter = document.querySelector("#enter");
 const QuizPage = document.querySelector("#quiz");
 var timer = document.getElementById("timer");
 const Question = document.getElementById("question-text");
-const QuestionAnswer = document.querySelectorAll(".answer");
+const QuestionAnswers = document.querySelectorAll(".answer");
 const optionA = document.getElementById("answer1-text");
 const optionB = document.getElementById("answer2-text");
 const optionC = document.getElementById("answer3-text");
@@ -193,7 +193,7 @@ Enter.addEventListener('click', () => {
 
         function Load() {
             questionsCount += 1;
-            // deSelectInput();
+            unselectedAnswer();
 
             const quizIndex = quizData[quiz][currentQuiz];
 
@@ -204,11 +204,43 @@ Enter.addEventListener('click', () => {
             optionD.innerText = quizIndex.d;
         }
     }
+})
 
 
-    // name.array.forEach(element => {
+function selectedAnswer() {
+    let Answer = undefined;
 
-    // });
+    QuestionAnswers.forEach(QuestionAnswer => {
+        if (QuestionAnswer.checked) {
+            Answer = QuestionAnswer.id;
+        }
+    });
+    return Answer;
+}
+
+
+function unselectedAnswer() {
+    QuestionAnswers.forEach(Answer => {
+        Answer.checked = false;
+    });
+}
+
+
+Submit.addEventListener('click', () => {
+    const Answer = selectedAnswer();
+
+    if (Answer) {
+        if (Answer === quizQuestions1[currentQuiz].correct) {
+            score++;
+        }
+        currentQuiz++;
+        if (currentQuiz < quizQuestions1.length) {
+            Load();
+        } else {
+            level++;
+            Question.innerText = "Hurray, you have completed Level ${level}. \nYou scored ${}/${}"
+        }
+    }
 })
 
 
@@ -235,6 +267,10 @@ highScore.addEventListener('click', () => {
     $("#quiz").hide();
 
 
+
+
+
+    // LOCAL STORAGE
     var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
 
     var name = User.value;
