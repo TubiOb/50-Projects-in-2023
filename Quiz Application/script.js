@@ -15,6 +15,7 @@ const optionB = document.getElementById("answer2-text");
 const optionC = document.getElementById("answer3-text");
 const optionD = document.getElementById("answer4-text");
 const Submit = document.getElementById("submit");
+const optionsContainer = document.getElementById("opt");
 
 
 window.addEventListener('load', () => {
@@ -22,7 +23,6 @@ window.addEventListener('load', () => {
     $("#home").show();
     $("#userID").hide();
     $("#quiz").hide();
-
 })
 
 
@@ -32,7 +32,7 @@ var quizQuestions1 = [{
         b: "Hyperlink Text Markup Language",
         c: "Hyper Text Manipulation Language",
         d: "HyperText Transmission Port",
-        correctAnswer: "a"
+        correct: "a"
     },
     {
         question: "What is the most widely used programming language for web development?",
@@ -40,7 +40,7 @@ var quizQuestions1 = [{
         b: "Python",
         c: "PHP",
         d: "SQL",
-        correctAnswer: "a"
+        correct: "a"
     },
     {
         question: "What is the correct syntax for an if statement in JavaScript?",
@@ -48,7 +48,7 @@ var quizQuestions1 = [{
         b: "if (i == 5)",
         c: "if i = 5",
         d: "if (i == 5) then",
-        correctAnswer: "b"
+        correct: "b"
     },
     {
         question: "Which of these is a high-level programming language?",
@@ -56,7 +56,7 @@ var quizQuestions1 = [{
         b: "C++",
         c: "Assembly",
         d: "Python",
-        correctAnswer: "d"
+        correct: "d"
     },
     {
         question: "What does CSS stand for?",
@@ -64,7 +64,7 @@ var quizQuestions1 = [{
         b: "Computer Style Sheets",
         c: "Cascading Sheet Styles",
         d: "Computer Sheet Styles",
-        correctAnswer: "a"
+        correct: "a"
     }
 ];
 
@@ -74,7 +74,7 @@ var quizQuestions2 = [{
         b: "Mark McGwire",
         c: "Sammy Sosa",
         d: " Babe Ruth",
-        correctAnswer: "a"
+        correct: "a"
     },
     {
         question: "Which country has won the most FIFA World Cup tournaments?",
@@ -82,7 +82,7 @@ var quizQuestions2 = [{
         b: "Germany",
         c: "Italy",
         d: "Argentina",
-        correctAnswer: "a"
+        correct: "a"
     },
     {
         question: "Who is considered the greatest basketball player of all time?",
@@ -90,7 +90,7 @@ var quizQuestions2 = [{
         b: "Lebron James",
         c: "Kareem Abdul-Jabbar",
         d: "Magic Johnson",
-        correctAnswer: "a"
+        correct: "a"
     },
     {
         question: "What is the name of the annual tennis tournament played on grass courts in England?",
@@ -98,7 +98,7 @@ var quizQuestions2 = [{
         b: "Wimbledon",
         c: "US Open",
         d: "Australian Open",
-        correctAnswer: "b"
+        correct: "b"
     },
     {
         question: "Who holds the record for the most career goals in the NHL?",
@@ -106,7 +106,7 @@ var quizQuestions2 = [{
         b: "Mario Lemieux",
         c: "Bobby Orr",
         d: "Steve Yzerman",
-        correctAnswer: "a"
+        correct: "a"
     }
 ];
 
@@ -117,7 +117,7 @@ var quizQuestions3 = [{
         b: "Paris",
         c: "Berlin",
         d: "Rome",
-        correctAnswer: "b"
+        correct: "b"
     },
     {
         question: "What is the largest ocean in the world?",
@@ -125,7 +125,7 @@ var quizQuestions3 = [{
         b: "Indian Ocean",
         c: "Southern Ocean",
         d: "Pacific Ocean",
-        correctAnswer: "d"
+        correct: "d"
 
     },
     {
@@ -134,7 +134,7 @@ var quizQuestions3 = [{
         b: "Buzz Aldrin",
         c: "Michael Collins",
         d: "John Young",
-        correctAnswer: "a"
+        correct: "a"
 
     },
     {
@@ -143,7 +143,7 @@ var quizQuestions3 = [{
         b: "Elephant",
         c: "Hippopotamus",
         d: "Rhinoceros",
-        correctAnswer: "a"
+        correct: "a"
     },
     {
         question: "What is the smallest country in the world?",
@@ -151,7 +151,7 @@ var quizQuestions3 = [{
         b: "Monaco",
         c: "San Marino",
         d: "Vatican City",
-        correctAnswer: "d"
+        correct: "d"
     }
 ];
 
@@ -189,22 +189,45 @@ Enter.addEventListener('click', () => {
         $("#userID").hide();
         $("#quiz").show();
 
-        Load();
-
-        function Load() {
-            questionsCount += 1;
-            unselectedAnswer();
-
-            const quizIndex = quizData[quiz][currentQuiz];
-
-            Question.innerText = quizIndex.question;
-            optionA.innerText = quizIndex.a;
-            optionB.innerText = quizIndex.b;
-            optionC.innerText = quizIndex.c;
-            optionD.innerText = quizIndex.d;
-        }
+        timer.addEventListener('load', () => {
+            let mytime = setTimeout(Load, 3000);
+            clearInterval(mytime)
+        })
     }
 })
+
+
+Load();
+
+var timeLeft = 60;
+var countdown = setInterval(function() {
+    timeLeft--;
+    var minutes = Math.floor(timeLeft / 60);
+    var seconds = timeLeft % 60;
+    timer.innerHTML = `0${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+    if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timer.innerHTML = "Time's up!";
+    }
+}, 1000);
+
+QuizPage.addEventListener('load', () => {
+    Load();
+
+})
+
+function Load() {
+    questionsCount += 1;
+    unselectedAnswer();
+
+    const quizIndex = quizData[quiz][currentQuiz];
+
+    Question.innerText = quizIndex.question;
+    optionA.innerText = quizIndex.a;
+    optionB.innerText = quizIndex.b;
+    optionC.innerText = quizIndex.c;
+    optionD.innerText = quizIndex.d;
+}
 
 
 function selectedAnswer() {
@@ -231,14 +254,18 @@ Submit.addEventListener('click', () => {
 
     if (Answer) {
         if (Answer === quizQuestions1[currentQuiz].correct) {
-            score++;
+            userscore++;
+            console.log(userscore)
         }
+
         currentQuiz++;
+
         if (currentQuiz < quizQuestions1.length) {
             Load();
+
         } else {
+            Question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${userscore}/${questionsCount}`
             level++;
-            Question.innerText = "Hurray, you have completed Level ${level}. \nYou scored ${}/${}"
         }
     }
 })
