@@ -1,20 +1,20 @@
-const Home = document.querySelector("#home");
+const home = document.querySelector("#home");
 const start = document.querySelector("#start-button");
 const highScore = document.querySelector("#score-button");
-const ScorePage = document.querySelector("#score");
+const scorePage = document.querySelector("#score");
 var highScoresTable = document.getElementById("high-scores");
-const UserInfo = document.querySelector("#userID");
-const User = document.getElementById("username");
-const Enter = document.querySelector("#enter");
-const QuizPage = document.querySelector("#quiz");
+const userInfo = document.querySelector("#userID");
+const user = document.getElementById("username");
+const enter = document.querySelector("#enter");
+const quizPage = document.querySelector("#quiz");
 var timer = document.getElementById("timer");
-const Question = document.getElementById("question-text");
-const QuestionAnswers = document.querySelectorAll(".answer");
+const question = document.getElementById("question-text");
+const questionAnswers = document.querySelectorAll(".answer");
 const optionA = document.getElementById("answer1-text");
 const optionB = document.getElementById("answer2-text");
 const optionC = document.getElementById("answer3-text");
 const optionD = document.getElementById("answer4-text");
-const Submit = document.getElementById("submit");
+const submit = document.getElementById("submit");
 const optionsContainer = document.getElementById("opt");
 
 
@@ -26,13 +26,13 @@ window.addEventListener('load', () => {
 })
 
 
-var quizQuestions1 = [{
+var quizLevel = [{
         question: "What does HTML stand for?",
         a: "Hyper Text Markup Language",
         b: "Hyperlink Text Markup Language",
         c: "Hyper Text Manipulation Language",
         d: "HyperText Transmission Port",
-        correct: "a"
+        correct: "a",
     },
     {
         question: "What is the most widely used programming language for web development?",
@@ -40,7 +40,7 @@ var quizQuestions1 = [{
         b: "Python",
         c: "PHP",
         d: "SQL",
-        correct: "a"
+        correct: "a",
     },
     {
         question: "What is the correct syntax for an if statement in JavaScript?",
@@ -48,7 +48,7 @@ var quizQuestions1 = [{
         b: "if (i == 5)",
         c: "if i = 5",
         d: "if (i == 5) then",
-        correct: "b"
+        correct: "b",
     },
     {
         question: "Which of these is a high-level programming language?",
@@ -56,7 +56,7 @@ var quizQuestions1 = [{
         b: "C++",
         c: "Assembly",
         d: "Python",
-        correct: "d"
+        correct: "d",
     },
     {
         question: "What does CSS stand for?",
@@ -64,17 +64,17 @@ var quizQuestions1 = [{
         b: "Computer Style Sheets",
         c: "Cascading Sheet Styles",
         d: "Computer Sheet Styles",
-        correct: "a"
-    }
+        correct: "a",
+    },
 ];
 
-var quizQuestions2 = [{
+var quizLevelTwo = [{
         question: "Who holds the record for the most home runs in a single MLB season?",
         a: "Barry Bonds",
         b: "Mark McGwire",
         c: "Sammy Sosa",
         d: " Babe Ruth",
-        correct: "a"
+        correct: "a",
     },
     {
         question: "Which country has won the most FIFA World Cup tournaments?",
@@ -82,7 +82,7 @@ var quizQuestions2 = [{
         b: "Germany",
         c: "Italy",
         d: "Argentina",
-        correct: "a"
+        correct: "a",
     },
     {
         question: "Who is considered the greatest basketball player of all time?",
@@ -90,7 +90,7 @@ var quizQuestions2 = [{
         b: "Lebron James",
         c: "Kareem Abdul-Jabbar",
         d: "Magic Johnson",
-        correct: "a"
+        correct: "a",
     },
     {
         question: "What is the name of the annual tennis tournament played on grass courts in England?",
@@ -98,7 +98,7 @@ var quizQuestions2 = [{
         b: "Wimbledon",
         c: "US Open",
         d: "Australian Open",
-        correct: "b"
+        correct: "b",
     },
     {
         question: "Who holds the record for the most career goals in the NHL?",
@@ -106,18 +106,18 @@ var quizQuestions2 = [{
         b: "Mario Lemieux",
         c: "Bobby Orr",
         d: "Steve Yzerman",
-        correct: "a"
-    }
+        correct: "a",
+    },
 ];
 
-var quizQuestions3 = [{
+var quizLevelThree = [{
         question: "What is the capital of France?",
 
         a: "London",
         b: "Paris",
         c: "Berlin",
         d: "Rome",
-        correct: "b"
+        correct: "b",
     },
     {
         question: "What is the largest ocean in the world?",
@@ -125,7 +125,7 @@ var quizQuestions3 = [{
         b: "Indian Ocean",
         c: "Southern Ocean",
         d: "Pacific Ocean",
-        correct: "d"
+        correct: "d",
 
     },
     {
@@ -134,7 +134,7 @@ var quizQuestions3 = [{
         b: "Buzz Aldrin",
         c: "Michael Collins",
         d: "John Young",
-        correct: "a"
+        correct: "a",
 
     },
     {
@@ -143,7 +143,7 @@ var quizQuestions3 = [{
         b: "Elephant",
         c: "Hippopotamus",
         d: "Rhinoceros",
-        correct: "a"
+        correct: "a",
     },
     {
         question: "What is the smallest country in the world?",
@@ -151,8 +151,8 @@ var quizQuestions3 = [{
         b: "Monaco",
         c: "San Marino",
         d: "Vatican City",
-        correct: "d"
-    }
+        correct: "d",
+    },
 ];
 
 
@@ -163,8 +163,10 @@ let level = 1;
 
 var questionsCount = 0;
 var quiz = 0;
-var quizData = [quizQuestions1, quizQuestions2, quizQuestions3];
+var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
+
+Load();
 
 start.addEventListener('click', () => {
     console.log("YESSSS")
@@ -176,45 +178,43 @@ start.addEventListener('click', () => {
 
 
 
-Enter.addEventListener('click', () => {
+enter.addEventListener('click', (f) => {
     var name = User.value;
     console.log(name)
 
     if (name === "") {
-        preventDefault();
+        f.preventDefault();
         return
     } else {
         $("#score").hide();
         $("#home").hide();
         $("#userID").hide();
         $("#quiz").show();
-
-        timer.addEventListener('load', () => {
-            let mytime = setTimeout(Load, 3000);
-            clearInterval(mytime)
-        })
     }
 })
 
 
-Load();
+// timer.addEventListener('load', function() {
+//     let mytime = setTimeout(Load, 1000);
+//     clearInterval(mytime)
+// })
 
-var timeLeft = 60;
-var countdown = setInterval(function() {
-    timeLeft--;
-    var minutes = Math.floor(timeLeft / 60);
-    var seconds = timeLeft % 60;
-    timer.innerHTML = `0${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-    if (timeLeft <= 0) {
-        clearInterval(countdown);
-        timer.innerHTML = "Time's up!";
-    }
-}, 1000);
 
-QuizPage.addEventListener('load', () => {
-    Load();
+const startTimer = () => {
+    var timeLeft = 60;
+    var countdown = setInterval(function() {
+        timeLeft--;
+        var minutes = Math.floor(timeLeft / 60);
+        var seconds = timeLeft % 60;
+        timer.innerHTML = `0${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            currentQuiz++;
+            // setTimeout(Load, 1000);
+        }
+    }, 1000);
+}
 
-})
 
 function Load() {
     questionsCount += 1;
@@ -231,36 +231,42 @@ function Load() {
 
 
 function selectedAnswer() {
-    let Answer = undefined;
+    let answer = undefined;
 
-    QuestionAnswers.forEach(QuestionAnswer => {
+    QuestionAnswers.forEach((QuestionAnswer) => {
         if (QuestionAnswer.checked) {
-            Answer = QuestionAnswer.id;
+            answer = QuestionAnswer.id;
+            console.log("answer is: " + answer)
         }
     });
-    return Answer;
+    return answer;
 }
 
 
 function unselectedAnswer() {
-    QuestionAnswers.forEach(Answer => {
-        Answer.checked = false;
+    QuestionAnswers.forEach((answer) => {
+        answer.checked = false;
     });
 }
 
 
-Submit.addEventListener('click', () => {
-    const Answer = selectedAnswer();
+submit.addEventListener('click', () => {
+    startTimer();
 
-    if (Answer) {
-        if (Answer === quizQuestions1[currentQuiz].correct) {
+    const answer = selectedAnswer();
+    console.log(answer.correct);
+
+
+
+    if (answer) {
+        if (answer === quizLevel[currentQuiz]) {
             userscore++;
             console.log(userscore)
         }
 
         currentQuiz++;
 
-        if (currentQuiz < quizQuestions1.length) {
+        if (currentQuiz < quizLevel.length) {
             Load();
 
         } else {
