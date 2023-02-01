@@ -9,7 +9,7 @@ const enter = document.querySelector("#enter");
 const quizPage = document.querySelector("#quiz");
 var timer = document.getElementById("timer");
 const question = document.getElementById("question-text");
-const questionAnswers = document.querySelectorAll(".answer");
+const questionAns = document.querySelectorAll(".answer");
 const optionA = document.getElementById("answer1-text");
 const optionB = document.getElementById("answer2-text");
 const optionC = document.getElementById("answer3-text");
@@ -168,6 +168,73 @@ var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
 quizLoad();
 
+function quizLoad(startTimer) {
+    questionsCount += 1;
+    unselectedAnswer();
+
+    const quizIndex = quizData[quiz][currentQuiz];
+
+    question.innerText = quizIndex.question;
+    optionA.innerText = quizIndex.a;
+    optionB.innerText = quizIndex.b;
+    optionC.innerText = quizIndex.c;
+    optionD.innerText = quizIndex.d;
+}
+
+
+function selectedAnswer() {
+    let answer = undefined;
+
+    questionAns.forEach((questionAns) => {
+        if (questionAns.checked) {
+            answer = questionAns.id;
+            console.log("answer is: " + answer)
+        }
+    });
+    return answer;
+}
+
+function unselectedAnswer() {
+    questionAns.forEach((answer) => {
+        answer.checked = false;
+    });
+}
+
+
+submit.addEventListener('click', () => {
+    const answer = selectedAnswer();
+    console.log(answer);
+
+
+    // if (answer) {
+    if (answer === quizData[currentQuiz].correct) {
+        score++;
+    }
+
+    currentQuiz++;
+
+    if (currentQuiz < quizLevel.length) {
+        quizLoad();
+
+    } else {
+        if (userscore >= 3) {
+            question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${userscore}/${questionsCount}`
+            level++;
+            quiz += 1;
+            currentQuiz = 0;
+            if (quiz < quizData.length)
+                quizLoad();
+            else
+                question.innerText = `Hurray, you have completed The King's Quiz. \nYou scored ${userscore}/${questionsCount}`
+        } else {
+            question.innerText = "You Lost. \nPlay Again?"
+        }
+    }
+    // }
+
+})
+
+
 start.addEventListener('click', () => {
     console.log("YESSSS")
     $("#score").hide();
@@ -179,7 +246,7 @@ start.addEventListener('click', () => {
 
 
 enter.addEventListener('click', (f) => {
-    var name = User.value;
+    var name = user.value;
     console.log(name)
 
     if (name === "") {
@@ -206,7 +273,7 @@ const startTimer = () => {
         timeLeft--;
         var minutes = Math.floor(timeLeft / 60);
         var seconds = timeLeft % 60;
-        timer.innerHTML = `0${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+        timer.innerHTML = `0${minutes}:${ seconds < 10 ? "0" + seconds : seconds }`;
         if (timeLeft <= 0) {
             clearInterval(countdown);
             currentQuiz++;
@@ -214,67 +281,6 @@ const startTimer = () => {
         }
     }, 1000);
 }
-
-
-function quizLoad() {
-    questionsCount += 1;
-    unselectedAnswer();
-
-    const quizIndex = quizData[quiz][currentQuiz];
-
-    question.innerText = quizIndex.question;
-    optionA.innerText = quizIndex.a;
-    optionB.innerText = quizIndex.b;
-    optionC.innerText = quizIndex.c;
-    optionD.innerText = quizIndex.d;
-}
-
-
-function selectedAnswer() {
-    let answer = undefined;
-
-    questionAnswers.forEach((questionAnswer) => {
-        if (questionAnswer.checked) {
-            answer = questionAnswer.id;
-            console.log("answer is: " + answer)
-        }
-    });
-    return answer;
-}
-
-
-function unselectedAnswer() {
-    questionAnswers.forEach((answer) => {
-        answer.checked = false;
-    });
-}
-
-
-submit.addEventListener('click', () => {
-    startTimer();
-
-    const answer = selectedAnswer();
-    console.log(answer.correct);
-
-
-
-    if (answer) {
-        if (answer === quizLevel[currentQuiz]) {
-            userscore++;
-            console.log(userscore)
-        }
-
-        currentQuiz++;
-
-        if (currentQuiz < quizLevel.length) {
-            Load();
-
-        } else {
-            question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${userscore}/${questionsCount}`
-            level++;
-        }
-    }
-})
 
 
 document.getElementById("return").addEventListener("click", function() {
