@@ -167,7 +167,7 @@ var quiz = 0;
 var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
 
-// quizLoad();
+quizLoad();
 // startTimer();
 
 function quizLoad() {
@@ -202,7 +202,6 @@ function getSelected() {
 function wrongSelection() {
     answerEls.forEach((answer) => {
         answer.checked = false;
-        // console.log("PLEASE WORK " + answer.checked)
     });
 }
 
@@ -211,33 +210,34 @@ submit.addEventListener('click', () => {
     const answer = getSelected();
 
     if (answer) {
-        // console.log(quizLevel[currentQuiz].correctAnswer);
-        // console.log(answer)
+        // if (answer === quizLevel[currentQuiz].correctAnswer) {
+        //     score++;
+        //     console.log(score);
+        // }
         if (answer === quizLevel[currentQuiz].correctAnswer) {
             score++;
-            console.log(score);
-
         }
+
         currentQuiz++;
-
-
+        console.log("current quiz is " + currentQuiz)
+        console.log(score)
 
         if (currentQuiz < quizLevel.length) {
+
             quizLoad();
         } else {
             alert(`Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`)
-            question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
+            question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
             level++;
             if (score >= 3) {
                 // question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
-
-                currentQuiz = 0;
+                // question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
                 quiz += 1;
+                currentQuiz = 0;
                 if (quiz < quizData.length)
                     quizLoad();
                 else
-                    question.innerText = `Hurray, you have completed The King's Quiz. \nYou scored ${score}/${questionsCount}`
-                    // quizLoad();
+                    question.innerText = `You have successfully completed The King's Quiz. \nYou Total score was ${score}/${questionsCount}`
             } else {
                 question.innerText = "You Lost."
             }
@@ -249,42 +249,9 @@ submit.addEventListener('click', () => {
 })
 
 
-// submit.addEventListener('click', () => {
-//     const answer = selected();
-//     console.log(answer);
+// quizLoad();
 
 
-//     if (answer) {
-//         console.log("THE FUCKING ANSWER " + answer);
-//         if (answer == quizData[currentQuiz].correct) {
-//             // console.log("THE FUCKING ANSWER " + answer + ' 2');
-//             score++;
-//         }
-
-//         currentQuiz++;
-
-//         if (currentQuiz < quizLevel.length) {
-//             quizLoad();
-
-//         } else {
-//             if (score >= 3) {
-//                 question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
-//                 level++;
-//                 quiz += 1;
-//                 currentQuiz = 0;
-//                 if (quiz < quizData.length)
-//                     quizLoad();
-//                 else
-//                     question.innerText = `Hurray, you have completed The King's Quiz. \nYou scored ${score}/${questionsCount}`
-//             } else {
-//                 question.innerText = "You Lost. \nPlay Again?"
-//             }
-//         }
-//     }
-
-// })
-
-quizLoad();
 
 // function getMyImageToolTip(element, messageText) {
 //     var input = document.querySelector(element),
@@ -294,6 +261,7 @@ quizLoad();
 //         tooltip.innerHTML = messageText;
 //     })
 // }
+
 
 
 start.addEventListener('click', () => {
@@ -344,12 +312,12 @@ enter.addEventListener('click', (f) => {
 // }
 
 
-document.getElementById("return").addEventListener("click", function() {
-    $("#score").hide();
-    $("#home").show();
-    $("#userID").hide();
-    $("#quiz").hide();
-});
+// document.getElementById("return").addEventListener("click", function() {
+//     $("#score").hide();
+//     $("#home").show();
+//     $("#userID").hide();
+//     $("#quiz").hide();
+// });
 
 document.getElementById("BACK").addEventListener("click", function() {
     $("#score").hide();
@@ -359,34 +327,34 @@ document.getElementById("BACK").addEventListener("click", function() {
 });
 
 
-highScore.addEventListener('click', () => {
-    console.log("HIGHSCORE")
-    $("#score").show();
-    $("#home").hide();
-    $("#userID").hide();
-    $("#quiz").hide();
+// highScore.addEventListener('click', () => {
+//     console.log("HIGHSCORE")
+//     $("#score").show();
+//     $("#home").hide();
+//     $("#userID").hide();
+//     $("#quiz").hide();
 
 
 
 
 
-    // LOCAL STORAGE
-    var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
+//     // LOCAL STORAGE
+//     var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
 
-    var name = User.value;
-    console.log(name)
+//     var name = User.value;
+//     console.log(name)
 
-    highScores.sort(function(a, b) {
-        return b.score - a.score;
-    });
+//     highScores.sort(function(a, b) {
+//         return b.score - a.score;
+//     });
 
-    var highScoresTable = document.getElementById("high-scores");
+//     var highScoresTable = document.getElementById("high-scores");
 
 
-    for (var i = 0; i < highScores.length; i++) {
-        var Score = highScores[i];
-        var row = document.createElement("tr");
-        row.innerHTML = "<td>" + (i + 1) + "</td><td>" + Score.name + "</td><td>" + Score.score + "</td>";
-        highScoresTable.appendChild(row);
-    }
-})
+//     for (var i = 0; i < highScores.length; i++) {
+//         var Score = highScores[i];
+//         var row = document.createElement("tr");
+//         row.innerHTML = "<td>" + (i + 1) + "</td><td>" + Score.name + "</td><td>" + Score.score + "</td>";
+//         highScoresTable.appendChild(row);
+//     }
+// })
