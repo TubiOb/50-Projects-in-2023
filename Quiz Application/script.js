@@ -167,7 +167,7 @@ var quiz = 0;
 var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
 
-quizLoad();
+// quizLoad();
 // startTimer();
 
 function quizLoad() {
@@ -192,7 +192,7 @@ function getSelected() {
     answerEls.forEach((answerEl) => {
         if (answerEl.checked) {
             answer = answerEl.id;
-            console.log(answer)
+            // console.log(answer)
         }
     });
     return answer;
@@ -211,33 +211,41 @@ submit.addEventListener('click', () => {
     const answer = getSelected();
 
     if (answer) {
-        console.log(quizLevel[currentQuiz].correctAnswer);
-        console.log(answer)
+        // console.log(quizLevel[currentQuiz].correctAnswer);
+        // console.log(answer)
         if (answer === quizLevel[currentQuiz].correctAnswer) {
             score++;
             console.log(score);
+
         }
         currentQuiz++;
+
+
 
         if (currentQuiz < quizLevel.length) {
             quizLoad();
         } else {
+            alert(`Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`)
             question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
             level++;
-            // if (score >= 3) {
-            //     question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
-            //     level++;
-            //     quiz += 1;
-            //     currentQuiz = 0;
-            //     if (quiz < quizData.length)
-            //         quizLoad();
-            //     else
-            //         question.innerText = `Hurray, you have completed The King's Quiz. \nYou scored ${score}/${questionsCount}`
-            // } else {
-            //     question.innerText = "You Lost. \nPlay Again?"
-            // }
+            if (score >= 3) {
+                // question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
+
+                currentQuiz = 0;
+                quiz += 1;
+                if (quiz < quizData.length)
+                    quizLoad();
+                else
+                    question.innerText = `Hurray, you have completed The King's Quiz. \nYou scored ${score}/${questionsCount}`
+                    // quizLoad();
+            } else {
+                question.innerText = "You Lost."
+            }
         }
     }
+    // if (score >= 3) {
+    //     question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
+    // }
 })
 
 
@@ -276,6 +284,17 @@ submit.addEventListener('click', () => {
 
 // })
 
+quizLoad();
+
+// function getMyImageToolTip(element, messageText) {
+//     var input = document.querySelector(element),
+//         tooltip = input.children[0];
+//     main.children[0]
+//     main.addEventListener('', function() {
+//         tooltip.innerHTML = messageText;
+//     })
+// }
+
 
 start.addEventListener('click', () => {
     console.log("YESSSS")
@@ -309,20 +328,20 @@ enter.addEventListener('click', (f) => {
 // })
 
 
-function startTimer() {
-    var timeLeft = 60;
-    var countdown = setInterval(function() {
-        timeLeft--;
-        var minutes = Math.floor(timeLeft / 60);
-        var seconds = timeLeft % 60;
-        timer.innerHTML = `0${minutes}:${ seconds < 10 ? "0" + seconds : seconds }`;
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            currentQuiz++;
-            // setTimeout(Load, 1000);
-        }
-    }, 1000);
-}
+// function startTimer() {
+//     var timeLeft = 60;
+//     var countdown = setInterval(function() {
+//         timeLeft--;
+//         var minutes = Math.floor(timeLeft / 60);
+//         var seconds = timeLeft % 60;
+//         timer.innerHTML = `0${minutes}:${ seconds < 10 ? "0" + seconds : seconds }`;
+//         if (timeLeft <= 0) {
+//             clearInterval(countdown);
+//             currentQuiz++;
+//             // setTimeout(Load, 1000);
+//         }
+//     }, 1000);
+// }
 
 
 document.getElementById("return").addEventListener("click", function() {

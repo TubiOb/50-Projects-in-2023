@@ -197,23 +197,22 @@
         color: white;
         margin-bottom: 20px;
     }
-    
-    #time {
+    /* #time {
         margin: 10px auto;
         text-align: center;
         border: 1px solid white;
         width: 60px;
         border-radius: 10px;
         color: white;
-    }
+    } */
     
     #question-container p {
         text-align: center;
         position: relative;
-        top: 30%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 14px;
+        font-size: 13px;
     }
     
     #options {
