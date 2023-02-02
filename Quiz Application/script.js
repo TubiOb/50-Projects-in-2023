@@ -227,7 +227,7 @@ submit.addEventListener('click', () => {
             quizLoad();
         } else {
             alert(`Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`)
-            question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
+                // question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
             level++;
             if (score >= 3) {
                 // question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
@@ -275,12 +275,15 @@ start.addEventListener('click', () => {
 
 
 enter.addEventListener('click', (f) => {
-    var name = user.value;
+    var name = String(user.value);
     console.log(name)
 
     if (name === "") {
-        f.preventDefault();
-        return
+        alert("Please enter a valid name")
+    } else if (name === " ") {
+        alert("Please enter a valid name")
+    } else if (name !== isNaN) {
+        alert("Please enter a valid name")
     } else {
         $("#score").hide();
         $("#home").hide();
