@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TicTacToe">
+    <meta name="keywords" content="X, O, TicTacToe">
+    <meta name="author" content="Tubi Obaloluwa">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/b68be37945.js" crossorigin="anonymous"></script>
+    <title>TictacToe</title>
+</head>
+
+<body>
+    <div id="home">
+        <button id="start-game">PLAY NOW</button>
+    </div>
+    <div id="game">
+        <section id="title">
+            <h1>TicTacToe</h1>
+        </section>
+        <section id="turn">
+            <span id="display-player-turn"></span>
+        </section>
+        <section id="game-container">
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+            <button class="tile"></button>
+        </section>
+        <section id="player-score">
+            Player 1: <span class="playerOneScore">0</span> <br> Player 2: <span class="playerTwoScore">0</span>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
