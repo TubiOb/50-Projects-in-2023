@@ -213,6 +213,7 @@ submit.addEventListener('click', () => {
 
         if (currentQuizIndex + 1 < quizLevel.length) {
             currentQuizIndex++;
+            score;
             quizLoad();
         } else {
             alert(`Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`)
@@ -220,7 +221,7 @@ submit.addEventListener('click', () => {
             level++;
             if (score >= 3) {
                 quiz += 1;
-                score = score;
+                // score;
                 // score++;
                 // console.log("Your score is: " + score)
                 currentQuizIndex = 0;
@@ -228,7 +229,7 @@ submit.addEventListener('click', () => {
                     quizLoad();
                 else
                     question.innerText = `You have successfully completed The King's Quiz. \nYou Total score was ${score}/${questionsCount}`
-                quizLoad();
+                    // quizLoad();
             } else {
                 question.innerText = "You Lost."
                 quizLoad();
