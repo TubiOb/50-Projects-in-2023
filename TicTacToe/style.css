@@ -1,55 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font: 14px/1.5 Arial, Helvetica, sans-serif;
-}
-
-body {
-    background-color: #ffff;
-}
-
-#home {
-    width: 250px;
-    height: 250px;
-    border: 1px solid gray;
-    background-color: white;
-    box-shadow: 2px 2px 2px grey;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#start-game {
-    background-color: #d6ccc2;
-    font-size: 13px;
-    border-radius: 4px;
-    border: none;
-    width: 80px;
-    padding: 3px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#game {
-    /* display: none; */
-    width: 250px;
-    height: 250px;
-    border: 1px solid gray;
-    background-color: white;
-    box-shadow: 2px 2px 2px grey;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-@media(min-width: 760px) {
-    #home {
-        width: 300px;
-        height: 300px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font: 14px/1.5 Arial, Helvetica, sans-serif;
     }
-}
+    
+    body {
+        background-color: #ffff;
+    }
+    
+    #home {
+        width: 250px;
+        height: 250px;
+        border: 1px solid gray;
+        background-color: white;
+        box-shadow: 2px 2px 2px grey;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+    
+    #start-game {
+        background-color: gray;
+        color: white;
+        font-size: 13px;
+        border-radius: 4px;
+        border: none;
+        width: 80px;
+        padding: 3px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    #start-game:hover {
+        background-color: white;
+        color: gray;
+        border: 2px solid blanchedalmond;
+        font-weight: bold;
+        transition-duration: 1s;
+    }
+    
+    #game {
+        /* display: none; */
+        width: 250px;
+        height: 250px;
+        border: 1px solid gray;
+        background-color: white;
+        box-shadow: 2px 2px 2px grey;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    #reset {
+        background-color: gray;
+        font-size: 13px;
+        border-radius: 4px;
+        border: none;
+        width: 50px;
+        padding: 3px;
+        color: white;
+    }
+    
+    #reset:hover {
+        background-color: white;
+        color: gray;
+        border: 2px solid blanchedalmond;
+        font-weight: bold;
+        transition-duration: 1s;
+    }
+    
+    @media(min-width: 760px) {
+        #home {
+            width: 300px;
+            height: 300px;
+        }
+    }
