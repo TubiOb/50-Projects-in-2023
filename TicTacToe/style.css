@@ -89,7 +89,7 @@ body {
     text-align: center;
 }
 
-#display-player-turn {
+#playerTurn {
     font-size: 17px;
     color: chocolate;
 }
