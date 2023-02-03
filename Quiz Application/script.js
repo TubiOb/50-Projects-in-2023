@@ -11,14 +11,6 @@ const quizPage = document.querySelector("#quiz");
 const optionsContainer = document.getElementById("opt");
 
 
-window.addEventListener('load', () => {
-    $("#score").hide();
-    $("#home").show();
-    $("#userID").hide();
-    $("#quiz").hide();
-})
-
-
 const quizLevel = [{
         question: "What does HTML stand for?",
         a: "Hyper Text Markup Language",
@@ -158,7 +150,7 @@ const optionC = document.getElementById("c-text");
 const optionD = document.getElementById("d-text");
 const submit = document.getElementById("submit");
 
-let currentQuiz = 0;
+let currentQuizIndex = 0;
 let score = 0;
 let level = 1;
 
@@ -167,7 +159,7 @@ var quiz = 0;
 var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
 
-quizLoad();
+// quizLoad();
 // startTimer();
 
 function quizLoad() {
@@ -175,7 +167,7 @@ function quizLoad() {
     wrongSelection();
 
 
-    const currentQuizData = quizData[quiz][currentQuiz];
+    const currentQuizData = quizData[quiz][currentQuizIndex];
 
     question.innerText = currentQuizData.question;
     optionA.innerText = currentQuizData.a;
@@ -210,48 +202,51 @@ submit.addEventListener('click', () => {
     const answer = getSelected();
 
     if (answer) {
-        // if (answer === quizLevel[currentQuiz].correctAnswer) {
-        //     score++;
-        //     console.log(score);
-        // }
-        if (answer === quizLevel[currentQuiz].correctAnswer) {
+        if (answer === quizLevel[currentQuizIndex].correctAnswer) {
             score++;
+            console.log("Your score is: " + score)
         }
 
-        currentQuiz++;
-        console.log("current quiz is " + currentQuiz)
-        console.log(score)
 
-        if (currentQuiz < quizLevel.length) {
+        console.log("current quiz is " + currentQuizIndex)
+            // console.log(score)
 
+        if (currentQuizIndex + 1 < quizLevel.length) {
+            currentQuizIndex++;
             quizLoad();
         } else {
             alert(`Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`)
                 // question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
             level++;
             if (score >= 3) {
-                // question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
-                // question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
                 quiz += 1;
-                currentQuiz = 0;
+                score = score;
+                // score++;
+                // console.log("Your score is: " + score)
+                currentQuizIndex = 0;
                 if (quiz < quizData.length)
                     quizLoad();
                 else
                     question.innerText = `You have successfully completed The King's Quiz. \nYou Total score was ${score}/${questionsCount}`
+                quizLoad();
             } else {
                 question.innerText = "You Lost."
+                quizLoad();
             }
         }
     }
-    // if (score >= 3) {
-    //     question.innerText = `Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
-    // }
 })
 
 
-// quizLoad();
+quizLoad();
 
 
+window.addEventListener('load', () => {
+    $("#score").hide();
+    $("#home").show();
+    $("#userID").hide();
+    $("#quiz").hide();
+})
 
 // function getMyImageToolTip(element, messageText) {
 //     var input = document.querySelector(element),
@@ -282,7 +277,7 @@ enter.addEventListener('click', (f) => {
         alert("Please enter a valid name")
     } else if (name === " ") {
         alert("Please enter a valid name")
-    } else if (name !== isNaN) {
+    } else if (name === Number) {
         alert("Please enter a valid name")
     } else {
         $("#score").hide();

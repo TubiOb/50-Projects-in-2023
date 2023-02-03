@@ -11,13 +11,13 @@
     
     h3 {
         font-size: 20px;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
         color: white;
     }
     
     h1 {
         font-size: 20px;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
         color: white;
         margin: 10px auto;
         text-align: center;
@@ -25,7 +25,7 @@
     
     p {
         font-size: 15px;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
         color: white;
         margin-bottom: 10px;
     }
@@ -65,7 +65,7 @@
     
     label {
         font-size: 13px;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
         color: #5e6472;
         float: left;
         align-self: center;
@@ -165,7 +165,7 @@
     #userID input {
         border: none;
         outline: none;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
     }
     
     #container {
@@ -239,7 +239,7 @@
         align-items: center;
         overflow: hidden;
         position: relative;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
         color: white;
         /* border: 1px solid wheat; */
     }
@@ -255,7 +255,7 @@
         align-items: center;
         overflow: hidden;
         position: relative;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
         color: white;
         /* border: 1px solid wheat; */
     }
@@ -288,7 +288,7 @@
         border: none;
         border-radius: 5px;
         color: #5e6472;
-        font-family: 'Satisfy', cursive;
+        font-family: 'Chakra Petch', sans-serif;
     }
     
     #submit {
