@@ -8,6 +8,10 @@
     body {
         background-color: #ffff;
     }
+    /* button {
+        margin: 10px;
+        min-height: 0px;
+    } */
     
     #home {
         width: 250px;
@@ -90,8 +94,12 @@
     }
     
     .tile {
-        font-size: 15px;
+        font-size: 20px;
         resize: none;
+        background-color: #84a98c;
+        color: #ffff;
+        border: none;
+        min-height: 50px;
     }
     
     .playerTurn {
@@ -107,7 +115,8 @@
         top: 1%;
         transform: translate(-50%, 24%);
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+        /* grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); */
+        grid-template-columns: repeat(3, 1fr);
         gap: 3px;
         padding: 3px;
         font-size: 15px;

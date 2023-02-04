@@ -5,19 +5,20 @@ window.addEventListener('load', () => {
 
 const play = document.querySelector("#start-game");
 const Tile = document.querySelectorAll(".tile");
-const player1score = document.querySelector(".playerOneScore").textContent;
-const player2score = document.querySelector(".playerTwoScore").textContent;
+// const player1score = document.querySelector(".playerOneScore").textContent;
+// const player2score = document.querySelector(".playerTwoScore").textContent;
 const reset = document.querySelector("#reset");
-const playerTurn = document.querySelector(".playerTurn").innerText;
+const playerTurn = document.querySelector(".playerTurn");
 
 var player = "X";
-var tiles = [];
+var values = [];
 var firstPlayerscore = 0;
 var secondPlayerscore = 0;
 var isPlayerOneTurn = true;
 var roundWon = false;
 var playCount = 0;
 var played = "";
+var text = "";
 
 var possibleWins = [
     [0, 1, 2],
@@ -37,35 +38,71 @@ play.addEventListener('click', () => {
 })
 
 
-Tile.forEach((tile) => {
-    tile.innerHTML = "";
-    tile.addEventListener('click', (e) => {
-        if (roundWon)
-            return;
+// Tile.forEach((tile) => {
+//     tile.innerHTML = "";
+//     tile.addEventListener('click', (e) => {
+//         console.log("I am CLICKED")
+//         if (roundWon)
+//             return;
 
-        if (e.target.innerHTML = "") {
+//         if (e.target.innerHTML = "") {
+
+//             playCount++;
+//             played = isPlayerOneTurn ? "X" : "O";
+//             values[Number(e.target.value)] = played;
+//             // console.log(tile)
+//             e.target.innerHTML = played;
+//             isPlayerOneTurn = !isPlayerOneTurn;
+//             if (playCount > 4) {
+//                 if (!resultValidation() && playCount == 9)
+//                     updateBoard();
+//             }
+//         }
+//     });
+
+// });
+
+
+
+for (var i = 0; i < Tile.length; i++) {
+
+    Tile[i].innerHTML = "";
+    Tile[i].addEventListener("click", (e) => {
+
+        if (roundWon) {
+            return;
+        }
+
+
+        if (e.target.innerHTML == "") {
+
             playCount++;
             played = isPlayerOneTurn ? "X" : "O";
-            tiles[Number(e.target.value)] = played;
+            values[Number(e.target.value)] = played;
             e.target.innerHTML = played;
             isPlayerOneTurn = !isPlayerOneTurn;
+
             if (playCount > 4) {
                 if (!resultValidation() && playCount == 9)
                     updateBoard();
             }
-        }
-    })
 
-});
+        }
+
+    });
+
+}
+
+
 
 function updateBoard() {
     playCount = 0;
-    tiles = [];
+    values = [];
     roundWon = false;
 
     Tile.forEach((tile) => {
         tile.innerHTML = "";
-        tile.style.backgroundColor = "";
+        tile.style.backgroundColor = "#84a98c";
     });
 }
 
@@ -80,18 +117,6 @@ function updateBoard() {
 //     return true;
 // }
 
-// const updateBoard = (index) => {
-//     tiles[index] = player;
-// }
-
-
-
-// // for (var i = 0; i < 9; i++) {
-// //     var btn = i;
-// //     tiles[i] = btn;
-// //     console.log(tiles[i])
-// // }
-
 // Tile.forEach((tile, index) => {
 //     tile.addEventListener('click', () =>
 //         userAction(tile, index)
@@ -99,44 +124,23 @@ function updateBoard() {
 // });
 
 
-// Tile.forEach(tile => {
-//     tile.addEventListener('click', function(event) {
-//         if (this.classList.contains('clicked')) {
-//             return;
-//         }
-
-//         this.classList.add('clicked');
-//         // Perform your logic for updating player scores, etc. here
-//     });
-// });
-
-
-// // function Turn() {
-// //     if (isPlayer1Turn) {
-// //         playerTurn.innerText = "1";
-// //     } else {
-// //         playerTurn.innerText = "2"
-// //     }
-// // }
-
-
 
 function resultValidation() {
     for (var i = 0; i < possibleWins.length; i++) {
         const winCondition = possibleWins[i];
-        const a = tiles[winCondition[0]];
-        const b = tiles[winCondition[1]];
-        const c = tiles[winCondition[2]];
+        const a = winCondition[0];
+        const b = winCondition[1];
+        const c = winCondition[2];
 
-        if (a === played && b === played && c === played) {
+        if (values[a] === played && values[b] === played && values[c] === played) {
             roundWon = true;
-            Tile[a].style.backgroundColor = "";
-            Tile[b].style.backgroundColor = "";
-            Tile[c].style.backgroundColor = "";
+            Tile[a].style.backgroundColor = "lightgreen";
+            Tile[b].style.backgroundColor = "lightgreen";
+            Tile[c].style.backgroundColor = "lightgreen";
 
             setTimeout(function() {
                 updateBoard();
-            }, 2000);
+            }, 1500);
             return true;
         }
 
@@ -146,12 +150,12 @@ function resultValidation() {
 
 
 reset.addEventListener('click', () => {
-    tiles = [];
+    values = [];
     isGameActive = true;
 
-    if (player === "O") {
+    if (played === "O") {
         playerTurn.innerText = "X"
-        changePlayer();
+            // changePlayer();
     }
 
     Tile.forEach(tile => {
@@ -169,7 +173,7 @@ reset.addEventListener('click', () => {
 //     }
 // };
 
-const changePlayer = () => {
-    player = player === 'X' ? 'O' : 'X';
-    playerTurn.innerText = player;
-}
+// const changePlayer = () => {
+//     player = player === 'X' ? 'O' : 'X';
+//     playerTurn.innerText = player;
+// }
