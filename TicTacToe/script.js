@@ -22,13 +22,15 @@ var text = "";
 
 var possibleWins = [
     [0, 1, 2],
-    [0, 3, 6],
-    [0, 4, 8],
     [3, 4, 5],
-    [1, 4, 7],
-    [2, 4, 6],
     [6, 7, 8],
-    [2, 7, 8]
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+
+
 ];
 
 
@@ -75,7 +77,6 @@ for (var i = 0; i < Tile.length; i++) {
 
 
         if (e.target.innerHTML == "") {
-
             playCount++;
             played = isPlayerOneTurn ? "X" : "O";
             values[Number(e.target.value)] = played;
