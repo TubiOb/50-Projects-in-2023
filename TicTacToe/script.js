@@ -30,8 +30,6 @@ var possibleWins = [
 ];
 
 
-// firstPlayerscore = player1score;
-// secondPlayerscore = player2score;
 console.log(firstPlayerscore);
 console.log(player1score)
 
@@ -45,9 +43,6 @@ play.addEventListener('click', () => {
     $("#game").show();
 })
 
-reset.addEventListener('click', () => {
-
-})
 
 const isValid = (Tile) => {
     if (Tile.innerText === "X" || Tile.innerText === "O") {
@@ -108,7 +103,7 @@ function resultValidation() {
             firstPlayerscore++;
             console.log(firstPlayerscore);
             player1score.innerText = firstPlayerscore;
-            console.log(player1score)
+            console.log("Score is:" + player1score)
         } else {
             secondPlayerscore++;
             player2score.innerText = secondPlayerscore;
