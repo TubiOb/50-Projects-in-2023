@@ -17,6 +17,7 @@ h2 {
 #Home {
     background-color: #ffff;
     display: none;
+    overflow: hidden;
 }
 
 #container {
@@ -26,9 +27,11 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    overflow: hidden;
 }
 
-input {
+#myname,
+#mymail {
     margin: 3px 0px;
     width: 250px;
     border: none;
@@ -38,12 +41,14 @@ input {
     font-size: 15px;
     padding: 3px 0;
     color: blueviolet;
+    overflow: hidden;
 }
 
 label {
     font-size: 17px;
     color: blueviolet;
     font-weight: 500;
+    overflow: hidden;
 }
 
 #enter {
@@ -59,6 +64,7 @@ label {
     border: 2px solid #354f52;
     outline: none;
     font-weight: bold;
+    overflow: hidden;
 }
 
 #enter:hover {
@@ -72,8 +78,105 @@ label {
     font-weight: bold;
 }
 
+#Todo {
+    width: 95%;
+    background-color: #ffff;
+    margin: 30px auto;
+    border: 1px solid red;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#top {
+    width: 100%;
+    border: 1px solid green;
+    display: flex;
+    /* grid-template-columns: repeat(1, 1fr); */
+    /* grid-template-columns: repeat(auto-fit, minmax(370px, 1fr)); */
+    flex-direction: column;
+    gap: 3px;
+    padding: 3px;
+    /* border: none; */
+}
+
+#details {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #354f52;
+    padding: 10px;
+}
+
+#addNew {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #0081a7;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    /* display: grid;
+    grid-template-columns: repeat(1, 1fr); */
+    gap: 15px;
+}
+
+#addItem {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"] {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 2px;
+    padding: 5px;
+    /* background-color: gray; */
+    color: white;
+    color: blueviolet;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid gray;
+}
+
+input[type="text"]::placeholder {
+    color: blueviolet;
+}
+
+.material-symbols-outlined {
+    border: 1px solid #354f52;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#tasks-container {
+    background-color: darkolivegreen;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: 5px;
+    border: 1px solid purple;
+}
+
 @media(min-width: 760px) {
-    input {
+    #myname,
+    #mymail {
         width: 300px;
+    }
+    #top {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #details,
+    #addNew {
+        width: 40%;
     }
 }
