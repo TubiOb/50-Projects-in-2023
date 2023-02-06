@@ -161,13 +161,14 @@ var quizData = [quizLevel, quizLevelTwo, quizLevelThree];
 
 // quizLoad();
 // startTimer();
+var currentQuizData;
 
 function quizLoad() {
     questionsCount += 1;
     wrongSelection();
 
 
-    const currentQuizData = quizData[quiz][currentQuizIndex];
+    currentQuizData = quizData[quiz][currentQuizIndex];
 
     question.innerText = currentQuizData.question;
     optionA.innerText = currentQuizData.a;
@@ -202,7 +203,7 @@ submit.addEventListener('click', () => {
     const answer = getSelected();
 
     if (answer) {
-        if (answer === quizLevel[currentQuizIndex].correctAnswer) {
+        if (answer === currentQuizData.correctAnswer) {
             score++;
             console.log("Your score is: " + score)
         }
@@ -213,17 +214,16 @@ submit.addEventListener('click', () => {
 
         if (currentQuizIndex + 1 < quizLevel.length) {
             currentQuizIndex++;
-            score;
+            // score;
             quizLoad();
         } else {
-            alert(`Hurray, you have completed Level ${level}. \nYou scored ${score}/${questionsCount}`)
+            alert(`
+                        Hurray, you have completed Level ${level}.\nYou scored ${score}
+                        /${questionsCount}`)
                 // question.innerText = `You have completed Level ${level}. \nYou scored ${score}/${questionsCount}`
             level++;
             if (score >= 3) {
                 quiz += 1;
-                // score;
-                // score++;
-                // console.log("Your score is: " + score)
                 currentQuizIndex = 0;
                 if (quiz < quizData.length)
                     quizLoad();
