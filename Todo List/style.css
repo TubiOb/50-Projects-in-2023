@@ -161,6 +161,7 @@ input[type="text"]::placeholder {
 
 #tasks-container {
     width: 100%;
+    /* height: 600px; */
     display: grid;
     /* flex-direction: column; */
     /* background-color: darkolivegreen; */
@@ -170,13 +171,16 @@ input[type="text"]::placeholder {
 }
 
 .card {
-    background-color: lightgray;
+    background-color: #81b29a;
     padding: 5px;
-    margin: auto;
-    width: 130px;
-    height: 150px;
-    border: 1px solid #0081a7;
-    display: none;
+    margin: 10px auto;
+    width: 150px;
+    height: 170px;
+    /* border: 1px solid black; */
+    color: white;
+    /* display: none; */
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 3px solid whitesmoke;
 }
 
 .task {
@@ -190,8 +194,28 @@ input[type="text"]::placeholder {
 }
 
 .card:hover {
-    display: block;
+    /* display: block; */
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
 }
+
+#del-btn,
+#add-task-btn {
+    position: absolute;
+    bottom: 60px;
+    left: 26px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
+    visibility: hidden;
+    transition: all 0.3s linear;
+}
+
+
+/* #tasksCard .card {
+    display: none;
+} */
 
 
 /* #tasks-Todo {

@@ -3,6 +3,7 @@
 //     $("#TodoList").hide();
 // })
 
+const TodoPage = document.querySelector("#TodoList")
 const username = document.querySelector("#myname");
 const usermail = document.querySelector("#mymail");
 const login = document.querySelector("#enter");
@@ -30,21 +31,25 @@ login.addEventListener('click', () => {
             Name.innerHTML = `Hi, ${username.value}`;
             Mail.innerHTML = usermail.value;
             date.innerText = Daydate;
+            // $(".card").show();
         } else {
             alert("Invalid Username or Password");
         }
     } else {
         alert("Fields cannot be empty");
     }
+
 })
 
+
+$(".card").hide();
 
 
 addItem.addEventListener('click', () => {
     if (Title.value.length > 0 && tasks.value.length > 0) {
         const Taskcard = document.createElement('div');
         // const card = document.createElement('div');
-        Taskcard.classList.add('card');
+        Taskcard.classList.add('Taskcard');
         Taskcard.id = "tasksCard";
 
         const getTitle = document.createElement("h4");
@@ -56,19 +61,58 @@ addItem.addEventListener('click', () => {
       <span>${tasks.value}</span>
     </div>`;
 
+        $(".card").show();
         Taskcard.innerHTML += taskHTML;
 
         // container.appendChild(card);
 
         container.appendChild(Taskcard);
 
+        const taskData = {
+            title: Title.value,
+            content: tasks.value
+        };
+
+        let tasksArray = [];
+        if (localStorage.getItem("tasksArray")) {
+            tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
+        }
+        tasksArray.push(taskData);
+        localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+
         Title.value = '';
         tasks.value = '';
-        $(".card").show();
+
     }
 });
 
 
+
+const storedTasks = JSON.parse(localStorage.getItem("tasksArray")) || [];
+storedTasks.forEach((task) => {
+    const Taskcard = document.createElement('div');
+    Taskcard.classList.add('card');
+
+    const getTitle = document.createElement("h4");
+    getTitle.innerHTML = task.title;
+    Taskcard.appendChild(getTitle);
+
+    const taskHTML = `<div class="task">
+      <input type="checkbox">
+      <span>${task.content}</span>
+    </div>`;
+
+    Taskcard.innerHTML += taskHTML;
+    container.appendChild(Taskcard);
+});
+
+
+
+TodoPage.addEventListener('load', () => {
+    // $(".card").show();
+})
+
+console.log(TodoPage)
 
 // const task = [];
 // while (true) {
