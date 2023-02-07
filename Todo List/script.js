@@ -12,10 +12,15 @@ const Mail = document.querySelector("#Mail");
 const date = document.querySelector("#Date");
 const Title = document.querySelector("#title");
 const tasks = document.querySelector("#contents");
-const addItem = document.querySelector(".add-item-btn");
+const AddItem = document.querySelector("#add-item-btn");
 var Taskcard = document.querySelector("#tasksCard");
 const container = document.querySelector("#tasks-container");
 const overlay = document.querySelector(".change");
+// const NewTask = document.getElementById("addtask").setAttribute("onclick", "javascript:alert('hello');");
+const addNewTask = document.querySelector("#addtask");
+// const remove = document.getElementById("del-btn").setAttribute("onclick", "javascript:alert('helloooooo');");
+// const RemoveTask = document.getElementById("remove").setAttribute("onclick", "javascript:alert('helloooooo');");
+const Remove = document.querySelector("#remove");
 
 const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 var Daydate = new Date().toLocaleDateString();
@@ -25,7 +30,7 @@ console.log(Daydate);
 
 login.addEventListener('click', () => {
     if (username.value.length > 0 && usermail.value.length > 0) {
-        if (username.value.match(nameRegex) && usermail.value.match(mailformat)) {
+        if (!username.value.match(nameRegex) && usermail.value.match(mailformat)) {
             console.log("WELCOME");
             $("#Home").hide();
             $("#TodoList").show();
@@ -46,7 +51,7 @@ login.addEventListener('click', () => {
 $(".card").hide();
 
 
-addItem.addEventListener('click', () => {
+AddItem.addEventListener('click', () => {
     if (Title.value.length > 0 && tasks.value.length > 0) {
         const Taskcard = document.createElement('div');
         // const card = document.createElement('div');
@@ -56,7 +61,6 @@ addItem.addEventListener('click', () => {
         const getTitle = document.createElement("h4");
         getTitle.innerHTML = Title.value;
         Taskcard.appendChild(getTitle);
-        Taskcard.appendChild(overlay);
 
         const taskHTML = `<div class="task">
       <input type="checkbox">
@@ -111,11 +115,33 @@ addItem.addEventListener('click', () => {
 
 
 
-TodoPage.addEventListener('load', () => {
-    // $(".card").show();
+
+// console.log(addNewTask);
+// console.log(delit);
+console.log(AddItem);
+
+addNewTask.addEventListener('click', () => {
+    console.log("YEEEEHHHHHHH");
+    alert("YEEEEHHHHHHH");
 })
 
-console.log(TodoPage)
+Remove.addEventListener('click', () => {
+    console.log("PRESSINg");
+    alert("PRESSINg");
+})
+
+
+function PlusTask() {
+    console.log("YEEEEHHHHHHH");
+    alert("YEEEEHHHHHHH");
+}
+
+function DeleteTask() {
+    alert("PRESSINg");
+    console.log("PRESSINg");
+}
+
+console.log("REACH")
 
 // const task = [];
 // while (true) {

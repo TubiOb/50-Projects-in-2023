@@ -47,8 +47,9 @@
                     </div>
                     <div id="addItem">
                         <!-- <button><span class="material-symbols-outlined">add</span></button> -->
-                        <button class="add-item-btn">+</button>
-
+                        <button id="add-item-btn" class="material-symbols-outlined">add</button>
+                        <button id="addtask" class="material-symbols-outlined" onclick="PlusTask">note_add</button>
+                        <button id="remove" class="material-icons" onclick="DeleteTask">delete</button>
                     </div>
                 </div>
             </div>
@@ -56,10 +57,7 @@
             <div id="tasks-container">
                 <div id="tasksCard" class="card">
                     <!-- <h4 id="tasktitle"></h4> -->
-                    <div class="change">
-                        <button id="add-task-btn" class="material-symbols-outlined">note_add</button>
-                        <button id="del-btn" class="material-icons">delete</button>
-                    </div>
+                    <!-- <div class="change"> -->
                 </div>
             </div>
         </div>
