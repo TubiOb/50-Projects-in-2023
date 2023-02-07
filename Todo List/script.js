@@ -1,7 +1,7 @@
-// window.addEventListener('load', () => {
-//     $("#Home").show();
-//     $("#TodoList").hide();
-// })
+window.addEventListener('load', () => {
+    $("#Home").show();
+    $("#TodoList").hide();
+})
 
 const TodoPage = document.querySelector("#TodoList")
 const username = document.querySelector("#myname");
@@ -61,24 +61,25 @@ addItem.addEventListener('click', () => {
       <span>${tasks.value}</span>
     </div>`;
 
-        $(".card").show();
+
         Taskcard.innerHTML += taskHTML;
 
         // container.appendChild(card);
 
         container.appendChild(Taskcard);
+        $(".Taskcard").show();
 
-        const taskData = {
-            title: Title.value,
-            content: tasks.value
-        };
+        // const taskData = {
+        //     title: Title.value,
+        //     content: tasks.value
+        // };
 
-        let tasksArray = [];
-        if (localStorage.getItem("tasksArray")) {
-            tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
-        }
-        tasksArray.push(taskData);
-        localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+        // let tasksArray = [];
+        // if (localStorage.getItem("tasksArray")) {
+        //     tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
+        // }
+        // tasksArray.push(taskData);
+        // localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
 
         Title.value = '';
         tasks.value = '';
@@ -88,23 +89,23 @@ addItem.addEventListener('click', () => {
 
 
 
-const storedTasks = JSON.parse(localStorage.getItem("tasksArray")) || [];
-storedTasks.forEach((task) => {
-    const Taskcard = document.createElement('div');
-    Taskcard.classList.add('card');
+// const storedTasks = JSON.parse(localStorage.getItem("tasksArray")) || [];
+// storedTasks.forEach((task) => {
+//     const Taskcard = document.createElement('div');
+//     Taskcard.classList.add('Taskcard');
 
-    const getTitle = document.createElement("h4");
-    getTitle.innerHTML = task.title;
-    Taskcard.appendChild(getTitle);
+//     const getTitle = document.createElement("h4");
+//     getTitle.innerHTML = task.title;
+//     Taskcard.appendChild(getTitle);
 
-    const taskHTML = `<div class="task">
-      <input type="checkbox">
-      <span>${task.content}</span>
-    </div>`;
+//     const taskHTML = `<div class="task">
+//       <input type="checkbox">
+//       <span>${task.content}</span>
+//     </div>`;
 
-    Taskcard.innerHTML += taskHTML;
-    container.appendChild(Taskcard);
-});
+//     Taskcard.innerHTML += taskHTML;
+//     container.appendChild(Taskcard);
+// });
 
 
 

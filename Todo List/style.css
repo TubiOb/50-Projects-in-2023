@@ -165,12 +165,12 @@ input[type="text"]::placeholder {
     display: grid;
     /* flex-direction: column; */
     /* background-color: darkolivegreen; */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 5px;
     border: 1px solid purple;
 }
 
-.card {
+.Taskcard {
     background-color: #81b29a;
     padding: 5px;
     margin: 10px auto;
