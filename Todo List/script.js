@@ -1,7 +1,7 @@
-window.addEventListener('load', () => {
-    $("#Home").show();
-    $("#TodoList").hide();
-})
+// window.addEventListener('load', () => {
+//     $("#Home").show();
+//     $("#TodoList").hide();
+// })
 
 const TodoPage = document.querySelector("#TodoList")
 const username = document.querySelector("#myname");
@@ -15,6 +15,7 @@ const tasks = document.querySelector("#contents");
 const addItem = document.querySelector(".add-item-btn");
 var Taskcard = document.querySelector("#tasksCard");
 const container = document.querySelector("#tasks-container");
+const overlay = document.querySelector(".change");
 
 const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 var Daydate = new Date().toLocaleDateString();
@@ -55,6 +56,7 @@ addItem.addEventListener('click', () => {
         const getTitle = document.createElement("h4");
         getTitle.innerHTML = Title.value;
         Taskcard.appendChild(getTitle);
+        Taskcard.appendChild(overlay);
 
         const taskHTML = `<div class="task">
       <input type="checkbox">
@@ -75,11 +77,11 @@ addItem.addEventListener('click', () => {
         // };
 
         // let tasksArray = [];
-        // if (localStorage.getItem("tasksArray")) {
-        //     tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
+        // if (localStorage.getItem(`tasksArray_${usermail.value}`)) {
+        //     tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`));
         // }
         // tasksArray.push(taskData);
-        // localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+        // localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
 
         Title.value = '';
         tasks.value = '';
@@ -89,7 +91,7 @@ addItem.addEventListener('click', () => {
 
 
 
-// const storedTasks = JSON.parse(localStorage.getItem("tasksArray")) || [];
+// const storedTasks = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
 // storedTasks.forEach((task) => {
 //     const Taskcard = document.createElement('div');
 //     Taskcard.classList.add('Taskcard');

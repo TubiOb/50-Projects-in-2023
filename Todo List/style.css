@@ -165,25 +165,38 @@ input[type="text"]::placeholder {
     display: grid;
     /* flex-direction: column; */
     /* background-color: darkolivegreen; */
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 5px;
     border: 1px solid purple;
 }
 
 .Taskcard {
-    background-color: #81b29a;
+    background-color: #6d6875;
     padding: 5px;
     margin: 10px auto;
-    width: 150px;
-    height: 170px;
-    /* border: 1px solid black; */
+    width: 220px;
+    height: 235px;
     color: white;
-    /* display: none; */
     border-radius: 8px;
-    box-shadow: 1px 1px 1px 3px solid whitesmoke;
+    transition: 0.4s ease-out;
+    box-shadow: 0px 7px 10px rgba(black, 0.5);
 }
 
-.task {
+.Taskcard h4 {
+    text-align: center;
+    border-bottom: 1px solid burlywood;
+    width: 90px;
+    margin: auto;
+    font-size: 17px;
+    opacity: 1;
+}
+
+.Taskcard label {
+    font-size: 14px;
+}
+
+
+/* .task {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -191,38 +204,46 @@ input[type="text"]::placeholder {
 
 .task input[type="checkbox"] {
     margin-right: 10px;
-}
+} */
 
-.card:hover {
-    /* display: block; */
+.Taskcard:hover {
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
+    backdrop-filter: blur(2px);
+}
+
+.Taskcard .change {
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 60px;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1900;
+    background: transparent;
+    padding: 3px;
+    /* border: 1px solid red; */
+}
+
+.Taskcard:hover .change {
+    opacity: 1;
 }
 
 #del-btn,
 #add-task-btn {
-    position: absolute;
-    bottom: 60px;
-    left: 26px;
+    width: 20px;
     color: white;
-    font-size: 14px;
+    /* font-size: 14px; */
     font-weight: bold;
-    text-shadow: 1px 1px #000;
-    visibility: hidden;
-    transition: all 0.3s linear;
+    /* text-shadow: 1px 1px #000; */
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+    background: transparent;
 }
-
-
-/* #tasksCard .card {
-    display: none;
-} */
-
-
-/* #tasks-Todo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    gap: 5px;
-} */
 
 @media(min-width: 760px) {
     #myname,
