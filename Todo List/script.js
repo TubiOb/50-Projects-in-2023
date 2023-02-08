@@ -1,7 +1,7 @@
-// window.addEventListener('load', () => {
-//     $("#Home").show();
-//     $("#TodoList").hide();
-// })
+window.addEventListener('load', () => {
+    $("#Home").show();
+    $("#TodoList").hide();
+})
 
 const TodoPage = document.querySelector("#TodoList")
 const username = document.querySelector("#myname");
@@ -16,10 +16,7 @@ const AddItem = document.querySelector("#add-item-btn");
 var Taskcard = document.querySelector("#tasksCard");
 const container = document.querySelector("#tasks-container");
 const overlay = document.querySelector(".change");
-// const NewTask = document.getElementById("addtask").setAttribute("onclick", "javascript:alert('hello');");
 const addNewTask = document.querySelector("#addtask");
-// const remove = document.getElementById("del-btn").setAttribute("onclick", "javascript:alert('helloooooo');");
-// const RemoveTask = document.getElementById("remove").setAttribute("onclick", "javascript:alert('helloooooo');");
 const Remove = document.querySelector("#remove");
 
 const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -30,7 +27,7 @@ console.log(Daydate);
 
 login.addEventListener('click', () => {
     if (username.value.length > 0 && usermail.value.length > 0) {
-        if (!username.value.match(nameRegex) && usermail.value.match(mailformat)) {
+        if (username.value.match(nameRegex) && usermail.value.match(mailformat)) {
             console.log("WELCOME");
             $("#Home").hide();
             $("#TodoList").show();
@@ -73,17 +70,17 @@ AddItem.addEventListener('click', () => {
         container.appendChild(Taskcard);
         $(".Taskcard").show();
 
-        // const taskData = {
-        //     title: Title.value,
-        //     content: tasks.value
-        // };
+        const taskData = {
+            title: Title.value,
+            content: tasks.value
+        };
 
-        // let tasksArray = [];
-        // if (localStorage.getItem(`tasksArray_${usermail.value}`)) {
-        //     tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`));
-        // }
-        // tasksArray.push(taskData);
-        // localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
+        let tasksArray = [];
+        if (localStorage.getItem(`tasksArray_${usermail.value}`)) {
+            tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`));
+        }
+        tasksArray.push(taskData);
+        localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
 
         Title.value = '';
         tasks.value = '';
@@ -95,18 +92,15 @@ AddItem.addEventListener('click', () => {
                 cards.style.backgroundColor = '';
                 cards.style.filter = '';
             });
-            // if (event.currentTarget.style.backgroundColor !== 'green') {
-            //     event.currentTarget.style.backgroundColor = 'green';
-            //     event.currentTarget.style.filter = 'blur(3px)';
-            //     selectedCard = event.currentTarget;
-            // } else {
-            //     event.currentTarget.style.backgroundColor = '';
-            //     event.currentTarget.style.filter = '';
-            //     // selectedCard = event.currentTarget;
-            // }
             event.currentTarget.style.backgroundColor = 'green';
             event.currentTarget.style.filter = 'blur(1px)';
             selectedCard = event.currentTarget;
+
+            // setTimeout(() => {
+            //     event.currentTarget.style.backgroundColor = '';
+            //     event.currentTarget.style.filter = '';
+            //     // selectedCard = null;
+            // }, 5000);
         });
     }
 });
@@ -114,31 +108,27 @@ AddItem.addEventListener('click', () => {
 
 
 
-// const storedTasks = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
-// storedTasks.forEach((task) => {
-//     const Taskcard = document.createElement('div');
-//     Taskcard.classList.add('Taskcard');
+const storedTasks = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
+storedTasks.forEach((task) => {
+    const Taskcard = document.createElement('div');
+    Taskcard.classList.add('Taskcard');
 
-//     const getTitle = document.createElement("h4");
-//     getTitle.innerHTML = task.title;
-//     Taskcard.appendChild(getTitle);
+    const getTitle = document.createElement("h4");
+    getTitle.innerHTML = task.title;
+    Taskcard.appendChild(getTitle);
 
-//     const taskHTML = `<div class="task">
-//       <input type="checkbox">
-//       <span>${task.content}</span>
-//     </div>`;
+    const taskHTML = `<div class="task">
+      <input type="checkbox">
+      <span>${task.content}</span>
+    </div>`;
 
-//     Taskcard.innerHTML += taskHTML;
-//     container.appendChild(Taskcard);
-// });
+    Taskcard.innerHTML += taskHTML;
+    container.appendChild(Taskcard);
+});
 
-
-
-console.log(AddItem);
 
 addNewTask.addEventListener('click', () => {
     console.log("YEEEEHHHHHHH");
-    alert("YEEEEHHHHHHH");
     selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard && tasks.value.length > 0) {
         const taskHTML = `<div class="task"> 
@@ -154,7 +144,6 @@ addNewTask.addEventListener('click', () => {
 
 Remove.addEventListener('click', () => {
     console.log("PRESSINg");
-    alert("PRESSINg");
     selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard) {
         selectedCard.remove();
@@ -162,41 +151,4 @@ Remove.addEventListener('click', () => {
         Title.value = '';
         tasks.value = '';
     }
-})
-
-
-function PlusTask() {
-    console.log("YEEEEHHHHHHH");
-    alert("YEEEEHHHHHHH");
-}
-
-function DeleteTask() {
-    alert("PRESSINg");
-    console.log("PRESSINg");
-}
-
-console.log("REACH")
-
-// const task = [];
-// while (true) {
-//     if (!tasks.value)
-//         break;
-//     task.push(tasks);
-// }
-
-// if (task.length > 0) {
-//     const card = document.createElement("div");
-//     container.classList.add("ccntainer");
-
-//     
-
-//     let tasksHTML = "";
-//     task.forEach(tasks => {
-//         tasksHTML += ` < div class = "task" >
-//         <input type="checkbox">
-//         <span>${tasks.value}</span>
-//       </>`;
-//     });
-//     card.innerHTML += tasksHTML;
-//     Taskcard.appendChild(card);
-// }
+});
