@@ -50,11 +50,12 @@ login.addEventListener('click', () => {
 
 $(".card").hide();
 
+let selectedCard;
+
 
 AddItem.addEventListener('click', () => {
     if (Title.value.length > 0 && tasks.value.length > 0) {
         const Taskcard = document.createElement('div');
-        // const card = document.createElement('div');
         Taskcard.classList.add('Taskcard');
         Taskcard.id = "tasksCard";
 
@@ -69,9 +70,6 @@ AddItem.addEventListener('click', () => {
 
 
         Taskcard.innerHTML += taskHTML;
-
-        // container.appendChild(card);
-
         container.appendChild(Taskcard);
         $(".Taskcard").show();
 
@@ -90,8 +88,29 @@ AddItem.addEventListener('click', () => {
         Title.value = '';
         tasks.value = '';
 
+
+        Taskcard.addEventListener('click', (event) => {
+            const taskCards = document.querySelectorAll('.Taskcard');
+            taskCards.forEach(cards => {
+                cards.style.backgroundColor = '';
+                cards.style.filter = '';
+            });
+            // if (event.currentTarget.style.backgroundColor !== 'green') {
+            //     event.currentTarget.style.backgroundColor = 'green';
+            //     event.currentTarget.style.filter = 'blur(3px)';
+            //     selectedCard = event.currentTarget;
+            // } else {
+            //     event.currentTarget.style.backgroundColor = '';
+            //     event.currentTarget.style.filter = '';
+            //     // selectedCard = event.currentTarget;
+            // }
+            event.currentTarget.style.backgroundColor = 'green';
+            event.currentTarget.style.filter = 'blur(1px)';
+            selectedCard = event.currentTarget;
+        });
     }
 });
+
 
 
 
@@ -115,19 +134,34 @@ AddItem.addEventListener('click', () => {
 
 
 
-
-// console.log(addNewTask);
-// console.log(delit);
 console.log(AddItem);
 
 addNewTask.addEventListener('click', () => {
     console.log("YEEEEHHHHHHH");
     alert("YEEEEHHHHHHH");
-})
+    selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
+    if (selectedCard && tasks.value.length > 0) {
+        const taskHTML = `<div class="task"> 
+        <input type="checkbox"> 
+        <span>${tasks.value}</span>
+    </div>`;
+        selectedCard.innerHTML += taskHTML;
+
+        Title.value = '';
+        tasks.value = '';
+    }
+});
 
 Remove.addEventListener('click', () => {
     console.log("PRESSINg");
     alert("PRESSINg");
+    selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
+    if (selectedCard) {
+        selectedCard.remove();
+
+        Title.value = '';
+        tasks.value = '';
+    }
 })
 
 
@@ -158,10 +192,10 @@ console.log("REACH")
 
 //     let tasksHTML = "";
 //     task.forEach(tasks => {
-//         tasksHTML += `<div class="task">
+//         tasksHTML += ` < div class = "task" >
 //         <input type="checkbox">
 //         <span>${tasks.value}</span>
-//       </div>`;
+//       </>`;
 //     });
 //     card.innerHTML += tasksHTML;
 //     Taskcard.appendChild(card);

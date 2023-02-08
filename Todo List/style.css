@@ -241,9 +241,9 @@ input[type="text"]::placeholder {
 .Taskcard h4 {
     text-align: center;
     border-bottom: 1px solid burlywood;
-    width: 90px;
+    /* width: 90px; */
     margin: auto;
-    font-size: 17px;
+    font-size: 15px;
     opacity: 1;
 }
 
