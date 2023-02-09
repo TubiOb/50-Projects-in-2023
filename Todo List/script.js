@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
 const TodoPage = document.querySelector("#TodoList")
 const username = document.querySelector("#myname");
-const usermail = document.querySelector("#mymail");
+var usermail = document.querySelector("#mymail");
 const login = document.querySelector("#enter");
 const Name = document.querySelector("#Name");
 const Mail = document.querySelector("#Mail");
@@ -21,7 +21,7 @@ const Remove = document.querySelector("#remove");
 
 const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 var Daydate = new Date().toLocaleDateString();
-const nameRegex = /^[a-zA-Z '-]+$/;
+const nameRegex = /^[a-zA-Z-]+$/;
 console.log(Daydate);
 
 
@@ -35,6 +35,7 @@ login.addEventListener('click', () => {
             Mail.innerHTML = usermail.value;
             date.innerText = Daydate;
             // $(".card").show();
+            $(".Taskcard").show();
         } else {
             alert("Invalid Username or Password");
         }
@@ -49,9 +50,28 @@ $(".card").hide();
 
 let selectedCard;
 
+let taskCards = [];
+
+// Get task cards from local storage, if any
+if (localStorage.getItem('taskCards')) {
+    taskCards = JSON.parse(localStorage.getItem('taskCards'));
+    renderTaskCards();
+}
+
 
 AddItem.addEventListener('click', () => {
     if (Title.value.length > 0 && tasks.value.length > 0) {
+        const taskData = {
+            title: Title.value,
+            tasks: [{
+                task: tasks.value,
+                checked: false
+            }]
+        };
+
+        taskCards.push(taskData);
+        localStorage.setItem('taskCards', JSON.stringify(taskCards));
+
         const Taskcard = document.createElement('div');
         Taskcard.classList.add('Taskcard');
         Taskcard.id = "tasksCard";
@@ -70,20 +90,15 @@ AddItem.addEventListener('click', () => {
         container.appendChild(Taskcard);
         $(".Taskcard").show();
 
-        const taskData = {
-            title: Title.value,
-            content: tasks.value
-        };
+        // let usermail = document.getElementById("mymail");
+        // let tasksArray = [];
+        // if (localStorage.getItem(`tasksArray_${usermail.value}`)) {
+        //     tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`));
+        // }
+        // tasksArray.push(taskData);
+        // localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
 
-        let tasksArray = [];
-        if (localStorage.getItem(`tasksArray_${usermail.value}`)) {
-            tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`));
-        }
-        tasksArray.push(taskData);
-        localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
 
-        Title.value = '';
-        tasks.value = '';
 
 
         Taskcard.addEventListener('click', (event) => {
@@ -102,12 +117,14 @@ AddItem.addEventListener('click', () => {
             //     // selectedCard = null;
             // }, 5000);
         });
+        Title.value = '';
+        tasks.value = '';
     }
 });
 
 
 
-
+// let usermail = document.getElementById("mymail");
 const storedTasks = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
 storedTasks.forEach((task) => {
     const Taskcard = document.createElement('div');
@@ -131,6 +148,9 @@ addNewTask.addEventListener('click', () => {
     console.log("YEEEEHHHHHHH");
     selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard && tasks.value.length > 0) {
+        const index = Array.from(container.children).indexOf(selectedCard);
+        taskCards[index].tasks.push({ task: tasks.value, checked: false });
+        localStorage.setItem('taskCards', JSON.stringify(taskCards));
         const taskHTML = `<div class="task"> 
         <input type="checkbox"> 
         <span>${tasks.value}</span>
@@ -146,6 +166,9 @@ Remove.addEventListener('click', () => {
     console.log("PRESSINg");
     selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard) {
+        const index = Array.from(container.children).indexOf(selectedCard);
+        taskCards.splice(index, 1);
+        localStorage.setItem('taskCards', JSON.stringify(taskCards));
         selectedCard.remove();
 
         Title.value = '';
