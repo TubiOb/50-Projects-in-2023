@@ -21,7 +21,7 @@ const Remove = document.querySelector("#remove");
 
 const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 var Daydate = new Date().toLocaleDateString();
-const nameRegex = /^[a-zA-Z-]+$/;
+const nameRegex = /^[a-zA-Z'-]+$/;
 console.log(Daydate);
 
 
@@ -50,28 +50,10 @@ $(".card").hide();
 
 let selectedCard;
 
-let taskCards = [];
-
-// Get task cards from local storage, if any
-if (localStorage.getItem('taskCards')) {
-    taskCards = JSON.parse(localStorage.getItem('taskCards'));
-    renderTaskCards();
-}
-
+let tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
 
 AddItem.addEventListener('click', () => {
     if (Title.value.length > 0 && tasks.value.length > 0) {
-        const taskData = {
-            title: Title.value,
-            tasks: [{
-                task: tasks.value,
-                checked: false
-            }]
-        };
-
-        taskCards.push(taskData);
-        localStorage.setItem('taskCards', JSON.stringify(taskCards));
-
         const Taskcard = document.createElement('div');
         Taskcard.classList.add('Taskcard');
         Taskcard.id = "tasksCard";
@@ -81,25 +63,24 @@ AddItem.addEventListener('click', () => {
         Taskcard.appendChild(getTitle);
 
         const taskHTML = `<div class="task">
-      <input type="checkbox">
-      <span>${tasks.value}</span>
-    </div>`;
+            <input type="checkbox">
+            <span>${tasks.value}</span>
+        </div>`;
 
 
         Taskcard.innerHTML += taskHTML;
         container.appendChild(Taskcard);
         $(".Taskcard").show();
 
-        // let usermail = document.getElementById("mymail");
-        // let tasksArray = [];
-        // if (localStorage.getItem(`tasksArray_${usermail.value}`)) {
-        //     tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`));
-        // }
-        // tasksArray.push(taskData);
-        // localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
+        const taskData = {
+            title: Title.value,
+            tasks: tasks.value,
+            mail: usermail.value
+        };
 
 
-
+        tasksArray.push(taskData);
+        localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
 
         Taskcard.addEventListener('click', (event) => {
             const taskCards = document.querySelectorAll('.Taskcard');
@@ -123,38 +104,14 @@ AddItem.addEventListener('click', () => {
 });
 
 
-
-// let usermail = document.getElementById("mymail");
-const storedTasks = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
-storedTasks.forEach((task) => {
-    const Taskcard = document.createElement('div');
-    Taskcard.classList.add('Taskcard');
-
-    const getTitle = document.createElement("h4");
-    getTitle.innerHTML = task.title;
-    Taskcard.appendChild(getTitle);
-
-    const taskHTML = `<div class="task">
-      <input type="checkbox">
-      <span>${task.content}</span>
-    </div>`;
-
-    Taskcard.innerHTML += taskHTML;
-    container.appendChild(Taskcard);
-});
-
-
 addNewTask.addEventListener('click', () => {
     console.log("YEEEEHHHHHHH");
     selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard && tasks.value.length > 0) {
-        const index = Array.from(container.children).indexOf(selectedCard);
-        taskCards[index].tasks.push({ task: tasks.value, checked: false });
-        localStorage.setItem('taskCards', JSON.stringify(taskCards));
-        const taskHTML = `<div class="task"> 
-        <input type="checkbox"> 
-        <span>${tasks.value}</span>
-    </div>`;
+        const taskHTML = `<div class="task">
+            <input type="checkbox">
+            <span>${tasks.value}</span>
+        </div>`;
         selectedCard.innerHTML += taskHTML;
 
         Title.value = '';
@@ -166,12 +123,62 @@ Remove.addEventListener('click', () => {
     console.log("PRESSINg");
     selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard) {
-        const index = Array.from(container.children).indexOf(selectedCard);
-        taskCards.splice(index, 1);
-        localStorage.setItem('taskCards', JSON.stringify(taskCards));
         selectedCard.remove();
+
+        const index = Array.from(container.children).indexOf(selectedCard);
+        tasksArray.splice(index, 1);
+        localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
 
         Title.value = '';
         tasks.value = '';
     }
 });
+
+
+// TodoPage.addEventListener('load', () => {
+if (tasksArray) {
+    console.log("ALAYEEEEEE")
+    tasksArray.forEach((tasks) => {
+        const Taskcard = document.createElement('div');
+        Taskcard.classList.add('Taskcard');
+        Taskcard.id = "tasksCard";
+        console.log("ENTERINGGGG");
+
+        const getTitle = document.createElement("h4");
+        getTitle.innerHTML = Title.value;
+        Taskcard.appendChild(getTitle);
+
+        const taskHTML = `<div class="task">
+            <input type="checkbox">
+            <span>${tasks.value}</span>
+        </div>`;
+
+
+        Taskcard.innerHTML += taskHTML;
+        container.appendChild(Taskcard);
+    });
+    container.append(tasksArray);
+}
+// });
+
+
+
+
+// let usermail = document.getElementById("mymail");
+// const storedTasks = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
+// storedTasks.forEach((task) => {
+//     const Taskcard = document.createElement('div');
+//     Taskcard.classList.add('Taskcard');
+
+//     const getTitle = document.createElement("h4");
+//     getTitle.innerHTML = task.title;
+//     Taskcard.appendChild(getTitle);
+
+//     const taskHTML = `<div class="task">
+//       <input type="checkbox">
+//       <span>${task.content}</span>
+//     </div>`;
+
+//     Taskcard.innerHTML += taskHTML;
+//     container.appendChild(Taskcard);
+// });
