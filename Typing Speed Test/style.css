@@ -12,6 +12,9 @@ body {
 #Home {
     background-color: #ffff;
     overflow: hidden;
+    width: 80%;
+    margin: auto;
+    align-items: center;
 }
 
 #signin-container {
@@ -22,7 +25,11 @@ body {
     transform: translate(-40%, -50%);
     position: absolute;
     overflow: hidden;
-    display: none;
+    /* display: none; */
+    width: 300px;
+    border: 1px solid #354f52;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 #signin-container form {
@@ -32,7 +39,7 @@ body {
 
 #signin-container form #sigin,
 #sigup {
-    width: 70px;
+    width: 60px;
     /* border: 1px solid blue; */
     align-self: flex-start;
     justify-content: center;
@@ -49,20 +56,27 @@ body {
     /* border: 1px solid red; */
     /* text-align: center; */
     border-bottom: 1px solid palevioletred;
+    margin-bottom: 5px;
 }
 
 #signup-container {
-    display: block;
+    display: flex;
     flex-direction: column;
-    top: 50%;
-    left: 25%;
+    top: 69%;
+    /* left: 25%; */
     right: 20%;
     transform: translate(-10%, -50%);
     position: absolute;
     overflow: hidden;
+    width: 300px;
+    /* display: none; */
+    border: 1px solid #354f52;
+    padding: 10px;
+    border-radius: 15px;
 }
 
-input[type="text"] {
+
+/* input[type="text"] {
     width: 180px;
     height: 30px;
     margin-bottom: 2px;
@@ -76,13 +90,31 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-    /* color: blueviolet; */
     color: white;
     font-size: 16px;
 }
 
-#myname,
-#mymail {
+input[type="email"] {
+    width: 180px;
+    height: 30px;
+    margin-bottom: 2px;
+    padding: 5px;
+    color: white;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+}
+
+input[type="email"]::placeholder {
+    color: white;
+    font-size: 16px;
+} */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     margin: 3px 0px;
     width: 250px;
     border: none;
@@ -102,7 +134,8 @@ label {
     overflow: hidden;
 }
 
-#enter {
+#enter,
+#sign {
     padding: 3px 2px;
     font-size: 15px;
     width: 70px;

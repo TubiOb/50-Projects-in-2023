@@ -24,11 +24,15 @@ var Daydate = new Date().toLocaleDateString();
 const nameRegex = /^[a-zA-Z'-]+$/;
 console.log(Daydate);
 
+let tasksArray;
 
 login.addEventListener('click', () => {
     if (username.value.length > 0 && usermail.value.length > 0) {
         if (username.value.match(nameRegex) && usermail.value.match(mailformat)) {
+            tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
+            console.log(tasksArray);
             console.log("WELCOME");
+            console.log(localStorage);
             $("#Home").hide();
             $("#TodoList").show();
             Name.innerHTML = `Hi, ${username.value}`;
@@ -50,7 +54,26 @@ $(".card").hide();
 
 let selectedCard;
 
-let tasksArray = JSON.parse(localStorage.getItem(`tasksArray_${usermail.value}`)) || [];
+
+tasksArray && tasksArray.map((task) => {
+    const Taskcard = document.createElement('div');
+    Taskcard.classList.add('Taskcard');
+    Taskcard.id = "tasksCard";
+
+    const getTitle = document.createElement("h4");
+    getTitle.innerHTML = task.title;
+    Taskcard.appendChild(getTitle);
+
+    const taskHTML = `<div class="task">
+            <input type="checkbox">
+            <span>${task.tasks}</span>
+        </div>`;
+
+    Taskcard.innerHTML += taskHTML;
+    container.appendChild(Taskcard);
+
+})
+
 
 AddItem.addEventListener('click', () => {
     if (Title.value.length > 0 && tasks.value.length > 0) {
@@ -157,7 +180,6 @@ if (tasksArray) {
         Taskcard.innerHTML += taskHTML;
         container.appendChild(Taskcard);
     });
-    container.append(tasksArray);
 }
 // });
 
