@@ -28,6 +28,8 @@ let tasksArray;
 
 let selectedCard;
 
+selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
+
 login.addEventListener('click', () => {
     if (username.value.length > 0 && usermail.value.length > 0) {
         if (username.value.match(nameRegex) && usermail.value.match(mailformat)) {
@@ -105,10 +107,6 @@ AddItem.addEventListener('click', () => {
             mail: usermail.value
         };
 
-
-        tasksArray.push(taskData);
-        localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
-
         Taskcard.addEventListener('click', (event) => {
             const taskCards = document.querySelectorAll('.Taskcard');
             taskCards.forEach(cards => {
@@ -125,6 +123,11 @@ AddItem.addEventListener('click', () => {
             //     // selectedCard = null;
             // }, 5000);
         });
+
+
+        tasksArray.push(taskData);
+        localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));
+
         Title.value = '';
         tasks.value = '';
     }
@@ -133,7 +136,7 @@ AddItem.addEventListener('click', () => {
 
 addNewTask.addEventListener('click', () => {
     console.log("YEEEEHHHHHHH");
-    selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
+    // selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard && tasks.value.length > 0) {
         const taskHTML = `<div class="task">
             <input type="checkbox">
@@ -148,10 +151,9 @@ addNewTask.addEventListener('click', () => {
 
 Remove.addEventListener('click', () => {
     console.log("PRESSINg");
-    selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
+    // selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
     if (selectedCard) {
         selectedCard.remove();
-
         const index = Array.from(container.children).indexOf(selectedCard);
         tasksArray.splice(index, 1);
         localStorage.setItem(`tasksArray_${usermail.value}`, JSON.stringify(tasksArray));

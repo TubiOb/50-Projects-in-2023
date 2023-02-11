@@ -1,190 +1,200 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font: 14px/1.5 Arial, Helvetica, sans-serif;
-}
-
-body {
-    background-color: #ffff;
-}
-
-#Home {
-    background-color: #ffff;
-    /* overflow: hidden; */
-    width: 90%;
-    margin: auto;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-#signin-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    /* display: none; */
-    width: 300px;
-    height: 450px;
-    border: 1px solid #354f52;
-    padding: 15px;
-    border-radius: 15px;
-    margin-right: -120px;
-}
-
-#signin-container form,
-#signup-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-#sigin {
-    width: 60px;
-    align-self: flex-start;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* border-bottom: 1px solid palevioletred; */
-}
-
-#after {
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    margin: auto;
-    /* border: 1px solid brown; */
-    padding: 9px;
-}
-
-h3 {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-#sigup {
-    width: 60px;
-    align-self: flex-end;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* border-bottom: 1px solid palevioletred; */
-}
-
-#sigin h2,
-#sigup h2 {
-    /* float: left; */
-    /* flex-direction: column-reverse; */
-    /* width: 80px; */
-    /* border: 1px solid red; */
-    /* text-align: center; */
-    border-bottom: 1px solid palevioletred;
-    margin-bottom: 5px;
-}
-
-#signup-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    width: 300px;
-    height: 450px;
-    /* display: none; */
-    border: 1px solid #354f52;
-    padding: 15px;
-    border-radius: 15px;
-    margin-left: -50px;
-}
-
-
-/* input[type="text"] {
-    width: 180px;
-    height: 30px;
-    margin-bottom: 2px;
-    padding: 5px;
-    color: white;
-    outline: none;
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid purple;
-    font-size: 16px;
-}
-
-input[type="text"]::placeholder {
-    color: white;
-    font-size: 16px;
-}
-
-input[type="email"] {
-    width: 180px;
-    height: 30px;
-    margin-bottom: 2px;
-    padding: 5px;
-    color: white;
-    outline: none;
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid black;
-    font-size: 16px;
-}
-
-input[type="email"]::placeholder {
-    color: white;
-    font-size: 16px;
-} */
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    margin: 3px 0px;
-    width: 250px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid black;
-    background: transparent;
-    font-size: 15px;
-    padding: 3px 0;
-    color: blueviolet;
-    overflow: hidden;
-}
-
-label {
-    font-size: 17px;
-    color: blueviolet;
-    font-weight: 500;
-    overflow: hidden;
-}
-
-#enter,
-#sign {
-    padding: 3px 2px;
-    font-size: 15px;
-    width: 70px;
-    margin-top: 5px;
-    justify-self: center;
-    align-self: center;
-    background-color: white;
-    color: gray;
-    border-radius: 4px;
-    border: 2px solid #354f52;
-    outline: none;
-    font-weight: bold;
-    overflow: hidden;
-}
-
-#enter:hover {
-    border: none;
-    color: blueviolet;
-    border-bottom: 1px solid gray;
-    transition-duration: 1s;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    font-weight: 500;
-    font-weight: bold;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font: 14px/1.5 Arial, Helvetica, sans-serif;
+    }
+    
+    body {
+        background-color: #ffff;
+    }
+    
+    #Home {
+        background-color: #ffff;
+        /* overflow: hidden; */
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    #signin-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        /* display: none; */
+        width: 300px;
+        height: 500px;
+        /* border: 1px solid #354f52; */
+        padding: 15px;
+        border-radius: 15px;
+        margin-right: -20px;
+        /* border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0; */
+    }
+    
+    #signin-container form,
+    #signup-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #signin-container form {
+        width: 250px;
+        border: 1px solid #2f0447;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    #signup-container form {
+        width: 250px;
+        border: 1px solid #310335;
+        padding: 15px;
+        border-radius: 15px;
+        display: none;
+    }
+    
+    #sigin {
+        width: 60px;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* border-bottom: 1px solid palevioletred; */
+    }
+    
+    #after {
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        margin: auto;
+        /* border: 1px solid brown; */
+        padding: 9px;
+    }
+    
+    h3 {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    #sigup {
+        width: 60px;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* border-bottom: 1px solid palevioletred; */
+    }
+    
+    #sigin h2,
+    #sigup h2 {
+        border-bottom: 1px solid palevioletred;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    
+    #signup-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        height: 500px;
+        /* display: none; */
+        /* border: 1px solid #354f52; */
+        padding: 15px;
+        border-radius: 15px;
+        margin-left: -10px;
+        /* border-left: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0; */
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        margin: 3px 0px;
+        width: 220px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid black;
+        background: transparent;
+        font-size: 15px;
+        padding: 3px 0;
+        color: blueviolet;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    label {
+        font-size: 17px;
+        color: blueviolet;
+        font-weight: 500;
+        overflow: hidden;
+    }
+    
+    #enter,
+    #sign {
+        padding: 3px 2px;
+        font-size: 15px;
+        width: 70px;
+        margin-top: 5px;
+        justify-self: center;
+        align-self: center;
+        background-color: white;
+        color: gray;
+        border-radius: 4px;
+        border: 2px solid #354f52;
+        outline: none;
+        font-weight: bold;
+        overflow: hidden;
+    }
+    
+    #enter {
+        margin-bottom: 20px;
+    }
+    
+    #enter:hover,
+    #sign:hover {
+        border: none;
+        color: blueviolet;
+        border-bottom: 1px solid gray;
+        transition-duration: 1s;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        font-weight: 500;
+        font-weight: bold;
+    }
+    
+    @media(min-width: 760px) {
+        #signin-container,
+        #signup-container {
+            width: 400px;
+        }
+        #signin-container {
+            margin-right: -180px;
+        }
+        /* #signup-container {
+            margin-left: -50px;
+        } */
+        #signin-container form,
+        #signup-container form {
+            width: 300px;
+            align-self: center;
+            justify-content: center;
+        }
+        #after {
+            width: 250px;
+            margin: auto;
+            justify-self: center;
+            align-self: center;
+        }
+    }
