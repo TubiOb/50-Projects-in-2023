@@ -26,6 +26,8 @@ console.log(Daydate);
 
 let tasksArray;
 
+let selectedCard;
+
 login.addEventListener('click', () => {
     if (username.value.length > 0 && usermail.value.length > 0) {
         if (username.value.match(nameRegex) && usermail.value.match(mailformat)) {
@@ -39,7 +41,26 @@ login.addEventListener('click', () => {
             Mail.innerHTML = usermail.value;
             date.innerText = Daydate;
             // $(".card").show();
+            tasksArray && tasksArray.map((task) => {
+                const Taskcard = document.createElement('div');
+                Taskcard.classList.add('Taskcard');
+                Taskcard.id = "tasksCard";
+
+                const getTitle = document.createElement("h4");
+                getTitle.innerHTML = task.title;
+                Taskcard.appendChild(getTitle);
+
+                const taskHTML = `<div class="task">
+            <input type="checkbox">
+            <span>${task.tasks}</span>
+        </div>`;
+
+                Taskcard.innerHTML += taskHTML;
+                container.appendChild(Taskcard);
+
+            })
             $(".Taskcard").show();
+
         } else {
             alert("Invalid Username or Password");
         }
@@ -52,27 +73,10 @@ login.addEventListener('click', () => {
 
 $(".card").hide();
 
-let selectedCard;
 
 
-tasksArray && tasksArray.map((task) => {
-    const Taskcard = document.createElement('div');
-    Taskcard.classList.add('Taskcard');
-    Taskcard.id = "tasksCard";
 
-    const getTitle = document.createElement("h4");
-    getTitle.innerHTML = task.title;
-    Taskcard.appendChild(getTitle);
-
-    const taskHTML = `<div class="task">
-            <input type="checkbox">
-            <span>${task.tasks}</span>
-        </div>`;
-
-    Taskcard.innerHTML += taskHTML;
-    container.appendChild(Taskcard);
-
-})
+console.log(container);
 
 
 AddItem.addEventListener('click', () => {
