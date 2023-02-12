@@ -19,42 +19,38 @@
 <body>
 
     <div id="Home">
-        <div id="signin-container">
-            <div id="sigin">
-                <h2>SIGN IN</h2>
-            </div>
+        <div class="form-container" id="signin-container">
             <form action="GET" id="login">
-                <label for="myname" id="username">Username: </label>
-                <input type="text" name="myname" id="myname" required>
-                <label for="mymail" id="usermail">Email: </label>
-                <input type="email" name="mymail" id="mymail" required>
-                <input type="submit" id="enter" value="Sign In">
-                <div id="after">
-                    <h3>Hello, Friend!</h3>
-                    <p>Enter your personal details and start journey with us</p>
-                </div>
+                <input type="text" name="myname" id="myname" placeholder="Username" required>
+                <input type="password" name="mypassword" id="mypassword" placeholder="Password" required>
+                <input type="button" id="enter" value="Sign In">
             </form>
         </div>
 
-        <div id="signup-container">
-            <div id="sigup">
-                <h2>SIGN UP</h2>
-            </div>
-            <form action="POST" id="registration">
-                <label for="firstname" id="First-name">First Name: </label>
-                <input type="text" name="firstname" id="firstname" required>
-                <label for="lastname" id="Last-name">Last Name: </label>
-                <input type="text" name="lastname" id="lastname" required>
-                <label for="username" id="Username">Username: </label>
-                <input type="text" name="username" id="username" required>
-                <label for="mymail" id="usermail">Email: </label>
-                <input type="email" name="myname" id="mymail" required>
-                <label for="mypassword" id="mypass">Password: </label>
-                <input type="password" name="mypassword" id="mypassword" required>
-                <label for="confirmpassword" id="confirmypass">Confirm Password: </label>
-                <input type="password" name="confirmpassword" id="confirmpassword" required>
-                <input type="submit" id="sign" value="Sign Up">
+        <div class="form-container" id="signup-container">
+            <form action="POST " id="registration">
+                <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
+                <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+                <input type="email" name="myname" id="mymail" placeholder="Email" required>
+                <input type="password" name="mypassword" id="mypassword" placeholder="Password" required>
+                <input type="button" id="sign" value="Sign Up">
             </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signInButton">SIGN IN</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUpButton">SIGN UP</button>
+                </div>
+            </div>
         </div>
     </div>
 
