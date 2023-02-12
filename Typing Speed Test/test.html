@@ -24,19 +24,19 @@
             <div id="scorepoint">
                 <div id="words-container">
                     <div id="words">
-                        <h1></h1>
+                        <h1 id="wordCount">0</h1>
                     </div>
                     <h3>words/min</h3>
                 </div>
                 <div id="chars-container">
                     <div id="chars">
-                        <h1></h1>
+                        <h1 id="charCount">0</h1>
                     </div>
                     <h3>chars/min</h3>
                 </div>
                 <div id="accuracy-container">
                     <div id="accuracy">
-                        <h1></h1>
+                        <h1 id="accuracyCount">0</h1>
                     </div>
                     <h3>%accuracy</h3>
                 </div>
@@ -44,7 +44,9 @@
 
             <div id="timing">
                 <div id="countdownCircle">
-                    <div id="timer"></div>
+                    <div id="timer">
+                        <h1 id="TimerCounter">60</h1>
+                    </div>
                 </div>
             </div>
 
@@ -52,11 +54,13 @@
 
 
         <div id="Typing">
+            <div id="word-to-type">The quick brown fox jumps over the lazy dog and runs through the forest. Artificial intelligence is rapidly changing the way we live and work, creating new opportunities and challenges for society. The future of transportation is electric,
+                self-driving, and connected, providing greater convenience, efficiency, and safety.</div>
             <textarea name="text" id="UserInput" cols="40" rows="10" wrap="soft"></textarea>
         </div>
     </div>
 
-    <script src="script.js "></script>
+    <script src="script1.js" defer></script>
 </body>
 
 </html>

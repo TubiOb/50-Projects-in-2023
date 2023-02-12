@@ -28,7 +28,7 @@ let tasksArray;
 
 let selectedCard;
 
-selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
+
 
 login.addEventListener('click', () => {
     if (username.value.length > 0 && usermail.value.length > 0) {
@@ -59,6 +59,8 @@ login.addEventListener('click', () => {
 
                 Taskcard.innerHTML += taskHTML;
                 container.appendChild(Taskcard);
+
+                selectedCard = document.querySelector('.Taskcard[style="background-color: green; filter: blur(1px);"]');
 
             })
             $(".Taskcard").show();
