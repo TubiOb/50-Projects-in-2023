@@ -1,9 +1,9 @@
-const Words = document.querySelector("#wordCount");
-const Chars = document.querySelector("#charCount");
-const Accuracy = document.querySelector("#accuracyCount");
+let Words = document.querySelector("#wordCount");
+let Chars = document.querySelector("#charCount");
+let Accuracy = document.querySelector("#accuracyCount");
 const Text = document.querySelector("#UserInput");
-const Timer = document.querySelector("#TimerCounter");
-const Circledown = document.querySelector("#countdownCircle");
+let Timer = document.querySelector("#timer");
+let Circledown = document.querySelector("#countdownCircle");
 const wordToType = document.querySelector("#word-to-type");
 
 
