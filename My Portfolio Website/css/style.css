@@ -16,6 +16,7 @@
     --big-font: 3.2rem;
     --medium-font: 1.8rem;
     --p-font: 0.941rem;
+    --header-height: 3.5rem;
 }
 
 html {
@@ -36,7 +37,24 @@ ul {
     list-style: none;
 }
 
-a {}
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1024px;
+    margin-inline: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
 
 
 /* HEADER */
@@ -47,4 +65,31 @@ a {}
     bottom: 2rem;
     left: 0;
     z-index: 1000;
+}
+
+.nav {
+    height: calc(var(--header-height) + .5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color);
+    box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
+    padding-inline: 1.5rem;
+    border-radius: 3rem;
+}
+
+.nav__logo,
+.nav__toggle,
+.nav__close {
+    color: var(--text-color);
+}
+
+.nav__logo {
+    font-weight: var(--medium-font);
+}
+
+.nav__toggle {
+    display: flex;
+    font-size: 1.25rem;
+    cursor: pointer;
 }
