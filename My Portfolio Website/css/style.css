@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Lato:wght@300&family=Niconne&family=Poppins:wght@300;400;500;600&family=Satisfy&family=Share+Tech+Mono&family=Ubuntu:wght@300&family=Yanone+Kaffeesatz:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "poppins", sans-serif;
+}
+
+:root {
+    --main-color: #033a80;
+    --bg-color: #fff;
+    --text-color: #000;
+    --hover: hsl(260, 100%, 51%);
+    --big-font: 3.2rem;
+    --medium-font: 1.8rem;
+    --p-font: 0.941rem;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+body.active {
+    --text-color: #fff;
+    --bg-color: #0f0c27;
+}
+
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    z-index: 1000;
+}
