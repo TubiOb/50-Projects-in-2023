@@ -20,6 +20,7 @@
     --p-font: 0.941rem;
     --header-height: 3.5rem;
     --smaller-font-size: .75rem;
+    --card-color: #eaf4f4;
 }
 
 html {
@@ -31,10 +32,12 @@ body {
     color: var(--text-color);
 }
 
-body.active {
+
+/* body.active {
     --text-color: #fff;
     --bg-color: #0f0c27;
-}
+    --card-color: #6c757d;
+} */
 
 ul {
     list-style: none;
@@ -44,11 +47,10 @@ a {
     text-decoration: none;
 }
 
-
-/* img {
+img {
     max-width: 100%;
     height: auto;
-} */
+}
 
 
 /* DARK THEME/MODE */
@@ -70,6 +72,7 @@ body.active {
     --text-color: #fff;
     --title-color: hsl(207, 4%, 95%);
     --bg-color: hsl(207, 4%, 10%);
+    --card-color: #6c757d;
 }
 
 section {
@@ -205,6 +208,7 @@ section {
     border-radius: 30%;
     padding: 5px;
     border: 1px solid #000;
+    margin-bottom: 2rem;
     box-shadow: 1px 1px 1px 1px whitesmoke;
 }
 
@@ -217,6 +221,9 @@ section {
     grid-column: 1/3;
     padding: 1.4rem;
 }
+
+
+/* ABOUT */
 
 .heading {
     text-align: left;
@@ -236,6 +243,67 @@ section {
     grid-template-columns: 1fr;
     gap: 1rem;
     margin-top: 2rem;
+}
+
+.about-me span {
+    color: var(--main-color);
+}
+
+.information {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.info-box {
+    padding: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.5rem;
+    background: var(--card-color);
+    box-shadow: 0 2px 7px rgba(14 55 54 /15%);
+}
+
+.info-box p {
+    font-size: 15px;
+    /* color: var(--main-color); */
+}
+
+.info-box h3 {
+    /* font-size: 22px; */
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: .7rem 0 .4rem;
+    /* color: var(--main-color); */
+}
+
+.info-box:hover {
+    background: var(--hover);
+}
+
+.info-box:hover h3 {
+    color: #fff;
+}
+
+.info-box:hover p {
+    color: #fff;
+}
+
+.btn {
+    /* display: inline-block; */
+    background: var(--main-color);
+    color: #fff;
+    padding: 0.7rem 1.3rem;
+    border-radius: 0.5rem;
+}
+
+.btn:hover {
+    background: var(--hover);
 }
 
 @media (min-width: 768px) {
