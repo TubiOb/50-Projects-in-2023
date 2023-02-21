@@ -20,3 +20,16 @@ const linkAction = () => {
     navMenu.classList.remove('show-menu')
 };
 navLink.forEach(n => n.addEventListener('click', linkAction));
+
+//DARK THEME/MODE
+let themeButton = document.querySelector('#theme-button');
+
+themeButton.onclick = () => {
+    if (themeButton.classList.contains('ri-moon-line')) {
+        themeButton.classList.replace('ri-moon-line', 'ri-sun-line');
+        document.body.classList.add('active');
+    } else {
+        themeButton.classList.replace('ri-sun-line', 'ri-moon-line');
+        document.body.classList.remove('active');
+    }
+}
