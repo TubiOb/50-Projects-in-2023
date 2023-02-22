@@ -1,4 +1,7 @@
+/* FONT IMPORT LINKS*/
+
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Lato:wght@300&family=Niconne&family=Poppins:wght@300;400;500;600&family=Satisfy&family=Share+Tech+Mono&family=Ubuntu:wght@300&family=Yanone+Kaffeesatz:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Lato:wght@300&family=Lora:wght@400;500;600&family=Niconne&family=Poppins:wght@300;400;500;600&family=Satisfy&family=Share+Tech+Mono&family=Ubuntu:wght@300&family=Yanone+Kaffeesatz:wght@300&display=swap');
 
 /* UNIVERSAL */
 
@@ -12,6 +15,7 @@
 }
 
  :root {
+    --header-height: 3.5rem;
     --main-color: #033a80;
     --bg-color: #fff;
     --title-color: hsl(207, 4%, 16%);
@@ -20,6 +24,9 @@
     --hover: hsl(260, 100%, 51%);
     --big-font: 3.2rem;
     --medium-font: 1.8rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
     --p-font: 0.941rem;
     --header-height: 3.5rem;
     --smaller-font-size: .75rem;
@@ -28,6 +35,7 @@
     --sat: 90%;
     --lig: 61%;
     --first-color: hsl(var(--hue), var(--sat), var(--lig));
+    --title-font: 'Lora', serif;
 }
 
 html {
@@ -443,6 +451,152 @@ section {
 }
 
 
+/* CONTACT */
+
+.contact__container {
+    row-gap: 3.5rem;
+}
+
+.contact__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5rem;
+    font-size: var(--p-font);
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+
+.contact__title i {
+    font-size: 1rem;
+    font-weight: initial;
+}
+
+.contact__info,
+.contact__data,
+.contact__form {
+    display: grid;
+}
+
+.contact__info {
+    row-gap: 2rem;
+}
+
+.contact__data {
+    row-gap: .75rem;
+}
+
+.contact__data-title {
+    font-size: var(--p-font);
+    color: var(--text-color-light);
+}
+
+.contact__data-info {
+    font-size: var(--p-font);
+    font-family: var(--title-font);
+    color: var(--title-color);
+}
+
+.contact__button {
+    width: max-content;
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    color: var(--title-color);
+    font-size: var(--p-font);
+}
+
+.contact__button i {
+    font-size: 1rem;
+    transition: transform .3s;
+}
+
+.contact__button:hover i {
+    transform: translateX(.25rem);
+}
+
+.contact__form {
+    position: relative;
+    row-gap: 2rem;
+}
+
+.contact__form-div {
+    position: relative;
+    height: 4rem;
+}
+
+.contact__form-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--text-color-light);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    font-size: var(--p-font);
+    font-family: var(--title-font);
+    color: var(--title-color);
+    background: none;
+    outline: none;
+    z-index: 1;
+}
+
+.contact__form-tag {
+    position: absolute;
+    top: -.75rem;
+    left: 1.25rem;
+    z-index: 10;
+    background-color: var(--bg-color);
+    color: var(--title-color);
+    font-size: var(--smaller-font-size);
+    font-weight: 500;
+    padding: .35rem;
+}
+
+.contact__form-area {
+    height: 10rem;
+}
+
+.contact__form-area textarea {
+    resize: none;
+}
+
+.contact__form .contact__button {
+    border: none;
+    background: none;
+    font-size: var(--h2-font-size);
+    font-family: var(--title-font);
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    margin-top: .75rem;
+}
+
+.contact__form .contact__button i {
+    font-size: 1.5rem;
+    font-weight: initial;
+}
+
+.contact__message {
+    font-size: var(--p-font);
+    position: absolute;
+    bottom: 2.8rem;
+    left: 1.5rem;
+}
+
+
+/* STATUS COLOR */
+
+.color-red {
+    color: hsl(4, 71%, 50%);
+}
+
+.color-blue {
+    color: hsl(207, 56%, 45%);
+}
+
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
@@ -551,6 +705,8 @@ section {
     .projects__content {
         margin-top: 2rem;
         grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+        grid-template-columns: repeat(2, 250px);
         justify-content: center;
+        gap: 2rem 3rem;
     }
 }
