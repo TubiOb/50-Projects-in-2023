@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Lato:wght@300&family=Niconne&family=Poppins:wght@300;400;500;600&family=Satisfy&family=Share+Tech+Mono&family=Ubuntu:wght@300&family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+/* UNIVERSAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +24,10 @@
     --header-height: 3.5rem;
     --smaller-font-size: .75rem;
     --card-color: #eaf4f4;
+    --hue: 207;
+    --sat: 90%;
+    --lig: 61%;
+    --first-color: hsl(var(--hue), var(--sat), var(--lig));
 }
 
 html {
@@ -31,13 +38,6 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
 }
-
-
-/* body.active {
-    --text-color: #fff;
-    --bg-color: #0f0c27;
-    --card-color: #6c757d;
-} */
 
 ul {
     list-style: none;
@@ -50,6 +50,19 @@ a {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.heading {
+    text-align: left;
+}
+
+.heading h2 {
+    font-size: 30px;
+}
+
+.heading span {
+    font-size: var(--p-font);
+    color: rgb(2, 166, 70);
 }
 
 
@@ -190,7 +203,6 @@ section {
 .Home {
     position: relative;
     width: 100%;
-    /* height: 100vh; */
     display: flex;
     margin-top: 2.5rem;
     flex-direction: column;
@@ -198,7 +210,6 @@ section {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border: 1px solid brown;
 }
 
 .home-img {
@@ -225,19 +236,6 @@ section {
 
 /* ABOUT */
 
-.heading {
-    text-align: left;
-}
-
-.heading h2 {
-    font-size: 30px;
-}
-
-.heading span {
-    font-size: var(--p-font);
-    color: rgb(2, 166, 70);
-}
-
 .about-me {
     display: grid;
     grid-template-columns: 1fr;
@@ -246,7 +244,7 @@ section {
 }
 
 .about-me span {
-    color: var(--main-color);
+    color: rgb(2, 166, 70);
 }
 
 .information {
@@ -271,15 +269,12 @@ section {
 
 .info-box p {
     font-size: 15px;
-    /* color: var(--main-color); */
 }
 
 .info-box h3 {
-    /* font-size: 22px; */
     font-size: 1.5rem;
     font-weight: 600;
     margin: .7rem 0 .4rem;
-    /* color: var(--main-color); */
 }
 
 .info-box:hover {
@@ -295,16 +290,177 @@ section {
 }
 
 .btn {
-    /* display: inline-block; */
     background: var(--main-color);
+    background: rgb(2, 166, 70);
     color: #fff;
     padding: 0.7rem 1.3rem;
     border-radius: 0.5rem;
+    width: 150px;
 }
 
 .btn:hover {
     background: var(--hover);
 }
+
+
+/* SKILLS */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.content {
+    order: 1;
+}
+
+.bars {
+    order: 2;
+}
+
+.bars-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.bars-box h3,
+.bars-box span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgb(2, 166, 70);
+}
+
+.light-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+    background: hsla(260, 100%, 44%, 0.4);
+    border-radius: 0.5rem;
+}
+
+.percent-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.5rem;
+    background: rgb(2, 166, 70);
+    border-radius: 0.5rem;
+}
+
+.html-bar {
+    width: 94%;
+}
+
+.css-bar {
+    width: 84%;
+}
+
+.js-bar {
+    width: 74%;
+}
+
+.react-bar {
+    width: 80%;
+}
+
+
+/* PORTFOLIO */
+
+.projects__card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.projects__card img {
+    width: 100%;
+    height: 100%;
+}
+
+.projects__modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+    background: linear-gradient(180deg, hsla(var(--hue), 24%, 40%, .3) 0%, rgb(2, 146, 70));
+    display: grid;
+    align-items: flex-end;
+    padding: 1.5rem 1.25rem;
+    transition: .3s;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    background: var(--first-color);
+    color: #fff;
+    padding: .65rem .65rem;
+    border-radius: .5rem;
+    transition: .3s;
+    box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+}
+
+.button i {
+    font-size: 1.25rem;
+}
+
+.button:hover {
+    background: var(--hover);
+}
+
+.projects__subtitle,
+.projects__title {
+    color: #fff;
+}
+
+.projects__subtitle {
+    font-size: var(--smaller-font-size);
+}
+
+.projects__title {
+    font-size: var(--p-font);
+    margin-bottom: .75rem;
+}
+
+.projects__button {
+    padding: .5rem;
+}
+
+.projects__card:hover .projects__modal {
+    bottom: 0;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: .4rem;
+    border-radius: .5rem;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: rgb(2, 146, 70);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--hover);
+}
+
+
+/*  */
 
 @media (min-width: 768px) {
     .header {
