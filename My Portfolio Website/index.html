@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -26,22 +26,31 @@
             <a href="#" class="nav__logo">TubiOb</a>
 
             <div class="nav__menu" id="nav-menu">
-
                 <ul class="navbar grid">
                     <li class="nav__item">
-                        <a href="#Home" class="nav__link"><i class="ri-home-5-line"></i> Home</a>
+                        <a href="#Home" class="nav__link active-link">
+                            <i class="ri-home-5-line"></i> Home
+                        </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#About" class="nav__link"><i class="ri-user-3-line"></i> About</a>
+                        <a href="#About" class="nav__link">
+                            <i class="ri-user-3-line"></i> About
+                        </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#Skills" class="nav__link"><i class="ri-trophy-line"></i> Skills</a>
+                        <a href="#Skills" class="nav__link">
+                            <i class="ri-trophy-line"></i> Skills
+                        </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#Portfolio" class="nav__link"><i class="ri-image-line"></i> Portfolio</a>
+                        <a href="#Portfolio" class="nav__link">
+                            <i class="ri-image-line"></i> Portfolio
+                        </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#Contact" class="nav__link"><i class="ri-chat-3-line"></i> Contact</a>
+                        <a href="#Contact" class="nav__link">
+                            <i class="ri-chat-3-line"></i> Contact
+                        </a>
                     </li>
                 </ul>
 
@@ -60,18 +69,20 @@
         </nav>
     </header>
 
-    <main class="Home" id="Home">
+
+    <section class="Home" id="Home">
         <div class="home-img">
             <img src="./img/Snapchat-669189679.jpg" alt="Tubi Obaloluwa Shalom">
         </div>
 
         <div class="home-text">
             <h3>Hi,</h3>
-            <h1>I'm Tubi Obaloluwa</h1>
-            <h2>A <span>Frontend Developer</span></h2>
-            <p>I'm passionate about and create fascinating web designs. I have keen interest in bringing services closer to users, as well as providing solutions to by building user friendly and accessible websites.</p>
+            <h1>I'm Tubi Obaloluwa.</h1>
+            <h2>A <span>Frontend Developer</span>,</h2>
+            <p>who is passionate about and create fascinating web designs. I have keen interest in bringing services closer to users, as well as providing solutions to by building user friendly and accessible websites.</p>
         </div>
-    </main>
+    </section>
+
 
     <section class="About" id="About">
         <div class="heading">
@@ -101,6 +112,7 @@
             <a href="./cv/TUBI Obaloluwa Shalom Tech CV.pdf" class="btn" download target="_blank">Download CV</a>
         </div>
     </section>
+
 
     <section class="Skills" id="Skills">
         <div class="heading">
@@ -138,6 +150,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="Portfolio" id="Portfolio">
         <div class="heading">
@@ -239,6 +252,7 @@
         </div>
     </section>
 
+
     <section class="Contact section" id="Contact">
         <div class="heading">
             <h2>Contact</h2>
@@ -298,6 +312,9 @@
         </div>
     </section>
 
+    <hr>
+
+
     <footer class="footer">
         <div class="footer__container container">
             <h1 class="footer__title">TubiOb</h1>
@@ -305,26 +322,26 @@
 
             <ul class="footer__list">
                 <li>
-                    <a href="#Home" class="footer__link"></a>
+                    <a href="#Home" class="footer__link">Home</a>
                 </li>
 
                 <li>
-                    <a href="#Skills" class="footer__link"></a>
+                    <a href="#Skills" class="footer__link">Skills</a>
                 </li>
 
                 <li>
-                    <a href="#Portfolio" class="footer__link"></a>
+                    <a href="#Portfolio" class="footer__link">Portfolio</a>
                 </li>
             </ul>
 
             <ul class="footer__social">
-                <a href="www.linkedin.com/in/obaloluwa-tubi-09a35617b" target="" class="footer__social-link">
+                <a href="https://www.linkedin.com/in/obaloluwa-tubi-09a35617b/" target="_blank" class="footer__social-link">
                     <i class="ri-linkedin-box-line"></i>
                 </a>
-                <a href=" https://github.com/TubiOb" target="" class="footer__social-link">
+                <a href=" https://github.com/TubiOb" target="_blank" class="footer__social-link">
                     <i class="ri-github-line"></i>
                 </a>
-                <a href="https://twitter.com/Teclef" target="" class="footer__social-link">
+                <a href="https://twitter.com/Teclef" target="_blank" class="footer__social-link">
                     <i class="ri-twitter-line"></i>
                 </a>
             </ul>
@@ -335,10 +352,14 @@
         </div>
     </footer>
 
+    <a href="" class="scrollup" id="scroll-up">
+        <i class="ri-rocket-2-line"></i>
+    </a>
+
     <!-- EMAIL JS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- MAIN JS -->
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
 </body>
 
 </html>
