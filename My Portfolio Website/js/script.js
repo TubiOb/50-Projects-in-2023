@@ -48,11 +48,25 @@ const sendEmail = (e) => {
 
     if (contactName.value === '' || contactEmail.value === '' || contactProject.value === '') {
         contactMessage.classList.remove('color-blue');
-        contactMessage.classList.add('color-red')
+        contactMessage.classList.add('color-red');
 
         contactMessage.textContent = 'Fill all the input fields 📩'
     } else {
-        emialjs.sendForm('', '', '', '')
+        emailjs.sendForm('service_3dug13i', 'template_28m574a', '#contact-form', 'VwKYIVP7CIQb-d5S7')
+            .then(() => {
+                contactMessage.classList.add('color-blue');
+                contactMessage.textContent = 'Message sent ✅'
+
+                setTimeout(() => {
+                    contactMessage.textContent = ''
+                }, 2000)
+            }, (error) => {
+                alert('OOPS! SOMETHING HAS FAILED...', error);
+
+            })
+        contactName.value = '';
+        contactEmail.value = '';
+        contactProject.value = '';
     }
 }
 
