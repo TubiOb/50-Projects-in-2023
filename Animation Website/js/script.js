@@ -1,11 +1,12 @@
-// const navbarToggle = document.querySelector('.navbar-toggle');
-// const navbarMenu = document.querySelector('.navbar');
+const navbarToggle = document.querySelector('.navbar-toggle');
+const navbarMenu = document.querySelector('.navbar');
 
-// navbarToggle.addEventListener('click', () => {
-//     console.log("WOW")
-//     navbarToggle.classList.toggle('active');
-//     navbarMenu.classList.toggle('active');
-// });
+navbarToggle.addEventListener('click', () => {
+    console.log("WOW")
+    navbarToggle.classList.toggle('active');
+    navbarMenu.style.display = "block"
+    navbarMenu.classList.toggle('active');
+});
 
 
 // navbarToggle.addEventListener('mouseenter', () => {
@@ -15,8 +16,9 @@
 // });
 
 
-// navbarToggle.addEventListener('mouseleave', () => {
-//     console.log("skrep")
-//     navbarToggle.classList.toggle('active');
-//     navbarMenu.classList.toggle('active');
-// })
+navbarToggle.addEventListener('mouseleave', () => {
+    console.log("skrep")
+    navbarToggle.classList.toggle('active');
+    navbarMenu.style.display = "none"
+    navbarMenu.classList.toggle('active');
+})
