@@ -273,6 +273,7 @@ body.active {
     justify-content: center;
     align-items: center;
     border: 1px solid #033a80;
+    /* position: fixed; */
 }
 
 .image-container {
@@ -282,6 +283,10 @@ body.active {
     border: 1px solid darkkhaki;
     position: relative;
     display: flex;
+}
+
+.image-container img {
+    width: 100%;
 }
 
 .image-container.active {
@@ -350,7 +355,7 @@ body.active {
 /* SHOW SCROLL UP */
 
 .show-scroll {
-    bottom: 7.5rem;
+    bottom: 5.5rem;
     transition: background .4s;
 }
 

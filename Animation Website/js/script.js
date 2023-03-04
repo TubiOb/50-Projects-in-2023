@@ -23,6 +23,8 @@ navbarToggle.addEventListener('mouseleave', () => {
     navbarMenu.classList.toggle('active');
 })
 
+
+
 // ACTIVE SCROLL SECTION
 const sections = document.querySelectorAll('section[id]')
 
@@ -45,12 +47,14 @@ const scrollActive = () => {
 window.addEventListener('scroll', scrollActive)
 
 
+
 // SHOW SCROLL UP
 const scrollUp = () => {
     const scrollUp = document.querySelector('#scroll-up');
     this.scrollY >= 350 ? scrollUp.classList.add('show-scroll') : scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
+
 
 
 // CHANGE BACKGROUND HEADER
