@@ -74,3 +74,104 @@ var swiper = new Swiper('.swiper-container', {
     spaceBetween: 30,
     loop: true,
 });
+
+
+
+// GENERATING CONTENTS OF THE CARD
+const series = [{
+    title: "",
+    ageRange: "",
+    seasons: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    seasons: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    seasons: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    seasons: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    seasons: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    seasons: "",
+    type: "",
+}, ];
+
+
+const movies = [{
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, ];
+
+
+const new_n_Pop = [{
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}, {
+    title: "",
+    ageRange: "",
+    duration: "",
+    type: "",
+}]
