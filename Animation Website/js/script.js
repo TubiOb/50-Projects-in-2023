@@ -68,15 +68,35 @@ window.addEventListener('scroll', scrollHeader);
 
 
 // CARD SWIPER
-var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 30,
+// var swiper = new Swiper(".mySwiper", {
+//     slidesPerView: 6,
+//     spaceBetween: 30,
+//     loop: true,
+//     pagination: {
+//         el: ".swiper-pagination",
+//         clickable: true,
+//     },
+//     navigation: {
+//         nextEl: ".swiper-button-next",
+//         prevEl: ".swiper-button-prev",
+//     },
+// });
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
     loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    // navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    // },
 });
 
 
-
+const swiperContainer = document.querySelector('.swiper-wrapper');
 // GENERATING CONTENTS OF THE CARD
 const series = [{
     img: "./img/american dad.jpg",
@@ -235,33 +255,196 @@ const new_n_Pop = [{
     duration: "1hr 45m",
     type: "Animated horror comedy",
 }, {
-    img: "",
-    title: "",
-    ageRange: "",
-    duration: "",
-    type: "",
+    img: "./img/Marcel the Shell with Shoes On Alternative Minimalist Movie_Show Polaroid Poster.jpg",
+    title: "Marcel the shell with shoes on",
+    ageRange: "8+",
+    duration: "1hr 30m",
+    type: "Animation, Comedy, Drama, Family, Fantasy",
 }, {
-    img: "",
-    title: "",
-    ageRange: "",
-    duration: "",
-    type: "",
+    img: "./img/Turning Red Alternative Minimalist Movie Polaroid Poster.jpg",
+    title: "Turning Red",
+    ageRange: "10+",
+    duration: "1hr 40m",
+    type: "Fantasy comedy",
 }, {
-    img: "",
-    title: "",
-    ageRange: "",
-    duration: "",
-    type: "",
+    img: "./img/Puss in Boots_The Last Wish.jpg",
+    title: "Puss in Boots: The Last Wish",
+    ageRange: "PG",
+    duration: "1hr 42m",
+    type: "Animation, Adventure, Comedy",
 }, {
-    img: "",
-    title: "",
-    ageRange: "",
-    duration: "",
-    type: "",
+    img: "./img/PINOCCHIO by Guillermo del toro.jpg",
+    title: "Pinocchio",
+    ageRange: "8+",
+    duration: "1hr 54m",
+    type: "Musical, Fantasy, Animation",
 }, {
-    img: "",
-    title: "",
-    ageRange: "",
-    duration: "",
-    type: "",
-}]
+    img: "./img/FilmChop's Pick of the Week_ Apollo 10 1_2.jpg",
+    title: "Apollo 10 1/2",
+    ageRange: "13+",
+    duration: "1hr 38m",
+    type: "Animation, Adventure, Drama, Family, History",
+}, {
+    img: "./img/The Sea Beast.jpg",
+    title: "The Sea Beast",
+    ageRange: "PG",
+    duration: "1hr 55m",
+    type: "Animation, Adventure, Comedy, Family, Fantasy",
+}, {
+    img: "./img/Breaking Beavis and Butthead.jpg",
+    title: "BEAVIS AND BUTT-HEAD DO THE UNIVERSE",
+    ageRange: "TV-14",
+    duration: "1hr 26m",
+    type: "Comedy, Sci-Fi",
+}, {
+    img: "./img/Mummies movie.jpg",
+    title: "Mummies",
+    ageRange: "PG",
+    duration: "1hr 28m",
+    type: "Kids & family/Drama",
+}, {
+    img: "./img/The Amazing Maurice Movie Still - #655014 - Movie Insider.jpg",
+    title: "The Amazing Maurice",
+    ageRange: "PG",
+    duration: "1hr 3m",
+    type: "Kids & family Comedy",
+}, {
+    img: "./img/Luck 2022.jpg",
+    title: "Luck",
+    ageRange: "4+",
+    duration: "1hr 37m",
+    type: "Animation, Adventure, Comedy, Family, Fantasy",
+}, ];
+
+const Cardcontainer = document.querySelector('.swiper');
+const Card = document.querySelector(".serieCard");
+const Poster = document.querySelector(".poster");
+const MovieName = document.querySelector(".title");
+const ageLimit = document.querySelector('.age');
+const Seasons = document.querySelector('.seasons');
+const Genre = document.querySelector('.type');
+
+Card.style.display = "none";
+
+// let MovieCards;
+
+series.forEach((item) => {
+    Poster.src = item.img;
+    MovieName.innerHTML = item.title;
+    ageLimit.innerHTML = item.ageRange;
+    Seasons.innerHTML = item.seasons;
+    Genre.innerHTML = item.type;
+
+
+    // console.log(Poster.src);
+    // console.log(MovieName.innerHTML);
+    // console.log(ageLimit.innerHTML);
+    // console.log(Seasons.innerHTML);
+    // console.log(Genre.innerHTML);
+
+    // Add the card to the parent element
+    let MovieCards =
+        `<div class="serieCard swiper-slide" id="serieCard">
+            <img class="poster" id="poster" src="${Poster.src}" alt="">
+            <span class="title" id="title">${MovieName.innerHTML}</span>
+            <div class="buttons">
+                <button>
+                                                <i class="ri-play-line"></i>
+                                            </button>
+                <button>
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                <button>
+                                                <i class="ri-thumb-up-line"></i>
+                                            </button>
+            </div>
+            <div class="serieDetails" id="serieDetails">
+                <div class="age_Seasons">
+                    <p class="age" id="age">${ageLimit.innerHTML}</p>
+                    <p class="seasons" id="seasons">${Seasons.innerHTML}</p>
+                </div>
+                <div class="the_genre">
+                    <p class="type" id="type">${Genre.innerHTML}</p>
+                    <h3></h3>
+                </div>
+            </div>
+        </div>`;
+
+    // console.log(Poster);
+    // console.log(MovieName);
+    // console.log(ageLimit);
+    // console.log(Seasons);
+    // console.log(Genre);
+
+    console.log(Poster.src);
+    console.log(MovieName.innerHTML);
+    console.log(ageLimit.innerHTML);
+    console.log(Seasons.innerHTML);
+    console.log(Genre.innerHTML);
+
+    Card.innerHTML += MovieCards;
+    // console.log(Card);
+    Cardwrapper.appendChild(Card);
+    Cardcontainer.appendChild(Cardwrapper);
+
+    Card.style.display = "flex";
+
+
+});
+
+
+
+// for (const obj of series) {
+//     console.log(obj.img);
+//     console.log(obj.title);
+//     console.log(obj.ageRange);
+//     console.log(obj.seasons);
+//     console.log(obj.type);
+//     console.log("");
+//     console.log("");
+// }
+
+// Using forEach loop
+// series.forEach((obj) => {
+//     Poster.innerHTML = obj.img
+//     console.log(Poster);
+//     console.log(obj.title);
+//     console.log(obj.ageRange);
+//     console.log(obj.seasons);
+//     console.log(obj.type);
+//     console.log("");
+// });
+
+// Add the items to Card
+// Card.appendChild(Poster);
+// Card.appendChild(MovieName);
+// Card.appendChild(ageLimit);
+// Card.appendChild(Seasons);
+// Card.appendChild(Genre);
+
+// const newCard = Card.cloneNode(true); // Clone the card template
+// const Card = document.createElement('div');
+// Card.classList.add('Card');
+// Card.id = "serieCard";
+
+// Assign values to the elements in the card
+// newCard.querySelector(".poster").src = item.img;
+// newCard.querySelector(".title").textContent = item.title;
+// newCard.querySelector(".age").textContent = item.ageRange;
+// newCard.querySelector(".seasons").textContent = item.seasons;
+// newCard.querySelector(".type").textContent = item.type;
+
+// const Poster = document.createElement('img');
+// Poster.id = "poster"
+
+// const MovieName = document.createElement('span');
+// MovieName.id = "title"
+
+// const ageLimit = document.createElement('p');
+// ageLimit.id = "age"
+
+// const Seasons = document.createElement('p');
+// Seasons.id = "seasons"
+
+// const Genre = document.createElement('p');
+// Genre.id = "type"
