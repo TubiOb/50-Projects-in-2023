@@ -580,7 +580,7 @@ section h2 {
 /* FOOTER */
 
 .footer__container {
-    padding: 1.5rem 0 3rem;
+    padding: 1.5rem 0 7rem;
     text-align: center;
     transition: background .4s;
     justify-content: center;
@@ -603,7 +603,7 @@ section h2 {
 
 .footer__list {
     margin: 2rem 0;
-    column-gap: 2.5rem;
+    column-gap: 1.3rem;
 }
 
 .footer__link {
@@ -841,7 +841,7 @@ hr {
         margin-top: .2rem;
     }
     .footer__container {
-        padding: 2rem 0 1.5rem;
+        padding: 2rem 0 3rem;
     }
     .footer__list {
         column-gap: 3rem;

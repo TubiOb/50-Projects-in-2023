@@ -137,7 +137,7 @@ const series = [{
     title: "Adventure Time",
     ageRange: "10+",
     seasons: "10",
-    type: "	Science fantasy, Adventure, Surreal comedy, Coming of age",
+    type: "	Science fantasy, Adventure, Surreal comedy",
 }, {
     img: "./img/Teen Titans Poster by Cindy.jpg",
     title: "Teen Titans",
