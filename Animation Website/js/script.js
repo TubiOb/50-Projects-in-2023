@@ -99,7 +99,7 @@ const series = [{
 }, {
     img: "./img/Family Guy.jpg",
     title: "Family Guy",
-    ageRange: "TV-14",
+    ageRange: "14+",
     seasons: "21",
     type: "Animated Sitcom",
 }, {
@@ -337,7 +337,7 @@ series.forEach((item) => {
     serieDetails.classList.add("serieDetails");
     ageSeasons.classList.add("age_Seasons");
     age.classList.add("age");
-    age.textContent = item.ageRange;
+    age.textContent = "PG: " + item.ageRange;
     seasons.classList.add("seasons");
     seasons.textContent = "Seasons: " + item.seasons;
     theGenre.classList.add("the_genre");
@@ -398,7 +398,7 @@ movies.forEach((item) => {
     movieDetails.classList.add("movieDetails");
     ageDuration.classList.add("age_Duration");
     age.classList.add("age");
-    age.textContent = item.ageRange;
+    age.textContent = "PG: " + item.ageRange;
     duration.classList.add("time");
     duration.textContent = item.duration;
     theGenre.classList.add("the_genre");
@@ -460,7 +460,7 @@ new_n_Pop.forEach((item) => {
     newDetails.classList.add("newDetails");
     ageDuration.classList.add("age_Duration");
     age.classList.add("age");
-    age.textContent = item.ageRange;
+    age.textContent = "PG: " + item.ageRange;
     duration.classList.add("time");
     duration.textContent = item.duration;
     theGenre.classList.add("the_genre");
