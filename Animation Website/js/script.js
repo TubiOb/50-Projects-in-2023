@@ -67,36 +67,10 @@ window.addEventListener('scroll', scrollHeader);
 
 
 
-// CARD SWIPER
-// var swiper = new Swiper(".mySwiper", {
-//     slidesPerView: 6,
-//     spaceBetween: 30,
-//     loop: true,
-//     pagination: {
-//         el: ".swiper-pagination",
-//         clickable: true,
-//     },
-//     navigation: {
-//         nextEl: ".swiper-button-next",
-//         prevEl: ".swiper-button-prev",
-//     },
-// });
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    // navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev",
-    // },
-});
-
 
 const swiperContainer = document.querySelector('.swiper-wrapper');
+const MovieswiperContainer = document.querySelector('.movie');
+const NewswiperContainer = document.querySelector('.newWrap');
 // GENERATING CONTENTS OF THE CARD
 const series = [{
     img: "./img/american dad.jpg",
@@ -303,7 +277,7 @@ const new_n_Pop = [{
     duration: "1hr 28m",
     type: "Kids & family/Drama",
 }, {
-    img: "./img/The Amazing Maurice Movie Still - #655014 - Movie Insider.jpg",
+    img: "./img/The Amazing Maurice Movie.jpg",
     title: "The Amazing Maurice",
     ageRange: "PG",
     duration: "1hr 3m",
@@ -322,6 +296,7 @@ const Poster = document.querySelector(".poster");
 const MovieName = document.querySelector(".title");
 const ageLimit = document.querySelector('.age');
 const Seasons = document.querySelector('.seasons');
+const Time = document.querySelector('.time');
 const Genre = document.querySelector('.type');
 
 Card.style.display = "none";
@@ -329,122 +304,219 @@ Card.style.display = "none";
 // let MovieCards;
 
 series.forEach((item) => {
-    Poster.src = item.img;
-    MovieName.innerHTML = item.title;
-    ageLimit.innerHTML = item.ageRange;
-    Seasons.innerHTML = item.seasons;
-    Genre.innerHTML = item.type;
+    const serieCard = document.createElement("div");
+    serieCard.classList.add('Card');
+    serieCard.id = "serieCard";
+    const poster = document.createElement("img");
+    const title = document.createElement("span");
+    const buttons = document.createElement("div");
+    const playButton = document.createElement("button");
+    const playIcon = document.createElement("i");
+    const checkButton = document.createElement("button");
+    const checkIcon = document.createElement("i");
+    const likeButton = document.createElement("button");
+    const likeIcon = document.createElement("i");
+    const serieDetails = document.createElement("div");
+    const ageSeasons = document.createElement("div");
+    const age = document.createElement("p");
+    const seasons = document.createElement("p");
+    const theGenre = document.createElement("div");
+    const type = document.createElement("p");
+    const h3 = document.createElement("h3");
+
+    // Add classes and attributes to the elements
+    serieCard.classList.add("serieCard", "swiper-slide");
+    poster.classList.add("poster");
+    poster.setAttribute("src", item.img);
+    poster.setAttribute("alt", `${item.title} Poster`);
+    title.classList.add("title");
+    title.textContent = item.title;
+    buttons.classList.add("buttons");
+    playButton.innerHTML = '<i class="ri-play-line"></i>';
+    checkButton.innerHTML = '<i class="ri-check-line"></i>';
+    likeButton.innerHTML = '<i class="ri-thumb-up-line"></i>';
+    serieDetails.classList.add("serieDetails");
+    ageSeasons.classList.add("age_Seasons");
+    age.classList.add("age");
+    age.textContent = item.ageRange;
+    seasons.classList.add("seasons");
+    seasons.textContent = item.seasons;
+    theGenre.classList.add("the_genre");
+    type.classList.add("type");
+    type.textContent = item.genre;
+    h3.textContent = "more info";
+
+    // Append the elements to the serieCard
+    swiperContainer.appendChild(serieCard);
+    serieCard.appendChild(poster);
+    serieCard.appendChild(title);
+    serieCard.appendChild(buttons);
+    buttons.appendChild(playButton);
+    buttons.appendChild(checkButton);
+    buttons.appendChild(likeButton);
+    serieCard.appendChild(serieDetails);
+    serieDetails.appendChild(ageSeasons);
+    ageSeasons.appendChild(age);
+    ageSeasons.appendChild(seasons);
+    serieDetails.appendChild(theGenre);
+    theGenre.appendChild(type);
+    theGenre.appendChild(h3);
+
+    console.log(serieCard);
+    serieCard.style.display = "flex";
+});
 
 
-    // console.log(Poster.src);
-    // console.log(MovieName.innerHTML);
-    // console.log(ageLimit.innerHTML);
-    // console.log(Seasons.innerHTML);
-    // console.log(Genre.innerHTML);
+movies.forEach((item) => {
+    const movieCard = document.createElement("div");
+    movieCard.classList.add('Card');
+    movieCard.id = "movieCard";
+    const poster = document.createElement("img");
+    const title = document.createElement("span");
+    const buttons = document.createElement("div");
+    const playButton = document.createElement("button");
+    const playIcon = document.createElement("i");
+    const checkButton = document.createElement("button");
+    const checkIcon = document.createElement("i");
+    const likeButton = document.createElement("button");
+    const likeIcon = document.createElement("i");
+    const movieDetails = document.createElement("div");
+    const ageDuration = document.createElement("div");
+    const age = document.createElement("p");
+    const duration = document.createElement("p");
+    const theGenre = document.createElement("div");
+    const type = document.createElement("p");
+    const h3 = document.createElement("h3");
 
-    // Add the card to the parent element
-    let MovieCards =
-        `<div class="serieCard swiper-slide" id="serieCard">
-            <img class="poster" id="poster" src="${Poster.src}" alt="">
-            <span class="title" id="title">${MovieName.innerHTML}</span>
-            <div class="buttons">
-                <button>
-                                                <i class="ri-play-line"></i>
-                                            </button>
-                <button>
-                                                <i class="ri-check-line"></i>
-                                            </button>
-                <button>
-                                                <i class="ri-thumb-up-line"></i>
-                                            </button>
-            </div>
-            <div class="serieDetails" id="serieDetails">
-                <div class="age_Seasons">
-                    <p class="age" id="age">${ageLimit.innerHTML}</p>
-                    <p class="seasons" id="seasons">${Seasons.innerHTML}</p>
-                </div>
-                <div class="the_genre">
-                    <p class="type" id="type">${Genre.innerHTML}</p>
-                    <h3></h3>
-                </div>
-            </div>
-        </div>`;
+    // Add classes and attributes to the elements
+    movieCard.classList.add("movieCard", "swiper-slide");
+    poster.classList.add("poster");
+    poster.setAttribute("src", item.img);
+    poster.setAttribute("alt", `${item.title} Poster`);
+    title.classList.add("title");
+    title.textContent = item.title;
+    buttons.classList.add("buttons");
+    playButton.innerHTML = '<i class="ri-play-line"></i>';
+    checkButton.innerHTML = '<i class="ri-check-line"></i>';
+    likeButton.innerHTML = '<i class="ri-thumb-up-line"></i>';
+    movieDetails.classList.add("movieDetails");
+    ageDuration.classList.add("age_Duration");
+    age.classList.add("age");
+    age.textContent = item.ageRange;
+    duration.classList.add("time");
+    duration.textContent = item.duration;
+    theGenre.classList.add("the_genre");
+    type.classList.add("type");
+    type.textContent = item.genre;
+    h3.textContent = "more info";
 
-    // console.log(Poster);
-    // console.log(MovieName);
-    // console.log(ageLimit);
-    // console.log(Seasons);
-    // console.log(Genre);
+    // Append the elements to the serieCard
+    MovieswiperContainer.appendChild(movieCard);
+    movieCard.appendChild(poster);
+    movieCard.appendChild(title);
+    movieCard.appendChild(buttons);
+    buttons.appendChild(playButton);
+    buttons.appendChild(checkButton);
+    buttons.appendChild(likeButton);
+    movieCard.appendChild(movieDetails);
+    movieDetails.appendChild(ageDuration);
+    ageDuration.appendChild(age);
+    ageDuration.appendChild(duration);
+    movieDetails.appendChild(theGenre);
+    theGenre.appendChild(type);
+    theGenre.appendChild(h3);
 
-    console.log(Poster.src);
-    console.log(MovieName.innerHTML);
-    console.log(ageLimit.innerHTML);
-    console.log(Seasons.innerHTML);
-    console.log(Genre.innerHTML);
-
-    Card.innerHTML += MovieCards;
-    // console.log(Card);
-    Cardwrapper.appendChild(Card);
-    Cardcontainer.appendChild(Cardwrapper);
-
-    Card.style.display = "flex";
-
-
+    console.log(movieCard);
+    movieCard.style.display = "flex";
 });
 
 
 
-// for (const obj of series) {
-//     console.log(obj.img);
-//     console.log(obj.title);
-//     console.log(obj.ageRange);
-//     console.log(obj.seasons);
-//     console.log(obj.type);
-//     console.log("");
-//     console.log("");
-// }
+new_n_Pop.forEach((item) => {
+    const newCard = document.createElement("div");
+    newCard.classList.add('Card');
+    newCard.id = "newCard";
+    const poster = document.createElement("img");
+    const title = document.createElement("span");
+    const buttons = document.createElement("div");
+    const playButton = document.createElement("button");
+    const playIcon = document.createElement("i");
+    const checkButton = document.createElement("button");
+    const checkIcon = document.createElement("i");
+    const likeButton = document.createElement("button");
+    const likeIcon = document.createElement("i");
+    const movieDetails = document.createElement("div");
+    const ageDuration = document.createElement("div");
+    const age = document.createElement("p");
+    const duration = document.createElement("p");
+    const theGenre = document.createElement("div");
+    const type = document.createElement("p");
+    const h3 = document.createElement("h3");
 
-// Using forEach loop
-// series.forEach((obj) => {
-//     Poster.innerHTML = obj.img
-//     console.log(Poster);
-//     console.log(obj.title);
-//     console.log(obj.ageRange);
-//     console.log(obj.seasons);
-//     console.log(obj.type);
-//     console.log("");
-// });
+    // Add classes and attributes to the elements
+    newCard.classList.add("newCard", "swiper-slide");
+    poster.classList.add("poster");
+    poster.setAttribute("src", item.img);
+    poster.setAttribute("alt", `${item.title} Poster`);
+    title.classList.add("title");
+    title.textContent = item.title;
+    buttons.classList.add("buttons");
+    playButton.innerHTML = '<i class="ri-play-line"></i>';
+    checkButton.innerHTML = '<i class="ri-check-line"></i>';
+    likeButton.innerHTML = '<i class="ri-thumb-up-line"></i>';
+    newDetails.classList.add("newDetails");
+    ageDuration.classList.add("age_Duration");
+    age.classList.add("age");
+    age.textContent = item.ageRange;
+    duration.classList.add("time");
+    duration.textContent = item.duration;
+    theGenre.classList.add("the_genre");
+    type.classList.add("type");
+    type.textContent = item.genre;
+    h3.textContent = "more info";
 
-// Add the items to Card
-// Card.appendChild(Poster);
-// Card.appendChild(MovieName);
-// Card.appendChild(ageLimit);
-// Card.appendChild(Seasons);
-// Card.appendChild(Genre);
+    // Append the elements to the serieCard
+    NewswiperContainer.appendChild(newCard);
+    newCard.appendChild(poster);
+    newCard.appendChild(title);
+    newCard.appendChild(buttons);
+    buttons.appendChild(playButton);
+    buttons.appendChild(checkButton);
+    buttons.appendChild(likeButton);
+    newCard.appendChild(serieDetails);
+    newDetails.appendChild(ageDuration);
+    ageDuration.appendChild(age);
+    ageDuration.appendChild(duration);
+    newDetails.appendChild(theGenre);
+    theGenre.appendChild(type);
+    theGenre.appendChild(h3);
 
-// const newCard = Card.cloneNode(true); // Clone the card template
-// const Card = document.createElement('div');
-// Card.classList.add('Card');
-// Card.id = "serieCard";
+    console.log(newCard);
+    newCard.style.display = "flex";
+});
 
-// Assign values to the elements in the card
-// newCard.querySelector(".poster").src = item.img;
-// newCard.querySelector(".title").textContent = item.title;
-// newCard.querySelector(".age").textContent = item.ageRange;
-// newCard.querySelector(".seasons").textContent = item.seasons;
-// newCard.querySelector(".type").textContent = item.type;
 
-// const Poster = document.createElement('img');
-// Poster.id = "poster"
-
-// const MovieName = document.createElement('span');
-// MovieName.id = "title"
-
-// const ageLimit = document.createElement('p');
-// ageLimit.id = "age"
-
-// const Seasons = document.createElement('p');
-// Seasons.id = "seasons"
-
-// const Genre = document.createElement('p');
-// Genre.id = "type"
+// CARD SWIPER
+const mySwiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    loop: false,
+    grabCursor: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+        // when window width is >= 576px (for mobile screens)
+        576: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        },
+        // when window width is >= 992px (for large screens)
+        992: {
+            slidesPerView: 4,
+            spaceBetween: 30
+        }
+    },
+});

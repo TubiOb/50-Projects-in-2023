@@ -398,6 +398,7 @@ body.active {
 .swiper {
     width: 100%;
     height: auto;
+    padding: 10px;
     /* border: 1px solid brown; */
 }
 
@@ -408,12 +409,12 @@ body.active {
     cursor: pointer;
     flex-direction: column;
     background-color: var(--bg-color);
-    padding: 10px;
-    margin-right: 20px;
-    width: 250px;
+    padding: 5px;
+    margin: 20px 0;
+    /* width: 200px; */
     height: 350px;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: all 0.4s ease-in-out;
     box-shadow: 0px 7px 10px rgba(black, 0.9);
     box-shadow: 1px 1px 1px 1px whitesmoke;
@@ -421,21 +422,20 @@ body.active {
     align-items: center;
     justify-content: center;
     position: relative;
-    border: 2px solid #033a80;
 }
 
 .serieCard:hover,
 .movieCard:hover,
 .newCard:hover {
     box-shadow: 0 0 18px 0 rgba(35, 35, 35, .3);
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
 }
 
 .serieCard img,
 .movieCard img,
 .newCard img {
-    max-width: 100%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 5px auto;
     height: 150px;
     border-radius: 8px;
     object-fit: cover;
@@ -533,6 +533,9 @@ body.active {
 .show-Details {
     height: 270px;
 }
+
+.swiper-button-next,
+swiper-button-prev {}
 
 
 /* MEDIA QUERIES */
