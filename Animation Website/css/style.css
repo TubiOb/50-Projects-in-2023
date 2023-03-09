@@ -16,7 +16,7 @@
 
  :root {
     --header-height: 3.5rem;
-    --main-color: #033a80;
+    --main-color: #ff0054;
     --bg-color: #fff;
     --title-color: hsl(207, 4%, 16%);
     --text-color: #000;
@@ -31,6 +31,8 @@
     --header-height: 3.5rem;
     --smaller-font-size: .75rem;
     --card-color: #eaf4f4;
+    --contain-color: #e4c1f9;
+    --card-color: #cdb4db;
     --hue: 207;
     --sat: 90%;
     --lig: 61%;
@@ -44,8 +46,8 @@ html {
 }
 
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--main-color);
+    color: var(--bg-color);
     transition: background .4s;
 }
 
@@ -111,7 +113,7 @@ body.active {
 
 *::selection {
     color: var(--text-color);
-    background: var(--bg-color);
+    background: var(--main-color);
 }
 
 .grid {
@@ -132,7 +134,7 @@ body.active {
 }
 
 .header-white {
-    background-color: var(--bg-color);
+    background-color: var(--main-color);
     /* or any color you prefer */
 }
 
@@ -142,7 +144,7 @@ body.active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg-color);
+    background-color: var(--main-color);
     box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
     padding-inline: 1.5rem;
     transition: background .4s;
@@ -156,7 +158,7 @@ body.active {
     align-items: center;
     row-gap: .25rem;
     font-size: var(--smaller-font-size);
-    color: var(--text-color-light);
+    color: var(--bg-light);
     transition: .3s;
 }
 
@@ -170,7 +172,7 @@ body.active {
 }
 
 .nav__logo {
-    color: var(--text-color);
+    color: var(--bg-color);
     font-weight: var(--medium-font);
     padding-right: 2rem;
 }
@@ -195,7 +197,7 @@ body.active {
         /* left: 120px; */
         top: 60px;
         /* margin: 0 auto; */
-        background-color: var(--bg-color);
+        background-color: var(--main-color);
         box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
         /* padding: 2rem 1.5rem 5rem; */
         transition: bottom .3s;
@@ -230,7 +232,7 @@ body.active {
     right: 0;
     width: 170px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: var(--bg-color);
+    background-color: var(--main-color);
 }
 
 .dropdown-content a {
@@ -238,11 +240,11 @@ body.active {
     text-decoration: none;
     display: block;
     font-size: var(--smaller-font-size);
-    color: var(--title-color);
+    color: var(--bg-color);
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: var(--main-color);
 }
 
 .dropdown-content hr {
@@ -275,7 +277,7 @@ body.active {
     margin-top: var(--header-height);
     justify-content: center;
     align-items: center;
-    border: 1px solid #033a80;
+    /* border: 1px solid #033a80; */
     /* position: fixed; */
 }
 
@@ -283,7 +285,7 @@ body.active {
     width: 100%;
     height: 70%;
     overflow: hidden;
-    border: 1px solid darkkhaki;
+    /* border: 1px solid darkkhaki; */
     position: relative;
     display: flex;
 }
@@ -400,7 +402,7 @@ body.active {
 
 section h2 {
     font-size: var(--h2-font-size);
-    color: var(--title-color);
+    color: var(--bg-color);
     margin-left: 10px;
     margin-top: 50px;
 }
@@ -418,7 +420,7 @@ section h2 {
     display: none;
     cursor: pointer;
     flex-direction: column;
-    background-color: var(--bg-color);
+    background-color: var(--card-color);
     padding: 5px;
     margin: 10px 0;
     /* width: 200px; */
@@ -453,7 +455,7 @@ section h2 {
 
 .title {
     font-size: var(--p-font);
-    color: var(--text-color);
+    color: var(--bg-color);
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
@@ -527,7 +529,7 @@ section h2 {
     position: relative;
     font-size: var(--p-font);
     background: transparent;
-    color: var(--title-color);
+    color: var(--bg-color);
 }
 
 .age_Seasons,
@@ -541,7 +543,7 @@ section h2 {
     text-align: center;
     /* border: 1px solid saddlebrown; */
     margin: 0 auto;
-    color: var(--title-color);
+    color: var(--bg-color);
 }
 
 .the_genre {
@@ -560,14 +562,14 @@ section h2 {
 .the_genre p {
     font-size: var(--smaller-font-size);
     margin: 2px;
-    color: var(--title-color);
+    color: var(--bg-color);
 }
 
 .type {
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--title-color);
+    color: var(--bg-color);
 }
 
 .show-Details {
@@ -605,7 +607,7 @@ section h2 {
 }
 
 .footer__link {
-    color: var(--title-color);
+    color: var(--bg-color);
     transition: background .4s;
 }
 
@@ -617,7 +619,7 @@ section h2 {
     display: block;
     margin-top: 3.5rem;
     font-size: var(--smaller-font-size);
-    color: var(--text-color-light);
+    color: var(--bg-light);
     transition: background .4s;
 }
 
@@ -740,7 +742,7 @@ hr {
     .header {
         top: 0;
         bottom: initial;
-        background-color: var(--bg-color);
+        background-color: var(--main-color);
         transition: .4s;
         box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
     }
@@ -760,7 +762,7 @@ hr {
     .navbar {
         width: initial;
         margin: auto;
-        background-color: var(--bg-color);
+        background-color: var(--main-color);
         transition: background .4s;
     }
     .nav__menu {
