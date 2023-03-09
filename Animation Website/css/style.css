@@ -574,6 +574,53 @@ section h2 {
 }
 
 
+/* FOOTER */
+
+.footer__container {
+    padding: 1.5rem 0 3rem;
+    text-align: center;
+    transition: background .4s;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.footer__title {
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: background .4s;
+}
+
+.footer__list {
+    display: flex;
+    justify-content: center;
+    transition: background .4s;
+}
+
+.footer__list {
+    margin: 2rem 0;
+    column-gap: 2.5rem;
+}
+
+.footer__link {
+    color: var(--title-color);
+    transition: background .4s;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.footer__copy {
+    display: block;
+    margin-top: 3.5rem;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+    transition: background .4s;
+}
+
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
