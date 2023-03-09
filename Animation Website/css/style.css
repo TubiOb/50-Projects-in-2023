@@ -838,11 +838,11 @@ hr {
         margin-top: .2rem;
     }
     .footer__container {
-        padding: 4rem 0 3rem;
+        padding: 2rem 0 1.5rem;
     }
     .footer__list {
         column-gap: 3rem;
-        margin: 3rem 0;
+        margin: 2rem 0;
     }
     .footer__social {
         column-gap: 2rem;
