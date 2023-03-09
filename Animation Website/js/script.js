@@ -494,6 +494,8 @@ const mySwiper = new Swiper(".mySwiper", {
     loop: false,
     grabCursor: true,
     loopFillGroupWithBlank: true,
+    mousewheel: true,
+    keyboard: false,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"

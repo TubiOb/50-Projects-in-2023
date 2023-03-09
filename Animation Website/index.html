@@ -14,7 +14,7 @@
     <title>Animetoon | Home</title>
 </head>
 
-<body>
+<body loading="lazy">
 
     <header class="header" id="header">
         <nav class="nav container">
@@ -26,8 +26,8 @@
                     <li class="navbar-item"><a href="#TV-Shows" class="nav__link">TV Shows</a></li>
                     <li class="navbar-item"><a href="#Movies" class="nav__link">Movies</a></li>
                     <li class="navbar-item"><a href="#New-and-Popular" class="nav__link">New & Popular</a></li>
-                    <li class="navbar-item"><a href="#MyList" class="nav__link">MyList</a></li>
-                    <li class="navbar-item"><a href="#Languages" class="nav__link">Browse by Languages</a></li>
+                    <!-- <li class="navbar-item"><a href="#MyList" class="nav__link">MyList</a></li>
+                    <li class="navbar-item"><a href="#Languages" class="nav__link">Browse by Languages</a></li> -->
                 </ul>
             </div>
 
@@ -52,9 +52,9 @@
     </header>
 
 
-    <section class="main">
+    <section class="main" id="Home">
         <div class="image-container slideshow-item">
-            <img name="slide" src="./img/wallpaper.jpg" alt="">
+            <img name="slide" src="./img/wallpaper.jpg" alt="" loading="lazy">
             <div class="overlay">
                 <h2>Scooby-Doo, Where Are You Now!</h2>
                 <p>The Scooby Gang ends up investigating a mystery when they gather to reminisce about their favorite cases.</p>
@@ -70,12 +70,12 @@
         </div>
     </section>
 
-    <section class="series">
+    <section class="series" id="TV-Shows">
         <h2>SERIES</h2>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="serieCard swiper-slide" id="serieCard">
-                    <img class="poster" id="poster" src="" alt="">
+                    <img class="poster" id="poster" src="" alt="" loading="lazy">
                     <span class="title" id="title"></span>
                     <div class="buttons">
                         <button>
@@ -100,17 +100,15 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
-    <section class="movies">
+    <section class="movies" id="Movies">
         <h2>MOVIES</h2>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper movie">
                 <div class="movieCard swiper-slide" id="movieCard">
-                    <img class="poster" id="poster" src="" alt="">
+                    <img class="poster" id="poster" src="" alt="" loading="lazy">
                     <span class="title"></span>
                     <div class="buttons">
                         <button>
@@ -134,18 +132,16 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
 
     </section>
 
-    <section class="new">
+    <section class="new" id="New-and-Popular">
         <h2>NEW & POPULAR</h2>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper newWrap">
                 <div class="newCard swiper-slide" id="newCard">
-                    <img class="poster" id="poster" src="" alt="">
+                    <img class="poster" id="poster" src="" alt="" loading="lazy">
                     <span class="title"></span>
                     <div class="buttons">
                         <button>
@@ -170,8 +166,6 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -181,7 +175,46 @@
         </div>
 
     </section>
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Animetoon</h1>
+            <p>Frontend Developer</p>
 
+            <ul class="footer__list">
+                <li>
+                    <a href="#Home" class="footer__link">Home</a>
+                </li>
+
+                <li>
+                    <a href="#TV-Shows" class="footer__link">TV Shows</a>
+                </li>
+
+                <li>
+                    <a href="#Movies" class="footer__link">Movies</a>
+                </li>
+
+                <li>
+                    <a href="#New-and-Popular" class="footer__link">New & Popular</a>
+                </li>
+            </ul>
+
+            <ul class="footer__social">
+                <a href="https://www.linkedin.com/in/obaloluwa-tubi-09a35617b/" target="_blank" class="footer__social-link">
+                    <i class="ri-linkedin-box-line"></i>
+                </a>
+                <a href=" https://github.com/TubiOb" target="_blank" class="footer__social-link">
+                    <i class="ri-github-line"></i>
+                </a>
+                <a href="https://twitter.com/Teclef" target="_blank" class="footer__social-link">
+                    <i class="ri-twitter-line"></i>
+                </a>
+            </ul>
+
+            <span class="footer__copy">
+               &#169; Copyright TubiOb. All rights reserved. 
+            </span>
+        </div>
+    </footer>
 
     <a href="" class="scrollup" id="scroll-up">
         <i class="ri-rocket-2-line"></i>
