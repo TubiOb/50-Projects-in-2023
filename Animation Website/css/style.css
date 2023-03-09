@@ -837,4 +837,20 @@ hr {
         margin-bottom: 1rem;
         margin-top: .2rem;
     }
+    .footer__container {
+        padding: 4rem 0 3rem;
+    }
+    .footer__list {
+        column-gap: 3rem;
+        margin: 3rem 0;
+    }
+    .footer__social {
+        column-gap: 2rem;
+    }
+    .footer__social-link {
+        font-size: 1.5rem;
+    }
+    .footer__copy {
+        margin-top: 5rem;
+    }
 }
