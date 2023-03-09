@@ -164,7 +164,7 @@ const movies = [{
         title: "Puss in Boots",
         ageRange: "6+",
         duration: "1hr 30m",
-        type: "Family-Oriented Adventure , Family-Oriented Comedy",
+        type: "Family-Oriented Adventure & Comedy",
     }, {
         img: "./img/raya and the last dragon.jpg",
         title: "Raya and the Last Dragon",
@@ -322,7 +322,6 @@ series.forEach((item) => {
     const seasons = document.createElement("p");
     const theGenre = document.createElement("div");
     const type = document.createElement("p");
-    const h3 = document.createElement("h3");
 
     // Add classes and attributes to the elements
     serieCard.classList.add("serieCard", "swiper-slide");
@@ -340,11 +339,10 @@ series.forEach((item) => {
     age.classList.add("age");
     age.textContent = item.ageRange;
     seasons.classList.add("seasons");
-    seasons.textContent = item.seasons;
+    seasons.textContent = "Seasons: " + item.seasons;
     theGenre.classList.add("the_genre");
     type.classList.add("type");
-    type.textContent = item.genre;
-    h3.textContent = "more info";
+    type.textContent = item.type;
 
     // Append the elements to the serieCard
     swiperContainer.appendChild(serieCard);
@@ -360,7 +358,6 @@ series.forEach((item) => {
     ageSeasons.appendChild(seasons);
     serieDetails.appendChild(theGenre);
     theGenre.appendChild(type);
-    theGenre.appendChild(h3);
 
     console.log(serieCard);
     serieCard.style.display = "flex";
@@ -386,7 +383,6 @@ movies.forEach((item) => {
     const duration = document.createElement("p");
     const theGenre = document.createElement("div");
     const type = document.createElement("p");
-    const h3 = document.createElement("h3");
 
     // Add classes and attributes to the elements
     movieCard.classList.add("movieCard", "swiper-slide");
@@ -407,8 +403,7 @@ movies.forEach((item) => {
     duration.textContent = item.duration;
     theGenre.classList.add("the_genre");
     type.classList.add("type");
-    type.textContent = item.genre;
-    h3.textContent = "more info";
+    type.textContent = item.type;
 
     // Append the elements to the serieCard
     MovieswiperContainer.appendChild(movieCard);
@@ -424,7 +419,6 @@ movies.forEach((item) => {
     ageDuration.appendChild(duration);
     movieDetails.appendChild(theGenre);
     theGenre.appendChild(type);
-    theGenre.appendChild(h3);
 
     console.log(movieCard);
     movieCard.style.display = "flex";
@@ -445,13 +439,12 @@ new_n_Pop.forEach((item) => {
     const checkIcon = document.createElement("i");
     const likeButton = document.createElement("button");
     const likeIcon = document.createElement("i");
-    const movieDetails = document.createElement("div");
+    const newDetails = document.createElement("div");
     const ageDuration = document.createElement("div");
     const age = document.createElement("p");
     const duration = document.createElement("p");
     const theGenre = document.createElement("div");
     const type = document.createElement("p");
-    const h3 = document.createElement("h3");
 
     // Add classes and attributes to the elements
     newCard.classList.add("newCard", "swiper-slide");
@@ -472,8 +465,7 @@ new_n_Pop.forEach((item) => {
     duration.textContent = item.duration;
     theGenre.classList.add("the_genre");
     type.classList.add("type");
-    type.textContent = item.genre;
-    h3.textContent = "more info";
+    type.textContent = item.type;
 
     // Append the elements to the serieCard
     NewswiperContainer.appendChild(newCard);
@@ -483,13 +475,12 @@ new_n_Pop.forEach((item) => {
     buttons.appendChild(playButton);
     buttons.appendChild(checkButton);
     buttons.appendChild(likeButton);
-    newCard.appendChild(serieDetails);
+    newCard.appendChild(newDetails);
     newDetails.appendChild(ageDuration);
     ageDuration.appendChild(age);
     ageDuration.appendChild(duration);
     newDetails.appendChild(theGenre);
     theGenre.appendChild(type);
-    theGenre.appendChild(h3);
 
     console.log(newCard);
     newCard.style.display = "flex";
@@ -508,14 +499,43 @@ const mySwiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+        // when window width is >= 200px (for mobile screens)
+        200: {
+            slidesPerView: 1,
+            spaceBetween: 20
+        },
+        // when window width is >= 340px (for mobile screens)
+        300: {
+            slidesPerView: 1.05,
+            spaceBetween: 20
+        },
+        // when window width is >= 200px (for mobile screens)
+        350: {
+            slidesPerView: 1.25,
+            spaceBetween: 20
+        },
+        // when window width is >= 200px (for mobile screens)
+        450: {
+            slidesPerView: 1.5,
+            spaceBetween: 20
+        },
         // when window width is >= 576px (for mobile screens)
-        576: {
+        570: {
+            slidesPerView: 2,
+            spaceBetween: 30
+        },
+        // when window width is >= 200px (for mobile screens)
+        700: {
             slidesPerView: 3,
             spaceBetween: 20
         },
         // when window width is >= 992px (for large screens)
         992: {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
+            spaceBetween: 30
+        },
+        1023: {
+            slidesPerView: 3.75,
             spaceBetween: 30
         }
     },

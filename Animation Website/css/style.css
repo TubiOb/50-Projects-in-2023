@@ -386,13 +386,20 @@ body.active {
 }
 
 
-/* GENRE SECTION */
+/* GENRE SECTION AND CARDS */
 
 .series,
 .movies,
 .new {
     width: 90%;
     margin: 20px auto;
+}
+
+section h2 {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-left: 10px;
+    margin-top: 50px;
 }
 
 .swiper {
@@ -410,9 +417,9 @@ body.active {
     flex-direction: column;
     background-color: var(--bg-color);
     padding: 5px;
-    margin: 20px 0;
+    margin: 10px 0;
     /* width: 200px; */
-    height: 350px;
+    height: 400px;
     color: white;
     border-radius: 10px;
     transition: all 0.4s ease-in-out;
@@ -436,7 +443,7 @@ body.active {
 .newCard img {
     width: 95%;
     margin: 5px auto;
-    height: 150px;
+    height: 200px;
     border-radius: 8px;
     object-fit: cover;
 }
@@ -453,21 +460,31 @@ body.active {
 .serieDetails,
 .newDetails,
 .movieDetails {
-    /* height: 0; */
-    overflow-y: scroll;
+    height: 90px;
+    /* overflow-y: scroll; */
+    margin: 0 auto;
     transition: height 0.3s ease-in-out;
     margin-bottom: 1rem;
     display: none;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
     /* border: 1px solid #033a80; */
-    margin-top: .3rem;
-    padding: .4rem;
+    margin-top: .2rem;
+    padding: .7rem;
     /* background: transparent; */
 }
 
-.serieDetails p {
+.serieCard:hover .serieDetails,
+.movieCard:hover .movieDetails,
+.newCard:hover .newDetails {
+    display: flex;
+    border-radius: 5px;
+}
+
+.serieDetails p,
+.newDetails p,
+.movieDetails p {
     font-size: var(--p-font);
     line-height: 1.6;
     opacity: .9;
@@ -511,15 +528,35 @@ body.active {
 }
 
 .age_Seasons,
-.the_genre {
+.age_Duration {
     width: 80%;
     height: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
     /* border: 1px solid saddlebrown; */
+    margin: 0 auto;
+    color: var(--title-color);
+}
+
+.the_genre {
+    width: 90%;
+    height: 30px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid saddlebrown; */
+    text-align: center;
     margin: auto;
+}
+
+.the_genre p {
+    font-size: var(--smaller-font-size);
+    margin: 2px;
     color: var(--title-color);
 }
 
@@ -535,7 +572,34 @@ body.active {
 }
 
 .swiper-button-next,
-swiper-button-prev {}
+.swiper-button-prev {
+    font-size: 5px;
+    background-color: #033a80;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: .4rem;
+    border-radius: .5rem;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: var(--text-color-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--title-color);
+}
+
+hr {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+}
 
 
 /* MEDIA QUERIES */
@@ -543,6 +607,11 @@ swiper-button-prev {}
 @media (max-width: 340px) {
     .navbar {
         padding-bottom: 4rem;
+    }
+    .serieDetails,
+    .newDetails,
+    .movieDetails {
+        width: 90%;
     }
 }
 
@@ -554,11 +623,22 @@ swiper-button-prev {}
     .nav {
         margin: 0 auto;
     }
+    .serieDetails,
+    .newDetails,
+    .movieDetails {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 @media (min-width: 768px) {
     .swiper-container {
         overflow-x: hidden;
+    }
+    .serieDetails,
+    .newDetails,
+    .movieDetails {
+        width: 100%;
     }
 }
 
@@ -631,12 +711,31 @@ swiper-button-prev {}
         width: 170px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+    .serieDetails,
+    .newDetails,
+    .movieDetails {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 
 @media (min-width:1048px) {
     .container {
         margin-inline: auto;
     }
+    .serieDetails,
+    .newDetails,
+    .movieDetails {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    .serieDetails,
+    .newDetails,
+    .movieDetails {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
