@@ -238,6 +238,7 @@ body.active {
     text-decoration: none;
     display: block;
     font-size: var(--smaller-font-size);
+    color: var(--title-color);
 }
 
 .dropdown-content a:hover {
