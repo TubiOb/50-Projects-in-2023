@@ -235,8 +235,8 @@ h4 {
 }
 
 .mini-text {
-    font-size: var(--smaller-font-size);
-    color: var(--border-color);
+    font-size: var(--font-small);
+    color: var(--light-text-color);
 }
 
 
@@ -390,7 +390,7 @@ nav .fly-item {
 /* HEADER MAIN / DEPARTMENT CATEGORY */
 
 .header-main {
-    background-color: var(--light-text-color);
+    background-color: var(--secondary-dark-color);
     padding: 1.5em 0;
     margin-bottom: 2em;
 }
@@ -404,14 +404,14 @@ nav .fly-item {
     position: relative;
     width: 300px;
     padding: .75em 1.5em;
-    background-color: var(--primary-clr);
+    background-color: var(--primary-color);
     border-radius: 7px 7px 0 0;
     color: var(--white-color);
     margin-bottom: -2.15em;
 }
 
 .dpt-cat .dpt-head .mini-text {
-    color: var(--white-color);
+    color: var(--light-bg-color);
 }
 
 .dpt-cat .dpt-trigger {
