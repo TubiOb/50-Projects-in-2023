@@ -162,7 +162,7 @@ h4 {
 
 .icon-small {
     font-size: 1.25em;
-    margin: auto;
+    margin-left: auto;
 }
 
 .icon-large {
@@ -421,8 +421,16 @@ nav .fly-item {
     padding: 1.3em;
     height: 60px;
     width: 60px;
-    color: var(--white-color);
 }
+
+.dpt-menu>ul>ul>a {
+    font-size: var(--font-small);
+    height: 46px;
+    align-items: center;
+}
+
+
+/* SEARCH FORM */
 
 .header-main .right {
     flex: 1;
@@ -437,10 +445,10 @@ form.search input {
     padding: 0 7em 0 4.5em;
     border: 0;
     outline: 0;
-    width: 100%;
+    width: var(--percent100);
     border-radius: 7px;
     font-size: .9em;
-    font-weight: 300;
+    font-weight: var(--fw3);
 }
 
 form.search :where(span,
@@ -449,8 +457,8 @@ button) {
     top: 0;
     padding: .55em 1.5em;
     font-size: 1em;
-    color: var(--border-color);
-    height: 100%;
+    color: var(--light-text-color);
+    height: var(--percent100);
 }
 
 form.search button {
@@ -458,16 +466,16 @@ form.search button {
     border: 0;
     outline: 0;
     font-size: .875em;
-    font-weight: 600;
-    background-color: var(--primary-clr);
+    font-weight: var(--fw6);
+    background-color: var(--primary-color);
     color: var(--white-color);
     border-radius: 0 7px 7px 0;
     cursor: pointer;
-    transition: background .4s;
+    transition: var(--trans-backgound);
 }
 
 form.search button:hover {
-    background-color: var(--border-color);
+    background-color: var(--dark-color);
 }
 
 @media (min-width: 992px) {
@@ -562,5 +570,54 @@ form.search button:hover {
     .header-main .right {
         max-width: 600px;
         margin-left: auto;
+    }
+    /* DEPARTMENT MENU */
+    .dpt-menu {
+        position: absolute;
+        top: var(--percent100);
+        width: 300px;
+        background-color: var(--white-color);
+        border: 1px solid var(--border-color);
+        border-top: 0;
+        border-bottom: 0;
+    }
+    .dpt-menu>ul>li>a {
+        font-weight: var(--fw5);
+        padding: 0 1.5em;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .dpt-menu .has-child>ul,
+    .dpt-menu .mega {
+        position: absolute;
+        top: 0;
+        left: var(--percent100);
+        width: var(--percent100);
+        height: auto;
+        min-height: var(--percent100);
+        padding: 1.5em;
+        font-size: var(--font-small);
+        line-height: 2.5em;
+        border: 1px solid var(--border-color);
+        border-top: 0;
+        display: none;
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+    /* SHOWING THE SUB MENUS */
+    .dpt-menu .has-child:nth-child(1)>ul {
+        display: block;
+    }
+    .dpt-menu .beauty ul {
+        background-image: url(assets/menu/menu_bg1.jpg);
+    }
+    .dpt-menu .electric ul {
+        background-image: url(assets/menu/menu_bg2.jpg);
+    }
+    .dpt-menu .fashion ul {
+        background-image: url(assets/menu/menu_bg3.jpg);
+    }
+    .dpt-menu .homekit .mega {
+        background-image: url(assets/menu/menu_bg4.jpg);
     }
 }
