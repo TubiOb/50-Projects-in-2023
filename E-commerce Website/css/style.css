@@ -1020,6 +1020,189 @@
     .banner .primary-button {
         z-index: 3;
     }
+    
+    .banners .product-categories .item {
+        display: flex;
+        padding: 1.5em;
+    }
+    
+    .banners .product-categories .image {
+        max-width: 150px;
+    }
+    
+    .mini-links ul {
+        font-size: var(--font-small);
+        color: var(--light-text-color);
+        margin-top: 1em;
+    }
+    
+    .banner .second-links {
+        margin-top: 2em;
+    }
+    
+    .mini-links li a:hover {
+        text-decoration: underline;
+    }
+    /* FOOTER - NEWSLETTER*/
+    
+    .newsletter {
+        padding: 2.5em 0;
+        background-color: var(--dark-color);
+        color: var(--white-color);
+    }
+    
+    .newsletter h3 {
+        font-style: 1.5em;
+    }
+    
+    .newsletter p {
+        font-weight: var(--fw3);
+        color: var(--border-color);
+        margin: .5em 0 1.5em;
+    }
+    
+    .newsletter p strong {
+        color: var(--primary-color);
+    }
+    
+    .newsletter form {
+        max-width: 500px;
+        width: var(--percent100);
+    }
+    /* WIDGETS */
+    
+    .widgets {
+        padding: 3.5em 2.5em;
+        background-color: var(--light-bg-color);
+    }
+    /* FOOTER INFO */
+    
+    .footer-info {
+        padding: 3.5em 0 5em;
+    }
+    
+    .footer-info .wrapper .flexcol {
+        align-items: center;
+        gap: 0;
+    }
+    
+    .footer-info ul li a {
+        font-size: 1.25em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--light-bg-color);
+        border-radius: var(--percent50);
+        transition: var(--trans-backgound);
+    }
+    
+    .footer-info ul li a:hover {
+        background-color: var(--border-color);
+    }
+    
+    .footer-info .logo a {
+        margin: 0 0 1em -.75em;
+    }
+    
+    .footer-info .mini-text {
+        margin-top: 2em;
+        text-align: center;
+    }
+    /* MENU-BOTTOM */
+    
+    .menu-bottom {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60px;
+        background-color: var(--white-color);
+        box-shadow: 0 -2px 10px rgb(0, 0, 0 / 10%);
+        z-index: 900;
+    }
+    
+    .menu-bottom nav li {
+        flex: 1;
+    }
+    
+    .menu-bottom nav li a {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5em 0;
+        color: var(--light-text-color);
+        transition: var(--trans-color);
+    }
+    
+    .menu-bottom nav li a:hover {
+        color: var(--dark-color);
+    }
+    
+    .menu-bottom nav li a span {
+        font-size: var(--font-smaller);
+    }
+    
+    .menu-bottom nav li a i {
+        font-size: 1.25em;
+    }
+    
+    .menu-bottom .fly-item {
+        right: 50%;
+        width: 16px;
+        border-radius: var(--percent50);
+        margin-right: -20px;
+        background-color: var(--secondary-dark-color);
+    }
+    /* BOTTOM MENU */
+    
+    .search-bottom {
+        position: fixed;
+        bottom: 60px;
+        width: var(--percent100);
+        padding: 2.5em 0;
+        background-color: var(--secondary-dark-color);
+        z-index: 1000;
+        visibility: hidden;
+        opacity: 0;
+        will-change: visibility, opacity;
+    }
+    
+    .showsearch .search-bottom {
+        visibility: inherit;
+        opacity: 1;
+    }
+    
+    .search-bottom .t-close {
+        position: absolute;
+        top: -54px;
+        right: 0;
+    }
+    
+    .search-bottom .t-close:hover {
+        background-color: var(--primary-color);
+    }
+    /* OVERLAY */
+    
+    .overlay {
+        position: fixed;
+        width: var(--percent100);
+        height: var(--percent100);
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.4);
+        visibility: hidden;
+        opacity: 0;
+        will-change: visibility, opacity;
+    }
+    
+    .showmenu .overlay {
+        opacity: 1;
+        visibility: inherit;
+    }
     /*  */
     
     @media(min-width: 481px) {
@@ -1034,7 +1217,8 @@
             font-size: 1.25em;
         }
         .products.mini,
-        .banner .row {
+        .banner .row,
+        .widgets .row {
             flex: 0 0 50%;
         }
         .products.main .item {
@@ -1215,7 +1399,14 @@
         .products.big .media {
             max-height: 373px;
         }
-        .products.main .item {
+        .products.main .item,
+        .widgets .row {
             flex: 0 0 25%;
+        }
+        /* FOOTER */
+        .newsletter .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     }
