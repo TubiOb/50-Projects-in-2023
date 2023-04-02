@@ -54,6 +54,7 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
+
 // SHOW SEARCH
 const searchButton = document.querySelector('.t-search'),
     tClose = document.querySelector('.search-close'),
@@ -65,4 +66,13 @@ searchButton.addEventListener('click', function() {
 
 tClose.addEventListener('click', function() {
     showClass.classList.remove('showsearch');
-})
+});
+
+
+// TOGGLE DEPARTMENT MENU
+const dptButton = document.querySelector('.dpt-cat .dpt-trigger'),
+    dptClass = document.querySelector('.site');
+
+dptButton.addEventListener('click', function() {
+    dptClass.classList.toggle('showdpt');
+});
